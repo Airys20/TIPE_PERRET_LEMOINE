@@ -16,6 +16,6 @@ def coordonnees_image (path) :
             cv.circle(img, (cx, cy), 7, (0, 0, 255), -1)
         print(f"x: {cx} y: {cy}")
     
-    cv.imwrite("etoiles_center.png", img)
+    cv.imwrite("vague.png", img)
 
-coordonnees_image("etoiles_20-02_v2.jpg")
+coordonnees_image("Tsunami_by_hokusai_19th_century.jpg")
