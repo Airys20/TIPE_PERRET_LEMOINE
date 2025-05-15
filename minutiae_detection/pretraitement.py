@@ -92,4 +92,4 @@ def pretraitements(filename):
 
     plt.tight_layout() #pour que tout soit bien sur l'img
     plt.show()
-    
+    return output_filename

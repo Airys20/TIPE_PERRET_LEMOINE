@@ -1,10 +1,7 @@
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
-import pretraitement
 
-filename = 'pretraitees\empreinte4_pretraitee.jpg'
-output_filename = 'output\empreinte4_minutiae.jpg'
 
 def find_minuatiae(filename,output_filename):
 
@@ -64,3 +61,7 @@ def find_minuatiae(filename,output_filename):
     plt.title('minutiae detecteees')
     plt.axis('off')
     plt.show()
+    
+
+
+
