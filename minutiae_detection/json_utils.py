@@ -1,13 +1,21 @@
 import json
 
+def write(id, tab_coord,type,tab_orientation):
 # Data to be written
-dictionary = {
-	"name": "sathiyajith",
-	"rollno": 56,
-	"cgpa": 8.6,
-	"phonenumber": "9976770500"
-}
+    dictionary = {
+            "nom": id,
+            "minutiae": [
+                {
+                    "coordonées": tab_coord,
+                    "type": type,
+                    "orientation": tab_orientation
 
-with open('base.json', 'w', encoding='utf-8') as f:
-    json.dump(dictionary, f, ensure_ascii=False, indent=4)
+                }
+            ]
 
+        },
+
+    with open('minutiae_detection\\base.json', 'a', encoding='utf-8') as f:
+        json.dump(dictionary, f, ensure_ascii=False, indent=4)
+
+write("p4", [5,7],"endings",[7,5])
