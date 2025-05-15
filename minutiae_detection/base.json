@@ -3,7 +3,9 @@
         "nom": "personne1",
         "minutiae": [
             {
-                "coordonées": (3,5),
+                "coordonées": [-5.7,57],
+                "type": "endings",
+                "orientation": [3.6,4.7]
 
             }
         ]
