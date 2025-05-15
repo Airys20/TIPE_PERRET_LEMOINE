@@ -24,7 +24,7 @@ def str_modif (file, ajout):
 
 
 
-f = str_modif("Minutiae/empreinte8.jpg", "_pretraitement")   
+f = str_modif("Minutiae/input/empreinte8.jpg", "_pretraitement")   
 print(f)
 
 
