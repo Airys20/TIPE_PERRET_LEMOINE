@@ -11,7 +11,7 @@ import os # permet d'utiliser fichiers et répertoires et de manipuler les chemi
 
 
 #nom du fichier entree+ sortie (voir si on peut automatiser)
-filename = 'minutiae_detection\input\empreinte4.jpg' test
+filename = 'minutiae_detection\input\empreinte4.jpg' 
 output_filename = 'minutiae_detection\pretraitees\empreinte4_pretraitee.jpg'
 
 #recup image
