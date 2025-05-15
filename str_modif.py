@@ -7,7 +7,7 @@ def str_modif (file, ajout):
     i = n - 1
     l_file = list(file)
     s = [] 
-    while l_file[i] != "." :
+    while (l_file[i] != '\' and l_file[i] != '/') :
         i= i-1
     t = i 
     for t in range (i, n):
@@ -23,5 +23,8 @@ def str_modif (file, ajout):
     return final 
 
 
+
 f = str_modif("Minutiae/empreinte8.jpg", "_pretraitement")   
 print(f)
+
+
