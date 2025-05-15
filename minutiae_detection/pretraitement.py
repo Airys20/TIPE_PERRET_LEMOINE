@@ -11,8 +11,8 @@ import os # permet d'utiliser fichiers et répertoires et de manipuler les chemi
 
 
 #nom du fichier entree+ sortie (voir si on peut automatiser)
-filename = 'input\empreinte4.jpg'
-output_filename = 'pretraitees\empreinte4_pretraitee.jpg'
+filename = 'minutiae_detection\input\empreinte4.jpg'
+output_filename = 'minutiae_detection\pretraitees\empreinte4_pretraitee.jpg'
 
 #recup image
 image = cv2.imread(filename, cv2.IMREAD_GRAYSCALE) #teinte de gris
