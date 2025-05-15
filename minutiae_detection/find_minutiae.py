@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 
-
+#[ ]trouver l'orientation 
 def find_minuatiae(filename,output_filename):
 
     def find(squelette):
@@ -42,7 +42,7 @@ def find_minuatiae(filename,output_filename):
 
     # minutiae
     endings, bifurcations = find(binaire)
-
+    
 
 
     # affichage img
@@ -61,7 +61,7 @@ def find_minuatiae(filename,output_filename):
     plt.title('minutiae detecteees')
     plt.axis('off')
     plt.show()
-    
+    return [endings,bifurcations]
 
 
 

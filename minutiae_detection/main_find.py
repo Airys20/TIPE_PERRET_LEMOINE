@@ -7,7 +7,10 @@ output_filename = 'minutiae_detection\\output\\empreinte4_minutiae.jpg' #[ ] a o
 
 
 pretraitée_file_name = pretraitements(filename)
-find_minuatiae(pretraitée_file_name,output_filename)
+tab = find_minuatiae(pretraitée_file_name,output_filename) #format [[endings(x,y)], bifurcation(x,y)]
+ #[ ]faire en sorte que ce soit [ [endings [(x,y),orientation] ] , [ biffurcation [(x,y),orientation] ]  ]
+
+print(tab)
 
 
 
