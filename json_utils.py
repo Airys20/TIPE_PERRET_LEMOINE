@@ -2,9 +2,9 @@ import json
 data_file = 'base.json'
 
 
-def ajouter_personne(nom_personne, minutiae_compact):
+def ajouter_personne(nom_personne, minutiae_tab):
     """
-    struct de minutiae_compact :
+    struct de minutiae_tab :
     [
         [ [x,y], "type", [x,y] ],\n
         [ [x,y], "type", [x,y] ], \n
@@ -13,13 +13,15 @@ def ajouter_personne(nom_personne, minutiae_compact):
 ]
     
     """
+
+
     with open(data_file, "r", encoding="utf-8") as f:
-        base = json.load(f)
+        base = json.load(f) #ouvre base
     
-    # modif format 
+    # modif format pour coller au json
     minutiae_struct = []
-    for item in minutiae_compact:
-        coord, typ, orient = item
+    for elt in minutiae_tab:
+        coord, typ, orient = elt
         minutiae_struct.append({
             "coordonées": coord,
             "type": typ,
@@ -32,19 +34,23 @@ def ajouter_personne(nom_personne, minutiae_compact):
         "minutiae": minutiae_struct
     }
 
-    # Ajout et sauvegarde
-    base.append(nouvelle_entree)
+    # add+ sauvegarde
+    base.append(nouvelle_entree) #(add)
+
     with open(data_file, "w", encoding="utf-8") as f:
-        json.dump(base, f, indent=4, ensure_ascii=False)
+        json.dump(base, f, indent=4, ensure_ascii=False) #dump = l'ajoute et sauvegarde dans le fichierc ?
 
-    print(f"Entrée ajoutée pour {nom_personne}.")
+    print(f"add {nom_personne}") #check
 
 
-
-minutiae_input = [
+"""
+test
+ input = [
     [[10, 20], "bifurcation", [1.5, 2.5]],
     [[15, 25], "endings", [2.0, 3.0]],
 
 ]
 
-ajouter_personne("p6", minutiae_input)
+ajouter_personne("p6", input)
+
+"""
