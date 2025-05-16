@@ -1,6 +1,104 @@
-{
-    "name": "sathiyajith",
-    "rollno": 56,
-    "cgpa": 8.6,
-    "phonenumber": "9976770500"
-}
+[
+    {
+        "nom": "personne2",
+        "minutiae": [
+            {
+                "coordonées": [
+                    -5.7,
+                    57
+                ],
+                "type": "endings",
+                "orientation": [
+                    3.6,
+                    4.7
+                ]
+            },
+            {
+                "coordonées": [
+                    3.7,
+                    787
+                ],
+                "type": "endings",
+                "orientation": [
+                    2.6,
+                    4.7
+                ]
+            }
+        ]
+    },
+    {
+        "nom": "personne2",
+        "minutiae": [
+            {
+                "coordonées": [
+                    -5.7,
+                    57
+                ],
+                "type": "endings",
+                "orientation": [
+                    3.6,
+                    4.7
+                ]
+            }
+        ]
+    },
+    {
+        "nom": "p3",
+        "minutiae": [
+            {
+                "coordonées": [
+                    5,
+                    7
+                ],
+                "type": "endings",
+                "orientation": [
+                    7,
+                    5
+                ]
+            }
+        ]
+    },
+    {
+        "nom": "p4",
+        "minutiae": [
+            {
+                "coordonées": [
+                    5,
+                    7
+                ],
+                "type": "endings",
+                "orientation": [
+                    7,
+                    5
+                ]
+            }
+        ]
+    },
+    {
+        "nom": "p5",
+        "minutiae": [
+            {
+                "coordonées": [
+                    10,
+                    20
+                ],
+                "type": "bifurcation",
+                "orientation": [
+                    1.5,
+                    2.5
+                ]
+            },
+            {
+                "coordonées": [
+                    15,
+                    25
+                ],
+                "type": "endings",
+                "orientation": [
+                    2.0,
+                    3.0
+                ]
+            }
+        ]
+    }
+]
