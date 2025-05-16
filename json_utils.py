@@ -47,4 +47,4 @@ minutiae_input = [
 
 ]
 
-ajouter_personne("base.json", "p5", minutiae_input)
+ajouter_personne("p6", minutiae_input)

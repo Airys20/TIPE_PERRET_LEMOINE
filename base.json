@@ -100,5 +100,32 @@
                 ]
             }
         ]
+    },
+    {
+        "nom": "p6",
+        "minutiae": [
+            {
+                "coordonées": [
+                    10,
+                    20
+                ],
+                "type": "bifurcation",
+                "orientation": [
+                    1.5,
+                    2.5
+                ]
+            },
+            {
+                "coordonées": [
+                    15,
+                    25
+                ],
+                "type": "endings",
+                "orientation": [
+                    2.0,
+                    3.0
+                ]
+            }
+        ]
     }
 ]
