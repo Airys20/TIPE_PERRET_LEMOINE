@@ -55,5 +55,4 @@ def str_modif (file, ajout, dossier):
 '''
 f = str_modif("Minutiae/input/empreinte8.jpg", "_pretraitement", "output" )   
 print(f)
-
-
+'''
