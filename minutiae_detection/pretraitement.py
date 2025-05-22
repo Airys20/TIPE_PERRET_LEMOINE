@@ -8,7 +8,7 @@ from scipy.ndimage import binary_opening #supprime bruit
 
 import os # permet d'utiliser fichiers et répertoires et de manipuler les chemins de fichiers
 
-#[ ] faire en sorte que ça renvoie tableau avec les coordonnées 
+#[x] faire en sorte que ça renvoie tableau avec les coordonnées 
 
 
 def pretraitements(filename):
