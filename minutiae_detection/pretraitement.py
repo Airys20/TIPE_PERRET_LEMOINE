@@ -5,6 +5,7 @@ from skimage.morphology import skeletonize
 from scipy.ndimage import binary_opening #supprime bruit
                                          #lisse les bords
                                          #ne touche pas ce qui esr bien formé
+from skimage.measure import label, regionprops
 
 import os # permet d'utiliser fichiers et répertoires et de manipuler les chemins de fichiers
 
@@ -38,7 +39,7 @@ def pretraitements(filename):
     contrast = clahe.apply(image) #applique le contraste 
 
     #lisser
-    filtered = cv2.bilateralFilter(contrast, 9, 100, 100) #lisse img mais garde contours
+    filtered = cv2.bilateralFilter(contrast, 5, 100, 125) #lisse img mais garde contours
     '''
     9=taille filtre autour de chaque point 
     100=+élevé + peut mélanger des tons différents
@@ -61,11 +62,18 @@ def pretraitements(filename):
 
     #pretraitement avant squeletisation
     morph_bin = (morph > 0).astype(np.uint8)#transforme img en 0et1
-    cleaned = binary_opening(morph_bin, structure=np.ones((3, 3))) #comme morph_open (l54) mais plus math -> mieux pour squeletisation
+    cleaned= binary_opening(morph_bin, structure=np.ones((3, 3))) #comme morph_open (l54) mais plus math -> mieux pour squeletisation
+
+
+
+
+
 
     #squelettisation
-    #Each connected component in the image is reduced to a single-pixel wide skeleton
-    skeleton = skeletonize(cleaned) #-> ensemble de 0 et 1 donc par visualisable ?
+   
+    skeleton = skeletonize(cleaned) # -> ensemble de 0 et 1 donc par visualisable ?
+   
+    
 
     # conversion en image enregistrable 
     skeleton_img = (skeleton * 255).astype(np.uint8) #transforme les 0 et 1 en vrai picel couleur en multipliant par 255
@@ -73,7 +81,7 @@ def pretraitements(filename):
 
     # sauvegadre
     cv2.imwrite(output_filename, inverted)
-    print("Image prétraitée enregistrée ")
+    print("Image prétraitée enregistree ")
 
     #compte rendu
     plt.figure(figsize=(12, 4))

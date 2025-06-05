@@ -2,6 +2,8 @@ import json
 data_file = 'base.json'
 
 
+
+
 def ajouter_personne(nom_personne, minutiae_tab):
     """
     struct de minutiae_tab :
@@ -23,7 +25,7 @@ def ajouter_personne(nom_personne, minutiae_tab):
     for elt in minutiae_tab:
         coord, typ, orient = elt
         minutiae_struct.append({
-            "coordonées": coord,
+            "coordonnees": coord,
             "type": typ,
             "orientation": orient
         })
