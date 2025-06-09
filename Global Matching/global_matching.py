@@ -20,7 +20,7 @@ def classify(personne):
     dico_catalogue = (catalogue[personne]["minutiae"])
 
     n =  len(dico_personne)
-    
+    paired = [ 0 for t in range(n)]
     
     for i in range(n) :
         
@@ -30,8 +30,6 @@ def classify(personne):
         coord_cat = dico_personne[i]["coordonées"]
         coord_pers = dico_personne[i]["coordonées"]
         
-        paired = [0 for i in range(np)]   
-        
         for j in range(np) : 
         
                     
@@ -40,10 +38,10 @@ def classify(personne):
                 dir_pers = dico_personne[j]["orientation"]
                 if (dir_pers[0]> (dir_cat[0] - 5) and dir_pers[0]<(dir_cat[0]+5) and dir_pers[1]<(dir_cat[1]+5) and dir_pers[1]>(dir_cat[1]-5)) :
                  #les mettre en matched 
-                    paired[j]=1
+                    paired[i]=1
 
                 else :
-                    paired[j]=2
+                    paired[i]=2
         
         
             
