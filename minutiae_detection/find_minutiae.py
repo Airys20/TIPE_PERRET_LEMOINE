@@ -17,12 +17,12 @@ def find_minuatiae(filename, output_filename):
                     (1,-1),  (1,0),  (1,1)] # pixels a checker quand on a celui du milieu [0,0]
 
     #on regarde chaque picel de l'img
-        for i in range(3, rows - 3):  # on évite les bords sinon bugs (bc n'a pas de voisins)
+        for i in range(3, rows - 3):  # on évite les bords sinon bugs (bc n'a pas de voisinsins)
             for j in range(3, cols - 3):
 
                 if squelette[i][j] == 1: # si est blanc
-                    vois = squelette[i-1:i+2, j-1:j+2]
-                    cmpt = np.sum(vois) - 1  # suppr [i][j]
+                    voisins = squelette[i-1:i+2, j-1:j+2]
+                    cmpt = np.sum(voisins) - 1  # suppr [i][j]
 
                     point = (j, i)  # (x, y), inverse bc img = matrice , inverse des axes normaux
 
@@ -118,13 +118,13 @@ def find_minuatiae(filename, output_filename):
 
         # rond
         
-        cv2.circle(color_image, (x, y), 3, color, 1)
-
+        cv2.circle(color_image, (x, y), 1, color, 1)
+    '''
         # trait orientartion
         lx = int(round(x + dx * 6)) #calc point arrivée trait orient. apres 6px
         ly = int(round(y + dy * 6))
         cv2.line(color_image, (x, y), (lx, ly), (255, 0, 0), 1)
-        
+        '''
     cv2.imwrite(output_filename, color_image)
 
     plt.figure(figsize=(10, 10))
