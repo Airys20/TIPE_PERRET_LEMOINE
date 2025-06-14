@@ -1,5 +1,5 @@
 import json
-data_file = 'recherche.json'
+data_file = 'catalogue.json'
 
 
 def ajouter_personne(nom_personne, minutiae_tab):

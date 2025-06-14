@@ -7,7 +7,7 @@ def fun_phi (r) :
 
 
 def lambda(x, y):
-    return (y/fun_phi(0))
+    return ( y/fun_phi(0) )
 
 def s_create (r) :
     x = find_control_points () #fonction à faire 

@@ -33,7 +33,7 @@ def classify(personne):
         for j in range(np) : 
         
                     
-            if (coord_pers[0]> (coord_cat[0] - 10) and coord_pers[0]<(coord_cat[0]+10) and coord_pers[1]<(coord_cat[1]+10) and coord_pers[1]>(coord_cat[1]-10)) :
+            if (coord_pers[0]> (coord_cat[0]-0.5 ) and coord_pers[0]<(coord_cat[0]+0.5) and coord_pers[1]<(coord_cat[1]+0.5) and coord_pers[1]>(coord_cat[1]-0.5)) :
                 dir_cat = dico_personne[j]["orientation"]
                 dir_pers = dico_personne[j]["orientation"]
                 if (dir_pers[0]> (dir_cat[0] - 5) and dir_pers[0]<(dir_cat[0]+5) and dir_pers[1]<(dir_cat[1]+5) and dir_pers[1]>(dir_cat[1]-5)) :
@@ -47,6 +47,7 @@ def classify(personne):
             
     return(paired)
 
+'''quadratique en la taille de n et np''''
 
 '''tableau paired : 0 si notpaired ; 2 si paired; 1 si matched'''           
 
@@ -74,11 +75,10 @@ def matching_score( personne, paired) :
         elif (paired[i] == 1 ):
             m = m + 1
     
-    if (Npair == 0) :
-        return((100*m)/numpy.sqrt(nc*np))
-    else : 
-        return((100*m)/Npair)
 
+    return((100*m)/numpy.sqrt(nc*np))
+    
+''' linéaire en la taille de np'''
 
 
 
@@ -94,8 +94,7 @@ def global_matching(data_file):
     catalogue = (base)
     
     nc = len(catalogue)
-    print(nc)
-    i_max = 0;
+    i_max = 0
     tab_score = [0 for i in range(nc)]
     for i in range(nc):
         paired = classify(i)
