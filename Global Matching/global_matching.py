@@ -25,15 +25,14 @@ def classify(personne):
     for i in range(n) :
         
         
-        np = len(dico_personne)
-        
-        coord_cat = dico_personne[i]["coordonées"]
+        np = len(dico_catalogue)
+        coord_cat = dico_catalogue[i]["coordonées"]
         coord_pers = dico_personne[i]["coordonées"]
         
-        for j in range(np) : 
+        for j in range(n) : 
         
                     
-            if (coord_pers[0]> (coord_cat[0]-0.5 ) and coord_pers[0]<(coord_cat[0]+0.5) and coord_pers[1]<(coord_cat[1]+0.5) and coord_pers[1]>(coord_cat[1]-0.5)) :
+            if (coord_pers[0]> (coord_cat[0]-10) and coord_pers[0]<(coord_cat[0]+10) and coord_pers[1]<(coord_cat[1]+10) and coord_pers[1]>(coord_cat[1]-10)) :
                 dir_cat = dico_personne[j]["orientation"]
                 dir_pers = dico_personne[j]["orientation"]
                 if (dir_pers[0]> (dir_cat[0] - 5) and dir_pers[0]<(dir_cat[0]+5) and dir_pers[1]<(dir_cat[1]+5) and dir_pers[1]>(dir_cat[1]-5)) :
@@ -47,7 +46,7 @@ def classify(personne):
             
     return(paired)
 
-'''quadratique en la taille de n et np''''
+'''teta(n^2)'''
 
 '''tableau paired : 0 si notpaired ; 2 si paired; 1 si matched'''           
 
@@ -78,7 +77,7 @@ def matching_score( personne, paired) :
 
     return((100*m)/numpy.sqrt(nc*np))
     
-''' linéaire en la taille de np'''
+''' linéaire en la taille de n'''
 
 
 
