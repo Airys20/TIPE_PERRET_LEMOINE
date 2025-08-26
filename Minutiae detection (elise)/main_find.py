@@ -10,8 +10,8 @@ sys.path.append(parent_dir)
 
 from json_utils import ajouter_personne
 
-filename = 'Global Matching\\Tests\\marcel.jpg'
-output_filename = 'Global Matching\\Tests\\marcel_output.jpg'#[ ] a obtenir automatiquement avec str_modify a l'interieur de find_minutiae
+filename = 'Global Matching\\Tests\\justine.jpg'
+output_filename = 'Global Matching\\Tests\\justine_output.jpg'#[ ] a obtenir automatiquement avec str_modify a l'interieur de find_minutiae
 
 
 pretraitée_file_name = pretraitements(filename)
@@ -20,7 +20,7 @@ tab = find_minuatiae(pretraitée_file_name,output_filename) #format [[endings(x,
 
 print(tab)
 
-ajouter_personne("marcel",tab)
+ajouter_personne("justine",tab)
 
 
 

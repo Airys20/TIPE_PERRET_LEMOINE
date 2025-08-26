@@ -73,9 +73,8 @@ def matching_score( personne, paired) :
             Npair = Npair + 1 
         elif (paired[i] == 1 ):
             m = m + 1
-    
 
-    return((100*m)/numpy.sqrt(nc*np))
+    return ((m + 0.5*Npair ) / np ) * 100
     
 ''' linéaire en la taille de n'''
 
@@ -99,7 +98,7 @@ def global_matching(data_file):
         paired = classify(i)
         tab_score[i] = matching_score( i, paired)
         print(tab_score[i])
-        if abs((tab_score[i])-100) < abs(tab_score[i_max]-100):
+        if 100 - (tab_score[i]) < 100 - tab_score[i_max]:
             i_max = i
         
 
