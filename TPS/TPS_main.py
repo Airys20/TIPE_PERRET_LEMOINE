@@ -22,3 +22,42 @@ def s(U) :
 U = np.array([(1,2), (2,3), (5,6)])
 print(s(U))
 
+def equation(U, V):
+    S = s(U)
+    l = U.shape[0]
+    P = np.hstack([np.ones((l,1)), U])
+    
+    top = np.hstack([S, P])
+    bottom = np.hstack([P.T, np.zeros((3,3))])
+    L = np.vstack([top,bottom])    
+    
+    Y = np.vstack([V, np.zeros((3,2))])
+    
+    params = np.linalg.solve(L, Y)
+    W = params[:1, :]
+    c = params[1, :]
+    A = params[l+1:, :]
+    return W, c, A 
+    
+V = np.array([(5,6), (7,2), (3,4)])
+print(equation(U,V))
+
+data_empreinte = 'recherche.json'
+
+def TPS(U, V ):
+    with open(data_empreinte, "r", encoding="utf-8") as f :
+        base = json.load(f)
+    
+    
+    recherche = (base)
+    
+    nr = len(recherche)
+    (W, c, A) = equation(U, V)
+    
+    
+    
+    for i in range(nr):
+       '''fonction pour modifier la base Json'''  = c + A * u + W.T * s(U)
+    return 
+    
+    
