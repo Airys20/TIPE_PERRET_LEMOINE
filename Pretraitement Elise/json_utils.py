@@ -1,5 +1,5 @@
 import json
-data_file = 'base.json'
+data_file = 'catalogue.json'
 
 
 

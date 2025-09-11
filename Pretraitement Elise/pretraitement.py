@@ -16,7 +16,7 @@ def pretraitements(filename):
 
     #nom du fichier entree+ sortie (voir si on peut automatiser)
     
-    output_filename = 'minutiae_detection\pretraitees\empreinte4_pretraitee.jpg'
+    output_filename = 'Global Matching\Tests\elise_pretraitement.jpg'
     #[ ] a changer avec str_modif(filename , _pretraitement)
 
     #recup image
