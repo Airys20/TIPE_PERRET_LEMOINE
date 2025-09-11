@@ -5,7 +5,7 @@ import math
 
 def find_minuatiae(filename, output_filename):
 
-    def find(squelette):
+    def find(squelette,sigma=0.5):
 
         minutiae_ending = []#stock minutiae
         minutiae_bifurcation = []
@@ -41,9 +41,9 @@ def find_minuatiae(filename, output_filename):
                     #  4 pixels
                     for dy, dx in directions:
                         try:
-                            if (squelette[i + dy][j + dx] == 1 and
-                                squelette[i + 2*dy][j + 2*dx] == 1 and
-                                squelette[i + 3*dy][j + 3*dx] == 1):
+                            if (squelette[i+ dy][j +dx] == 1 and
+                                squelette[i+2*dy][j+ 2*dx] == 1 and
+                                squelette[i+ 3*dy][j+3*dx] == 1):
 
                                 angle = math.atan2(dy, dx) #angle entre vect et axe x
 
@@ -93,6 +93,9 @@ def find_minuatiae(filename, output_filename):
 
             res.append([[x, y], typ, [dx, dy]])
 
+
+
+
         return res
 
 
@@ -101,7 +104,9 @@ def find_minuatiae(filename, output_filename):
     _, binaire = cv2.threshold(img, 127, 1, cv2.THRESH_BINARY_INV)#passse en binaire pour traitement
 
     # minutiae[[coord], type, [dx, dy]]
-    minutiae = find(binaire)
+    minutiae= find(binaire)
+
+    
 
     # passe en couleur pour dessin des ronds
     color_image = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)
