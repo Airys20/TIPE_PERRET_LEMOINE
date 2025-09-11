@@ -20,16 +20,18 @@ def classify(personne):
     dico_catalogue = (catalogue[personne]["minutiae"])
 
     n =  len(dico_personne)
+    np = len(dico_catalogue)
     paired = [ 0 for t in range(n)]
+    nmin = min(n, np)
     
-    for i in range(n) :
+    for i in range(nmin) :
         
         
-        np = len(dico_catalogue)
-        coord_cat = dico_catalogue[i]["coordonées"]
-        coord_pers = dico_personne[i]["coordonées"]
+       
+        coord_cat = dico_catalogue[i]["coordonnees"]
+        coord_pers = dico_personne[i]["coordonnees"]
         
-        for j in range(n) : 
+        for j in range(nmin) : 
         
                     
             if (coord_pers[0]> (coord_cat[0]-10) and coord_pers[0]<(coord_cat[0]+10) and coord_pers[1]<(coord_cat[1]+10) and coord_pers[1]>(coord_cat[1]-10)) :
@@ -97,7 +99,8 @@ def global_matching(data_file):
     for i in range(nc):
         paired = classify(i)
         tab_score[i] = matching_score( i, paired)
-        print(tab_score[i])
+        name = dico_catalogue = (catalogue[i]["nom"])
+        print(name," : " ,tab_score[i])
         if 100 - (tab_score[i]) < 100 - tab_score[i_max]:
             i_max = i
         
