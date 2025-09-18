@@ -62,10 +62,6 @@ def ajouter_personne(nom_personne, minutiae_tab):
     print(f"add {nom_personne}")
 
 
-
-
-
-
 def modifier_personne(nom_personne, minutiae_tab=None, nouveau_nom=None, merge=False): #qd None -> PEUT etre remplacé mais Pas OBLIGE
     base = _charger_base()
     index = None  
@@ -111,8 +107,8 @@ def modifier_personne(nom_personne, minutiae_tab=None, nouveau_nom=None, merge=F
     return base[index]  # check enregistremt
 
 
-
-
+#########################################################################################################################
+#ACCESSEURS
 
 
 
