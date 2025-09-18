@@ -1,10 +1,10 @@
 import json
 import os
-data_file = 'base.json'
+
 
 #FONCTION GESTION DE BASE 
 
-def _charger_base():
+def _charger_base(data_file):
     if os.path.exists(data_file):
         with open(data_file, "r", encoding="utf-8") as f:
             try:
@@ -13,13 +13,13 @@ def _charger_base():
                 return []
     return []
 
-def _sauvegarder_base(base):
+def _sauvegarder_base(new_base,data_file):
     with open(data_file, "w", encoding="utf-8") as f:
-        json.dump(base, f, indent=4, ensure_ascii=False)
+        json.dump(new_base, f, indent=4, ensure_ascii=False)
 
 
-def clear_base():
-    _sauvegarder_base([])
+def clear_base(data_file):
+    _sauvegarder_base([],data_file)
     
 
 
@@ -27,7 +27,7 @@ def clear_base():
 
 ###############################################################################################
 
-def ajouter_personne(nom_personne, minutiae_tab):
+def ajouter_personne(nom_personne, minutiae_tab,data_file):
     """
     struct de minutiae_tab :
     [
@@ -38,7 +38,7 @@ def ajouter_personne(nom_personne, minutiae_tab):
     ]
     """
 
-    base = _charger_base()
+    base = _charger_base(data_file)
     # modif format pour coller au json
     minutiae_struct = []
     for elt in minutiae_tab:
@@ -58,12 +58,12 @@ def ajouter_personne(nom_personne, minutiae_tab):
     # add+ sauvegarde!!!!!
     base.append(nouvelle_entree) 
 
-    _sauvegarder_base(base)
+    _sauvegarder_base(base,data_file)
     print(f"add {nom_personne}")
 
 
-def modifier_personne(nom_personne, minutiae_tab=None, nouveau_nom=None, merge=False): #qd None -> PEUT etre remplacé mais Pas OBLIGE
-    base = _charger_base()
+def modifier_personne(data_file, nom_personne, minutiae_tab=None, nouveau_nom=None, merge=False): #qd None -> PEUT etre remplacé mais Pas OBLIGE
+    base = _charger_base(data_file)
     index = None  
 
     for i, p in enumerate(base):
@@ -103,19 +103,28 @@ def modifier_personne(nom_personne, minutiae_tab=None, nouveau_nom=None, merge=F
        #[ ] Verif que personne avec ce nom
         base[index]["nom"] = nouveau_nom
     print(f"modif de {nom_personne}")
-    _sauvegarder_base(base)
+    _sauvegarder_base(base, data_file)
     return base[index]  # check enregistremt
 
 
 #########################################################################################################################
 #ACCESSEURS
 
+def get_data(nbr_empreinte, nom_base):
+    base = _charger_base(nom_base) 
+    dico_personne = base[nbr_empreinte]
+    return dico_personne
+
+
+
+
 
 
 #####################################################################################################################
 #test
 
-clear_base()
+nom_data = 'base.json'
+clear_base(nom_data)
 
 
 input = [
@@ -124,7 +133,7 @@ input = [
 
 ]
 
-ajouter_personne("p6", input)
+ajouter_personne("p6", input, nom_data)
 
 input2 = [
     [[10, 20], "bifurcation", [1.5, 2.5]],
@@ -132,9 +141,9 @@ input2 = [
 
 ]
 
-ajouter_personne("p7", input2)
+ajouter_personne("p7", input2, nom_data)
 
-modifier_personne("p6",[
+modifier_personne(nom_data, "p6",[
     [[0, 0], "endings", [1.5, 2.5]],
     [[0, 0], "endings", [2.0, 3.0]],
 ],
