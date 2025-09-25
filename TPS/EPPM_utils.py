@@ -81,24 +81,35 @@ def decalages(ui, vj, new_ui, new_vj):
     return(deltax, deltay, deltaO)
 
 
+def apply(deltax, deltay, deltaO):
+    
+
 
 
 
 def main(): 
     #loop through all possible ui and vj and collect votes 
         #Extract minitiae
+        M0= (get_data(i, catalogue))["minutiae"]["coordonnees"]
+        M1 = (get_data(0, recherche))["minutiae"]["coordonnees"]
         
-        #Pick a reference pair and move to polar coordonates 
-        
-        #Rotate the query set and find candidate matches 
+        #Pick a reference pair and move to polar coordonates         
+        #Rotate the query set and find candidate matches
+         
+        MPj = MPj_matrix(new_M1, new_M0, ui)
         
         #Compute the transform 
         
         #Apply the transform to every other minutiae from the query set and vote 
         
     #Bin and pick the top candidates 
-    
+        #20*20 pixels and 15degrees in rotation 
+        #add up votes and choose the top 5 
+        #keep every transfo in it 
+         
     # select the best global alignment 
+        
+    return 
      
 
 
