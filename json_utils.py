@@ -115,14 +115,24 @@ def get_data(nbr_empreinte, nom_base):
     dico_personne = base[nbr_empreinte]
     return dico_personne
 
+def iter_coordonnees (nom_base, f):
+    base = _charger_base(nom_base)
+    for i in range (len(base)): 
+        for m in range (len(base[i]["minutiae"])):
+            base[i]["minutiae"][m]["coordonnees"] = f(base[i]["minutiae"][m]["coordonnees"]) #on change celle qui y sont 
 
+    
+    print(f"fonction applique a toute les coordonées de  {nom_base}")
+    _sauvegarder_base(base, nom_base)
+     
 
+    
 
 
 
 #####################################################################################################################
 #test
-
+"""
 nom_data = 'base.json'
 clear_base(nom_data)
 
@@ -148,3 +158,10 @@ modifier_personne(nom_data, "p6",[
     [[0, 0], "endings", [2.0, 3.0]],
 ],
 "test_modif",False)
+
+def f(m) :
+    return [m[0]+2,m[1]+10]
+
+iter_coordonnees (nom_data, f)
+
+"""

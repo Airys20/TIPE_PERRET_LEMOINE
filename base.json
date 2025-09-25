@@ -4,8 +4,8 @@
         "minutiae": [
             {
                 "coordonnees": [
-                    0,
-                    0
+                    2,
+                    10
                 ],
                 "type": "endings",
                 "orientation": [
@@ -15,8 +15,8 @@
             },
             {
                 "coordonnees": [
-                    0,
-                    0
+                    2,
+                    10
                 ],
                 "type": "endings",
                 "orientation": [
@@ -31,8 +31,8 @@
         "minutiae": [
             {
                 "coordonnees": [
-                    10,
-                    20
+                    12,
+                    30
                 ],
                 "type": "bifurcation",
                 "orientation": [
@@ -42,8 +42,8 @@
             },
             {
                 "coordonnees": [
-                    15,
-                    25
+                    17,
+                    35
                 ],
                 "type": "endings",
                 "orientation": [
