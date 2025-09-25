@@ -65,14 +65,41 @@ def MPj_matrix(M1, M0, ui):
         
     return MPj
 
-print( MPj_matrix(M0, M0, (1,1))) '''-> résultat non logique '''
+print( MPj_matrix(M0, M0, (1,1))) #-> résultat non logique 
         
 
+def decalages(ui, vj, new_ui, new_vj):
+    (xu, yu) = ui
+    (xv, yv) = vj
+    (_ , Ou) = new_ui
+    (_ , Ov) = new_vj
+    
+    delta_x = np.abs( xu - xv ) #décalages transationnels 
+    delta_y = np.abs( yu - yv ) 
+    delta_O = np.abs( Ou - Ov ) #décalage rotationel 
+    
+    return(deltax, deltay, deltaO)
 
 
 
 
 
+def main(): 
+    #loop through all possible ui and vj and collect votes 
+        #Extract minitiae
+        
+        #Pick a reference pair and move to polar coordonates 
+        
+        #Rotate the query set and find candidate matches 
+        
+        #Compute the transform 
+        
+        #Apply the transform to every other minutiae from the query set and vote 
+        
+    #Bin and pick the top candidates 
+    
+    # select the best global alignment 
+     
 
 
 '''def ...(M0, M1):
