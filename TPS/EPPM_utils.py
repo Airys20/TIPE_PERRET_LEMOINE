@@ -1,6 +1,17 @@
 import numpy as np 
 
 
+'''
+Notes : 
+
+Il faut changer la façon de stocker les transformations => peut etre faire une matrice ui en fonction de vj 
+Il faut traiter les points 6 et 7. Faire les boites et calculer la meilleure 
+Une fois la meilleure transfo trouvée je crois qu'elle s'appplique seulement sur la bin qu'on voulait
+Utilité du TPS si on a déja une transformation qui nous donne qqch de cohérent ?? 
+Lien entre TPS et EPPM ??? 
+
+'''
+
 def polar_coordinates(M0, M1, ui, vj):
      
     new_M0 = []
@@ -33,23 +44,24 @@ print(polar_coordinates(M0, M0, (1,1), (1,1)))
 
 
 
-def classify(M0, M1):   
+def classify(M0, M1, new_M0, new_M1):   
         
     n =  len(M1)
     nc = len(M0)
     matched = 0
    
     nmin = min(n, nc)
-    
+    tab_decalages = []
     for i in range(nc) :
-        (x,y) = M0[i]
+        (x,y) = new_M0[i]
         for j in range(n) : 
-            (x1, y1) = M1[i]       
+            (x1, y1) = new_M1[i]       
             if (x1> x-1) and x1<(x+1) and y1<(y+1) and y1>(y-1) :
-               matched = matched + 1 
+                tab_decalages.append(decalages(M0[i], M1[j], (x,y), (x1,y1)))
+                matched = matched + 1 
               
               
-    return(matched)
+    return(matched, tab_decalages)
 
 
 
@@ -61,7 +73,7 @@ def MPj_matrix(M1, M0, ui):
     
     for i in range(np):
         (new_M0, new_M1) = polar_coordinates(M0, M1, ui, M1[i])
-        MPj.append( classify(new_M0, new_M1) ) 
+        MPj.append( classify(M0, M1, new_M0, new_M1) ) 
         
     return MPj
 
@@ -81,8 +93,21 @@ def decalages(ui, vj, new_ui, new_vj):
     return(deltax, deltay, deltaO)
 
 
-def apply(deltax, deltay, deltaO):
+'''def apply(deltax, deltay, deltaO, M1):
+    n = len(M1)
+    new_M1 = []
     
+    for i in range(n):
+        (x,y) = M1[i]
+        new_x = np.cos(delta0)- np.sin(delta0)np.sin(delta0)np.cos(delta0) * (x + deltax) #rotation et translation de x 
+        new_y = np.cos(delta0)- np.sin(delta0)np.sin(delta0)np.cos(delta0) * (y + deltay) #rotation et translation de y 
+        new_M1.append( (new_x , new_y) ) 
+        
+    return new_M1         
+'''
+                                              
+    
+
 
 
 
@@ -90,22 +115,29 @@ def apply(deltax, deltay, deltaO):
 def main(): 
     #loop through all possible ui and vj and collect votes 
         #Extract minitiae
-        M0= (get_data(i, catalogue))["minutiae"]["coordonnees"]
+        M0 = (get_data(i, catalogue))["minutiae"]["coordonnees"]
         M1 = (get_data(0, recherche))["minutiae"]["coordonnees"]
         
         #Pick a reference pair and move to polar coordonates         
         #Rotate the query set and find candidate matches
-         
-        MPj = MPj_matrix(new_M1, new_M0, ui)
+        n = len(M0)
+        for i in range(n):
+            ui = M0[i]
+            MPj = MPj_matrix(M1, M0, ui)
         
-        #Compute the transform 
         
-        #Apply the transform to every other minutiae from the query set and vote 
         
+                    
     #Bin and pick the top candidates 
         #20*20 pixels and 15degrees in rotation 
         #add up votes and choose the top 5 
         #keep every transfo in it 
+        
+        bin_size_x = 20
+        bin_size_y = 20
+        bin_size_theta = 15
+        
+        
          
     # select the best global alignment 
         
