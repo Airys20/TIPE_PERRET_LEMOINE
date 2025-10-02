@@ -55,9 +55,11 @@ def TPS(U, V ):
     (W, c, A) = equation(U, V)
     
     
+    def f(x,y) : 
+        return  c + A * (x,y) + W.T * s(U)
     
-    for i in range(nr):
-       '''fonction pour modifier la base Json'''  = c + A * u + W.T * s(U)
+    iter_coordonnees (recherche, f)
+    
     return 
     
     

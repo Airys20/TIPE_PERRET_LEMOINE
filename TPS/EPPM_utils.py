@@ -25,7 +25,7 @@ def polar_coordinates(M0, M1, ui, vj):
     for i in range(nc):
         (x2,y2) = M0[i]
         if (x == x2 or y==y2):
-            new_M1.append((0,0))
+            new_M0.append((0,0))
         else:
             new_M0.append((np.sqrt((x-x2)**2 + (y-y2)**2), np.arctan(np.sqrt(((y-y2)/(x-x2))**2))))
         
@@ -57,7 +57,6 @@ def classify(M0, M1, new_M0, new_M1):
         for j in range(n) : 
             (x1, y1) = new_M1[i]       
             if (x1> x-1) and x1<(x+1) and y1<(y+1) and y1>(y-1) :
-                tab_decalages.append(decalages(M0[i], M1[j], (x,y), (x1,y1)))
                 matched = matched + 1 
               
               
@@ -65,17 +64,18 @@ def classify(M0, M1, new_M0, new_M1):
 
 
 
-def MPj_matrix(M1, M0, ui):
-    MPj = []
-    
+def MPj_matrix(M1, M0, i, MP, delta):
+       
     np = len(M1)
     nc = len(M0)
+    ui = M0[i]
     
-    for i in range(np):
-        (new_M0, new_M1) = polar_coordinates(M0, M1, ui, M1[i])
-        MPj.append( classify(M0, M1, new_M0, new_M1) ) 
+    for j in range(np):
+        (new_M0, new_M1) = polar_coordinates(M0, M1, ui, M1[j])
+        MP[i][j] = classify(M0, M1, new_M0, new_M1) ) 
+        delta[i][j] = decalages(ui, M1[j], new_M0[i], new_M1[j]):
         
-    return MPj
+    return MP, delta
 
 print( MPj_matrix(M0, M0, (1,1))) #-> résultat non logique 
         
@@ -121,10 +121,12 @@ def main():
         #Pick a reference pair and move to polar coordonates         
         #Rotate the query set and find candidate matches
         n = len(M0)
+        MP = []
         for i in range(n):
             ui = M0[i]
-            MPj = MPj_matrix(M1, M0, ui)
-        
+            (MP[i],delta[i]) = MPj_matrix(M1, M0, i , MP)
+         
+            
         
         
                     
@@ -133,9 +135,12 @@ def main():
         #add up votes and choose the top 5 
         #keep every transfo in it 
         
+        
         bin_size_x = 20
         bin_size_y = 20
         bin_size_theta = 15
+        
+        
         
         
          
