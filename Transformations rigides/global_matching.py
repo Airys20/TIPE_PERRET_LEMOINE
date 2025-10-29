@@ -1,4 +1,5 @@
 import json
+import Kabsch_umeyama_algorithm as kua
 
 data_catalogue = 'catalogue.json'
 data_empreinte = 'recherche.json'
@@ -26,7 +27,7 @@ def classify(personne):
             dir_cat = dico_catalogue[j]["orientation"]
 
             # Tolérance spatiale
-            if abs(coord_pers[0] - coord_cat[0]) < 5 and abs(coord_pers[1] - coord_cat[1]) < 5:
+            if abs(coord_pers[0] - coord_cat[0]) < 15 and abs(coord_pers[1] - coord_cat[1]) < 15:
                 # Tolérance directionnelle
                 if abs(dir_pers[0] - dir_cat[0]) < 0.5 and abs(dir_pers[1] - dir_cat[1]) < 0.5:
                     paired[i] = 2  # matched
@@ -37,16 +38,16 @@ def classify(personne):
     return paired
 
 
-def matching_score( i, paired):
-    with open(data_catalogue, "r", encoding="utf-8") as f2:
+def matching_score(personne, paired):
+    with open(data_empreinte, "r", encoding="utf-8") as f2:
         empreinte = json.load(f2)
-    dico_catalogue = empreinte[i]["minutiae"]
+    dico_personne = empreinte[0]["minutiae"]
 
-    np = len(dico_catalogue)
+    np = len(dico_personne)
     Npair = paired.count(1)
     Nmatch = paired.count(2)
 
-    return ((Nmatch +0.5*Npair) / np) * 100
+    return ((Nmatch + 0.5 * Npair) / np) * 100
 
 
 def global_matching(data_file):
@@ -73,7 +74,9 @@ def global_matching(data_file):
     nom = base[i_max]["nom"]
     return nom
 
-
+# --- usage ---
+# 1. Créer un catalogue aligné
+kua.transformation_rigide("new_catalogue.json", "recherche.json", n_keep=50)
 
 # 2. Lancer le matching
 best_match = global_matching("new_catalogue.json")

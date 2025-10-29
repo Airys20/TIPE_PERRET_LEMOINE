@@ -6,7 +6,7 @@ def center(Matrix):
     y = np.mean(M, axis=1)
     return(x,y)
 
-def distance(M): # avec i : l'emplacement de la minutie de réf dans M ; M : l'ensemble des coordonnées de l'empreinte  
+def new_cat(M): # avec i : l'emplacement de la minutie de réf dans M ; M : l'ensemble des coordonnées de l'empreinte  
     (x0,y0)   =  center(M)
     distances = [] 
     n = len(M)
@@ -24,7 +24,7 @@ def distance(M): # avec i : l'emplacement de la minutie de réf dans M ; M : l'e
         dist_sort.append(distances.index(temp[k]))
         
     new_list = []   
-    for j in range(75):
+    for j in range(500):
         m = M[dist_sort[j]]
         new_list.append(m)
         new_matrix = np.array(new_list)
