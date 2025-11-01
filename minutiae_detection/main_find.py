@@ -10,8 +10,8 @@ sys.path.append(parent_dir)
 
 from json_utils import ajouter_personne
 
-filename = 'minutiae_detection\\input\\empreinteS3.jpg'
-output_filename = 'minutiae_detection\\output\\empreinteS3_minutiae.jpg' #[ ] a obtenir automatiquement avec str_modify a l'interieur de find_minutiae
+filename = 'minutiae_detection\\input\\empreinteS.jpg'
+output_filename = 'minutiae_detection\\output\\empreinteS_minutiae.jpg' #[ ] a obtenir automatiquement avec str_modify a l'interieur de find_minutiae
 
 
 pretraitée_file_name = pretraitements(filename)
