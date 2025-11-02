@@ -28,8 +28,8 @@ from PIL import Image
 # ==========================
 FICHIER_OUT   = "output_orientation" 
 W_BLOCK   = 16    
-SMOOTH_K  = 5    #taille du noyau de lissage du champ d’orientation (sur cos2θ/sin2θ).    
-COEF_FLOU     = 1.0   #écart-type du flou gaussien avant Sobel (stabilise les gradients)   
+LOW_PASS_FILTER_SIZE  = 5    #taille lissageetape 4 de l'orientation
+COEF_FLOU     = 1.0   #écart-type du flou gaussien avant Sobel    
 USE_TANGENT = False 
 
 
@@ -124,9 +124,9 @@ def segment_roi(img_grise):
 
 
 #. Orientation (Hong) — SOMMES UNIQUEMENT DANS LE MASQUE
-# θ = 0.5 * atan2(Vx, Vy)  (ordre corrigé) 
+# θ = 0.5 * atan2(phix, Vy)  (ordre corrigé) 
 
-def fun_orientation(img_grise, masque, w=8, smooth_ksize=5, coef_flou=1.0):
+def fun_orientation(img_grise, masque, w=8, LOW_PASS_FILTER_SIZEsize=5, coef_flou=1.0):
     """
         imggrise + masque -> matrice des orientation par bloc + 
     """
@@ -188,7 +188,7 @@ $$
 
             #gradient du bloc 
             gx = Gx[y0:y1, x0:x1] 
-            gy = Gy[y0:y1, x0:x1]
+            gy=Gy[y0:y1, x0:x1]
 
             # Sommes pond. QUE sur masque
             Sxx = np.sum(bloc_poids * (gx*gx))
@@ -212,7 +212,7 @@ $$
     """
     theta = 0.5 * np.arctan2(Vx, Vy) #on utilise 2 pour avoir qqch appartenant a [-180,180] (sino [-90,90])
 
-    # etape 4 
+    # etape 4  : LOW PASS FILTER
     """
     $$
     \
@@ -235,3 +235,50 @@ $$
     \
     $$    
     """
+    phix = np.cos(2*theta)
+    phiy = np.sin(2*theta)
+
+
+    if LOW_PASS_FILTER_SIZEsize > 1: # phi' juste remplacer par des flou parsque jsp quoi faire sinon ;-;
+
+        phix=cv2.blur(phix,(LOW_PASS_FILTER_SIZEsize, LOW_PASS_FILTER_SIZEsize))
+        phiy=cv2.blur(phiy, (LOW_PASS_FILTER_SIZEsize,LOW_PASS_FILTER_SIZEsize))
+    
+    
+    O_bloc = 0.5*np.arctan2(phiy, phix) #=tab de l'orientation par bloc
+    
+    
+    return O_bloc
+
+
+#.affichage orientation
+
+def affichage_orient(img_grise, orient_bloc, masque, w=8):
+    
+    H = len(img_grise)
+    W = len(img_grise[0])
+    Hb= len(orient_bloc)
+    Wb =len (orient_bloc[0])
+
+
+    empreinte = cv2.cvtColor(img_grise, cv2.COLOR_GRAY2BGR) #=img de fo nd
+
+    taille_trait =int (0.4*w) 
+
+    for bi in range(0, Hb): #on regarde tt les centre de blocs 
+        for bj in range(0, Wb):
+
+            centre_y = int(bi*w+w/2)
+            centre_x = int(bj*w+w/2)
+
+            if (masque[centre_y,centre_x]<=0): #on verifie que appartient bien a l'emprie=nte pour pas dessine autour
+                continue
+
+
+
+
+            
+            th = (float(orient_bloc[bi,bj]) + np.pi/2.0) % np.pi #sinon fzit l'opposé mais jsp pourquoi ;-;
+
+            #CALCUL EXTREMITES SEGMENTS
+            
