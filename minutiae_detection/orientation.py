@@ -2,7 +2,7 @@
 . memo
 code permet de determiner l'orientation des zone de l'img = block de taille W_BLOCK  
  etape 1: pretrzitement simple (=normalize + grayscale)
- etape 2: ROI = masque autour de l'empreinte
+ etape 2: Masque = masque autour de l'empreinte
  etape 3: orientation 
 """
 """
@@ -23,9 +23,8 @@ import cv2
 from pathlib import Path
 from PIL import Image 
 
-# ==========================
-# Réglages
-# ==========================
+
+#. Variable reglables 
 FICHIER_OUT   = "minutiae_detection\\output_orientation"
 W_BLOCK   = 16    
 LOW_PASS_FILTER_SIZE  = 5    #taille lissageetape 4 de l'orientation
@@ -294,6 +293,10 @@ def affichage_orient(img_grise, orient_bloc, masque, w=8):
     return empreinte
 
 
+
+
+
+#. code principal
 
 
 gray = niv_de_gris(img)
