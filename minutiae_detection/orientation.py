@@ -26,7 +26,7 @@ from PIL import Image
 # ==========================
 # Réglages
 # ==========================
-FICHIER_OUT   = "output_orientation" 
+FICHIER_OUT   = "minutiae_detection\\output_orientation"
 W_BLOCK   = 16    
 LOW_PASS_FILTER_SIZE  = 5    #taille lissageetape 4 de l'orientation
 COEF_FLOU     = 1.0   #écart-type du flou gaussien avant Sobel    
@@ -39,12 +39,13 @@ USE_TANGENT = False
 def niv_de_gris(path):
 
     #avec path verifie existence 
+    """
     p=Path(path)
     if not p.exists():
         raise FileNotFoundError(p)
-    
+    """
 
-    img_nivgris = cv2.imread(str(p), cv2.IMREAD_GRAYSCALE)
+    img_nivgris = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
     if img_nivgris is not None:
         return img_nivgris
 
@@ -100,7 +101,7 @@ on veut crree un masque binaire pour isoler empreintre :
 0= masque
 255= empreinte
 """
-def segment_roi(img_grise):
+def masque_fun(img_grise):
     flou = cv2.GaussianBlur(img_grise, (0,0), 3.0) 
     _, mask = cv2.threshold(flou, 0, 255, cv2.THRESH_BINARY+cv2.THRESH_OTSU) #treshold avec valeur optimal deduite par l'algo renvoi val , masque 
     #on veut le masque en blanc ?
@@ -126,7 +127,7 @@ def segment_roi(img_grise):
 #. Orientation (Hong) — SOMMES UNIQUEMENT DANS LE MASQUE
 # θ = 0.5 * atan2(phix, Vy)  (ordre corrigé) 
 
-def fun_orientation(img_grise, masque, w=8, LOW_PASS_FILTER_SIZEsize=5, coef_flou=1.0):
+def fun_orientation(img_grise, masque, w=8, low_pass_size=5, coef_flou=1.0):
     """
         imggrise + masque -> matrice des orientation par bloc + 
     """
@@ -189,12 +190,10 @@ $$
             #gradient du bloc 
             gx = Gx[y0:y1, x0:x1] 
             gy=Gy[y0:y1, x0:x1]
-
             # Sommes pond. QUE sur masque
             Sxx = np.sum(bloc_poids * (gx*gx))
             Syy = np.sum(bloc_poids * (gy*gy))
             Sxy =np.sum(bloc_poids *(gx*gy))
-
             # Vx = 2 Σ Gx Gy ; Vy = Σ(Gx^2 - Gy^2)
             Vx[bi,bj] = 2.0 * Sxy
             Vy[bi,bj] = (Sxx - Syy)
@@ -239,10 +238,12 @@ $$
     phiy = np.sin(2*theta)
 
 
-    if LOW_PASS_FILTER_SIZEsize > 1: # phi' juste remplacer par des flou parsque jsp quoi faire sinon ;-;
+    if low_pass_size > 1: # phi' juste remplacer par des flou parsque jsp quoi faire sinon ;-;
 
-        phix=cv2.blur(phix,(LOW_PASS_FILTER_SIZEsize, LOW_PASS_FILTER_SIZEsize))
-        phiy=cv2.blur(phiy, (LOW_PASS_FILTER_SIZEsize,LOW_PASS_FILTER_SIZEsize))
+
+
+        phix=cv2.blur(phix,(low_pass_size, low_pass_size))
+        phiy=cv2.blur(phiy, (low_pass_size,low_pass_size))
     
     
     O_bloc = 0.5*np.arctan2(phiy, phix) #=tab de l'orientation par bloc
@@ -259,17 +260,13 @@ def affichage_orient(img_grise, orient_bloc, masque, w=8):
     W = len(img_grise[0])
     Hb= len(orient_bloc)
     Wb =len (orient_bloc[0])
-
-
     empreinte = cv2.cvtColor(img_grise, cv2.COLOR_GRAY2BGR) #=img de fo nd
-
     taille_trait =int (0.4*w) 
 
     for bi in range(0, Hb): #on regarde tt les centre de blocs 
         for bj in range(0, Wb):
-
-            centre_y = int(bi*w+w/2)
-            centre_x = int(bj*w+w/2)
+            centre_y=int(bi*w+w/2)
+            centre_x= int(bj*w+w/2)
 
             if (masque[centre_y,centre_x]<=0): #on verifie que appartient bien a l'emprie=nte pour pas dessine autour
                 continue
@@ -278,7 +275,40 @@ def affichage_orient(img_grise, orient_bloc, masque, w=8):
 
 
             
-            th = (float(orient_bloc[bi,bj]) + np.pi/2.0) % np.pi #sinon fzit l'opposé mais jsp pourquoi ;-;
+            th = (float(orient_bloc[bi,bj])+np.pi/2.0) % np.pi #sinon fzit l'opposé mais jsp pourquoi ;-;
 
             #CALCUL EXTREMITES SEGMENTS
-            
+            dy=int(taille_trait*np.sin(th))
+            dx =int(taille_trait*np.cos(th))
+
+
+            y1,x1=centre_y-dy,centre_x-dx #coordonée e seglent  
+            y2,x2=centre_y+dy,centre_x+dx
+
+
+            if 0<=y1<H and 0<=y2<H and 0  <=x1<W and 0 <=x2<  W: #condition de tracage => que sdi ds l'eimg
+
+                cv2.line(empreinte,(x1,y1),(x2,y2),(0,255,0),1) 
+                #COMMENT : trester cv2.LINE_AA une fois que ça marche
+
+    return empreinte
+
+
+
+
+gray = niv_de_gris(img)
+tab_normal = normalise_fun(gray)
+cv2.imwrite(FICHIER_OUT + "\\normalized.png", tab_normal)
+
+masque = masque_fun(tab_normal)
+cv2.imwrite(FICHIER_OUT+"\\masque.png",masque)
+O_bloque=fun_orientation(tab_normal, masque=masque,w=W_BLOCK,low_pass_size=LOW_PASS_FILTER_SIZE, coef_flou=COEF_FLOU)
+empreinte=affichage_orient(tab_normal, O_bloque,masque,w=W_BLOCK)
+
+
+
+
+cv2.imwrite(FICHIER_OUT+"\\orientation_empreinte.png", empreinte)
+np.save(FICHIER_OUT+"\\O_bloque.npy", O_bloque) #a voir comment reutiiser pour associer orientation <=> minutiae d
+print("OK")
+
