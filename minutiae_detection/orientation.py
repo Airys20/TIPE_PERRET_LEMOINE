@@ -15,21 +15,21 @@ getStructuringElement(cv2.MORPH_ELLIPSE, (15,15)) : creer un "element" de la for
 
 """             
 
-img = "minutiae_detection\\input\\empreinteS2.jpg" 
+img = "minutiae_detection\\input\\empreinteS3.jpg" 
 
 
-import numpy as np
+import numpy  as np
 import cv2
-from pathlib import Path
+from pathlib   import Path
 from PIL import Image 
 
 
 #. Variable reglables 
-FICHIER_OUT   = "minutiae_detection\\output_orientation"
-W_BLOCK   = 16    
-LOW_PASS_FILTER_SIZE  = 5    #taille lissageetape 4 de l'orientation
-COEF_FLOU     = 1.0   #écart-type du flou gaussien avant Sobel    
-USE_TANGENT = False 
+FICHIER_OUT = "minutiae_detection\\output_orientation"
+W_BLOCK =16    
+LOW_PASS_FILTER_SIZE=5  #taille lissageetape 4 de l'orientation
+COEF_FLOU= 1.0   #écart-type du flou gaussien avant Sobel    
+USE_TANGENT=False 
 
 
 #. Pretraitement de base
@@ -37,15 +37,8 @@ USE_TANGENT = False
 
 def niv_de_gris(path):
 
-    #avec path verifie existence 
-    """
-    p=Path(path)
-    if not p.exists():
-        raise FileNotFoundError(p)
-    """
-
     img_nivgris = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
-    if img_nivgris is not None:
+    if img_nivgris  is not None: 
         return img_nivgris
 
 """
@@ -71,7 +64,8 @@ $$
 
 
 
-def normalise_fun(img_grise, M0=100.0, VAR0=100.0): 
+def normalise_fun(img_grise, M0=100.0, VAR0=100.0):
+
     I = img_grise.astype(np.float64) #passe l'image en TABLEAU de la val de chaque pixel 
     
     if I.max() <= 1.0: 
@@ -107,8 +101,8 @@ def masque_fun(img_grise):
     if np.sum(mask==255) > np.sum(mask==0): #si + de noir que de blanc
         mask = 255 - mask #on inv
     k = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (15,15))  #COMMENT :⚠️si trop aggressif baissé ou augmenter la taille (memo 15 ok la plupart du temps)
-    mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, k) #enleve petit trou
-    mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN,  k) #supprime petit point 
+    mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, k) #enleve petits trous
+    mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN,  k) #supprime petits points
 
 
     #PARTIE TROUVER DANS UN ARTICLE, marche mais jsp comment 
