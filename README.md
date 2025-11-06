@@ -19,8 +19,6 @@ Our prepa project for the years 2024-2026.
 
 ![Minutiae detection](https://github.com/Airys20/TIPE_PERRET_LEMOINE/blob/elise/minutiae_detection/output/empreinteS3_minutiae.jpg)
 
-![Minutiae orientation](https://github.com/Airys20/TIPE_PERRET_LEMOINE/blob/elise/minutiae_detection/output_orientation/orientation_empreinte.png)
-
 
 ## Documentation
 
