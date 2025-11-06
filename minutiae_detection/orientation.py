@@ -2,7 +2,7 @@
 . memo
 code permet de determiner l'orientation des zone de l'img = block de taille W_BLOCK  
  etape 1: pretrzitement simple (=normalize + grayscale)
- etape 2: Masque = masque autour de l'empreinte
+ etape 2: masque = masque autour de l'empreinte
  etape 3: orientation 
 """
 """
@@ -15,7 +15,7 @@ getStructuringElement(cv2.MORPH_ELLIPSE, (15,15)) : creer un "element" de la for
 
 """             
 
-img = "C:\\Users\\Elise\\OneDrive\\Bureau\\empreintes\\empreinte_nouv_tampon.jpg" 
+img = "minutiae_detection\\input\\empreinteS2.jpg" 
 
 
 import numpy as np
