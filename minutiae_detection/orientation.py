@@ -15,7 +15,7 @@ getStructuringElement(cv2.MORPH_ELLIPSE, (15,15)) : creer un "element" de la for
 
 """             
 
-img = "minutiae_detection\\input\\empreinteS3.jpg" 
+img = "minutiae_detection\input\empreinteS3_rota25.jpg" 
 
 
 import numpy  as np

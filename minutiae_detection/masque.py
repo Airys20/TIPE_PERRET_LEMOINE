@@ -1,11 +1,11 @@
-img = "minutiae_detection\input\empreinteS3.jpg" 
+img = "minutiae_detection\\input\\empreinteS3_rota25.jpg" 
 
 
 import numpy  as np
 import cv2
 import matplotlib.pyplot as plt
 
-
+FICHIER_OUT = "minutiae_detection\\masque"
 
 def niv_de_gris(path):
 
@@ -72,8 +72,4 @@ def masque_fun(img_grise):
 gray = niv_de_gris(img)
 tab_normal = normalise_fun(gray)
 masque = masque_fun(tab_normal)
-plt.figure(figsize=(10, 10))
-plt.imshow(masque, cmap='Greys',  interpolation='nearest')# inversant les canaux BGR → RGB pour matplotlib ??
-plt.title("masque ")
-plt.axis("off")
-plt.show()
+cv2.imwrite(FICHIER_OUT+"\\masque.png",masque)
