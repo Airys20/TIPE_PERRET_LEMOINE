@@ -1,4 +1,4 @@
-img = "minutiae_detection\\input\\empreinteS3.jpg" 
+img = "minutiae_detection\input\empreinteS3.jpg" 
 
 
 import numpy  as np
@@ -73,7 +73,7 @@ gray = niv_de_gris(img)
 tab_normal = normalise_fun(gray)
 masque = masque_fun(tab_normal)
 plt.figure(figsize=(10, 10))
-plt.imshow(masque)# inversant les canaux BGR → RGB pour matplotlib ??
-plt.title("minutiae detecteees")
+plt.imshow(masque, cmap='Greys',  interpolation='nearest')# inversant les canaux BGR → RGB pour matplotlib ??
+plt.title("masque ")
 plt.axis("off")
 plt.show()
