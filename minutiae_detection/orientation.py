@@ -288,6 +288,28 @@ def affichage_orient(img_grise, orient_bloc, masque, w=8):
 
 
 
+#. Ridge frequency image 
+
+def ridge_freq_fun(img_grise,masque,w, O_bloque):
+    G = img_grise.astype(np.float32) #repasse l'img en TAB de val
+    H= len(G)
+    W = len (G[0])
+    Hb, Wb = H//w, W//w
+    X = np.zeros(w)
+    for bi in range(0, Hb): #on regarde tt les centre de blocs 
+        for bj in range(0, Wb):
+            centre_y=int(bi*w+w/2)
+            centre_x= int(bj*w+w/2)
+            for d in range (0,w-1):
+                u= bi + (d-w/2)*np.cos( O_bloque[bi*w+bj]) + (bi*w+bj - )
+                X[bi*w+bj] = 1/w *
+
+           
+
+
+
+
+    
 
 
 #. code principal

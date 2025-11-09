@@ -52,14 +52,14 @@ def masque_fun(img_grise):
     if np.sum(mask==255) > np.sum(mask==0): #si + de noir que de blanc
         mask = 255 - mask #on inv
     k = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (15,15))  #COMMENT :⚠️si trop aggressif baissé ou augmenter la taille (memo 15 ok la plupart du temps)
-    mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, k) #enleve petits trous
+    mask =cv2.morphologyEx(mask, cv2.MORPH_CLOSE, k) #enleve petits trous
     mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN,  k) #supprime petits points
 
 
     #PARTIE TROUVER DANS UN ARTICLE, marche mais jsp comment 
     num,lbl,stats,_ = cv2.connectedComponentsWithStats((mask>0).astype(np.uint8), 8)
     if num > 1:
-        largest = 1 + np.argmax(stats[1:, cv2.CC_STAT_AREA])
+        largest = 1+np.argmax(stats[1:, cv2.CC_STAT_AREA])
         mask = (lbl==largest).astype(np.uint8)*255
     
 
