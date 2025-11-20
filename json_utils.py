@@ -125,6 +125,16 @@ def iter_coordonnees (nom_base, f):
     print(f"fonction applique a toute les coordonées de  {nom_base}")
     _sauvegarder_base(base, nom_base)
      
+def iter_minutiae(nom_base, f):
+    base = _charger_base(nom_base)
+    for i in range (len(base)): 
+        for m in range (len(base[i]["minutiae"])):
+            base[i]["minutiae"][m] = f(base[i]["minutiae"][m]) #on change celle qui y sont 
+
+    
+    print(f"fonction applique a toute les minutiae de  {nom_base}")
+    _sauvegarder_base(base, nom_base)
+
 
     
 

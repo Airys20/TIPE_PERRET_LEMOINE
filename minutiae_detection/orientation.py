@@ -17,7 +17,7 @@ getStructuringElement(cv2.MORPH_ELLIPSE, (15,15)) : creer un "element" de la for
 
 img = "minutiae_detection\input\empreinteS3_rota25.jpg" 
 
-
+import json_utils
 import numpy  as np
 import cv2
 from pathlib   import Path
@@ -287,6 +287,16 @@ def affichage_orient(img_grise, orient_bloc, masque, w=8):
     return empreinte
 
 
+#. Orientation matching (non utilisé pour l'instant)
+def orientation_matching(w, coord ):
+    x,y = coord
+    O_bloque = np.load('minutiae_detection\\output_orientation\\O_bloque.npy', mmap_mode='r')
+    bi = y // w
+    bj = x // w
+    return O_bloque[bi, bj]
+
+
+
 
 #. Ridge frequency image 
 
@@ -301,7 +311,7 @@ def ridge_freq_fun(img_grise,masque,w, O_bloque):
             centre_y=int(bi*w+w/2)
             centre_x= int(bj*w+w/2)
             for d in range (0,w-1):
-                u= bi + (d-w/2)*np.cos( O_bloque[bi*w+bj]) + (bi*w+bj - )
+                u= centre_x  + (d-w/2)*np.cos( O_bloque[bi*w+bj]) + (bi*w+bj - ) #BUG remplacer les bi bj par centre_x centrey
                 X[bi*w+bj] = 1/w *
 
            
