@@ -19,33 +19,41 @@ def TFCP(mask_image):
     xb = 0.5 * W
     yb = 0.5 * H 
     
-    (rouge,vert,bleu) = im.getpixel((xb,yb))
-    if((rouge, vert, bleu)==(255,255,255)): #vérifie que ce pixel est bien dans la partie blanche du masque 
+    p = im.getpixel((xb,yb))
+    print(p)
+    
+    if p == 255: #vérifie que ce pixel est bien dans la partie blanche du masque 
        
         xr = xb 
-        while((rouge, vert, bleu)==(255,255,255) and (xr <= W)):
+        while(p == 255 and (xr <= W)):
             xr = xr + 1 
-            (rouge,vert,bleu) = im.getpixel((xr,yb))
+            p = im.getpixel((xr,yb))
         
         xl = xb 
-        while((rouge, vert, bleu)==(255,255,255) and (xl >= 0)):
+        p = im.getpixel((xb,yb))
+        while(p == 255 and (xl >= 0)):
             xl = xl - 1 
-            (rouge,vert,bleu) = im.getpixel((xl,yb))
+            p = im.getpixel((xl,yb))
             
         
         yu = yb
-        while((rouge, vert, bleu)==(255,255,255) and (yu>=0)):
+        p = im.getpixel((xb,yb))
+        while( p == 255 and (yu>=0)):
             yu = yu - 1 
-            (rouge,vert,bleu) = im.getpixel((xb,yu))
+            p = im.getpixel((xb,yu))
             
         yl = yb
-        while((rouge, vert, bleu)==(255,255,255) and (yl<=H)):
+        p = im.getpixel((xb,yb))
+        while( p == 255 and (yl<=H)):
             yl = yl + 1 
-            (rouge,vert,bleu) = im.getpixel((xb,yl))
+            p = im.getpixel((xb,yl))
     
         xf = (xr + xl) / 2
         yf = (yu + yl) / 2 
-
+    else : 
+        print("Erreur, point central de l'image pas dans le blanc")
+        
+    print(yu,yl, yf)
 
     # realignment direction  
     
@@ -53,17 +61,17 @@ def TFCP(mask_image):
     W , H = im.size
     
     xu = xf 
-    (rouge,vert,bleu) = im.getpixel((xu,yu))
-    while((rouge, vert, bleu)==(255,255,255) and (xu <= W)):
+    p = im.getpixel((xu,yu))
+    while(p == 255 and (xu <= W)):
             xu = xu + 1 
-            (rouge,vert,bleu) = im.getpixel((xu,yu))
+            p = im.getpixel((xu,yu))
     
     C1 = xu - xf 
     xu = xf 
     
-    while((rouge, vert, bleu)==(255,255,255) and (xu<=0)):
+    while(p == 255 and (xu<=0)):
             xu = xu + 1
-            (rouge,vert,bleu) = im.getpixel((xu,yu))
+            p = im.getpixel((xu,yu))
             
     C2 = xf - xu 
     
@@ -79,12 +87,16 @@ def TFCP(mask_image):
     # angle
     
     Q = 0 
-    if( not(D = 0)):
+    if( D != 0):
         C4 = yf - yu 
-        if(D = 1):
+        if( D == 1):
             C3 = C2 - C1
-        elif(D = 2): 
+        elif(D == 2): 
             C3 = C2 + C1 
         Q = np.arctan((C2 + C3)/C4)
     
     return Q 
+
+
+
+
