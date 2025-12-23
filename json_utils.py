@@ -28,6 +28,7 @@ def clear_base(data_file):
 ###############################################################################################
 
 def ajouter_personne(nom_personne, minutiae_tab,data_file):
+
     """
     struct de minutiae_tab :
     [
@@ -39,6 +40,7 @@ def ajouter_personne(nom_personne, minutiae_tab,data_file):
     """
 
     base = _charger_base(data_file)
+
     # modif format pour coller au json
     minutiae_struct = []
     for elt in minutiae_tab:
@@ -175,3 +177,5 @@ def f(m) :
 iter_coordonnees (nom_data, f)
 
 """
+
+#entree : img,chemin acces base, nom personne
