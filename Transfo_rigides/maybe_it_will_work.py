@@ -113,8 +113,11 @@ def substructures(M_recherche, M_catalogue):
     b = False
     for i in range(len(M_recherche)):
         for j in range(len(M_catalogue)):      
-            theta_r = M_recherche[i][2]
-            theta_c = M_catalogue[j][2]
+            ar, br = M_recherche[i][2]
+            ac, bc = M_catalogue[j][2]
+            
+            theta_r = np.arctan(br/ar)
+            theta_c = np.arctan(bc/ac)
             
             if(abs(theta_r - theta_c) < lim_theta):
                 #the two minutiaes are regarded to be the corresponding minutiaes 
@@ -211,7 +214,7 @@ def main_align(data_catalogue, data_recherche, i):
         theta_i = dico_catalogue["minutiae"][j]["orientation"]
         M_catalogue.append((xi, yi, theta_i))
         
-    dico_recherche = base_recherche[i]
+    dico_recherche = base_recherche[0]
     M_recherche = []
     for j in range(len(dico_recherche)):
         xi = dico_recherche["minutiae"][j]["coordonnees"][0]
@@ -226,8 +229,8 @@ def main_align(data_catalogue, data_recherche, i):
     
     return()    
                  
-''' *************************************** MATCHING SCORE *************************************** '''         
-                
+''' *************************************** TEST *************************************** '''         
+main_align('catalogue.json', 'recherche.json', 2 )
                 
 ''' *************************************** BROUILLON *************************************** '''
 '''
