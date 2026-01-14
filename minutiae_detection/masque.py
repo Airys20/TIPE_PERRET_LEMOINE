@@ -1,11 +1,11 @@
-img = "minutiae_detection\\input\\empreinteS3_rota25.jpg" 
+img = "C:/Users/Elise/Downloads/empreinte_overlined.jpeg" 
 
 
 import numpy  as np
 import cv2
 import matplotlib.pyplot as plt
 
-FICHIER_OUT = "minutiae_detection\\masque"
+FICHIER_OUT = "minutiae_detection/masque"
 
 def niv_de_gris(path):
 

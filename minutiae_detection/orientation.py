@@ -15,7 +15,7 @@ getStructuringElement(cv2.MORPH_ELLIPSE, (15,15)) : creer un "element" de la for
 
 """             
 
-img = "minutiae_detection\input\empreinteS3_rota25.jpg" 
+img = "C:/Users/Elise/Downloads/empreinte_overlined.jpeg" 
 
 import numpy  as np
 import cv2
@@ -37,6 +37,7 @@ USE_TANGENT=False
 def niv_de_gris(path):
 
     img_nivgris = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
+    #img_resize = cv2.resize(img_nivgris, (512, 512))  # resize pr meilleur "generalisation" <- pas forcement le bon mot
     if img_nivgris  is not None: 
         return img_nivgris
 
@@ -93,28 +94,92 @@ on veut crree un masque binaire pour isoler empreintre :
 0= masque
 255= empreinte
 """
-def masque_fun(img_grise):
-    flou = cv2.GaussianBlur(img_grise, (0,0), 3.0) 
-    _, mask = cv2.threshold(flou, 0, 255, cv2.THRESH_BINARY+cv2.THRESH_OTSU) #treshold avec valeur optimal deduite par l'algo renvoi val , masque 
-    #on veut le masque en blanc ?
-    if np.sum(mask==255) > np.sum(mask==0): #si + de noir que de blanc
-        mask = 255 - mask #on inv
-    k = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (15,15))  #COMMENT :⚠️si trop aggressif baissé ou augmenter la taille (memo 15 ok la plupart du temps)
-    mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, k) #enleve petits trous
-    mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN,  k) #supprime petits points
 
 
-    #PARTIE TROUVER DANS UN ARTICLE, marche mais jsp comment 
-    num,lbl,stats,_ = cv2.connectedComponentsWithStats((mask>0).astype(np.uint8), 8)
+def fill_holes_safe(imgbin):
+    """
+    Remplit les trous d'un masque 0/255 de manière robuste.
+    Astuce : on force une bordure noire pour garantir que le fond est connecté au bord.
+    """
+    m = imgbin.copy()
+    h, w = m.shape
+
+    # force une bordure noire (très important)
+    m[0, :] = 0
+    m[-1, :] = 0
+    m[:, 0] = 0
+    m[:, -1] = 0
+
+    flood = m.copy()
+    mask_ff = np.zeros((h + 2, w + 2), np.uint8)
+
+    # floodfill depuis (0,0) qui est maintenant garanti fond (0)
+    cv2.floodFill(flood, mask_ff, (0, 0), 255)
+
+    # trous = zones non atteintes par floodfill
+    holes = cv2.bitwise_not(flood)
+    filled = cv2.bitwise_or(m, holes)
+    return filled
+
+
+def masque_fun_v3(img_grise, debug=False):
+    """
+    Masque ROI doigt robuste :
+    0 = fond
+    255 = empreinte
+    """
+    # 1) flou fort pour effacer les crêtes (forme globale)
+    flou_gros = cv2.GaussianBlur(img_grise, (0, 0), 25.0)
+
+    # 2) Otsu
+    thr, mask = cv2.threshold(flou_gros, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+
+    # 3) décider l’inversion en regardant les coins (le fond est aux coins)
+    corners = np.array([mask[0,0], mask[0,-1], mask[-1,0], mask[-1,-1]])
+    # si la majorité des coins est blanche, alors le fond est blanc -> on inverse
+    if np.mean(corners) > 127:
+        mask = 255 - mask
+
+    if debug:
+        print("Otsu thr =", thr, "| white ratio after otsu =", np.mean(mask==255))
+
+    # 4) fermeture morpho (colle les zones, bouche trous)
+    kclose = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (41, 41))
+    mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kclose, iterations=2)
+
+    if debug:
+        print("white ratio after close =", np.mean(mask==255))
+
+    # 5) plus grande composante connexe
+    num, lbl, stats, _ = cv2.connectedComponentsWithStats((mask > 0).astype(np.uint8), 8)
     if num > 1:
         largest = 1 + np.argmax(stats[1:, cv2.CC_STAT_AREA])
-        mask = (lbl==largest).astype(np.uint8)*255
-    
+        mask = (lbl == largest).astype(np.uint8) * 255
 
+    if debug:
+        print("white ratio after CC =", np.mean(mask==255))
 
-    mask = cv2.erode(mask, cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(5,5)), 1) #lisse le tour
+    # 6) remplissage trous (safe)
+    mask = fill_holes_safe(mask)
+
+    if debug:
+        print("white ratio after fill holes =", np.mean(mask==255))
+
+    # 7) dilatation légère (optionnelle) pour éviter masque trop “serré”
+    kdil = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (11, 11))
+    mask = cv2.dilate(mask, kdil, iterations=1)
+
+    if debug:
+        print("white ratio after dilate =", np.mean(mask==255))
+
+    # 8) lissage bords léger
+    kopen = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (9, 9))
+    mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, kopen, iterations=1)
+
+    if debug:
+        print("white ratio final =", np.mean(mask==255))
+
     return mask
-
 
 #. Orientation (Hong) — SOMMES UNIQUEMENT DANS LE MASQUE
 # θ = 0.5 * atan2(phix, Vy)  (ordre corrigé) 
@@ -295,8 +360,8 @@ def orientation_matching(w, coord ):
     return O_bloque[bi, bj]
 
 
-'''
 
+'''
 #. Ridge frequency image 
 
 def ridge_freq_fun(img_grise,masque,w, O_bloque):
@@ -310,7 +375,7 @@ def ridge_freq_fun(img_grise,masque,w, O_bloque):
             centre_y=int(bi*w+w/2)
             centre_x= int(bj*w+w/2)
             for d in range (0,w-1):
-                u= centre_x  + (d-w/2)*np.cos( O_bloque[bi*w+bj]) + (bi*w+bj - ) #BUG remplacer les bi bj par centre_x centrey
+                u= centre_x  + (d-w/2)*np.cos( O_bloque[centre_x][centre_y]) + ()
                 X[bi*w+bj] = 1/w * 
  
            
@@ -323,20 +388,20 @@ def ridge_freq_fun(img_grise,masque,w, O_bloque):
 
 #. code principal
 
+def main_orientation(img):
+    gray = niv_de_gris(img)
+    tab_normal = normalise_fun(gray)
+    cv2.imwrite(FICHIER_OUT + "\\normalized.png", tab_normal)
 
-gray = niv_de_gris(img)
-tab_normal = normalise_fun(gray)
-cv2.imwrite(FICHIER_OUT + "\\normalized.png", tab_normal)
-
-masque = masque_fun(tab_normal)
-cv2.imwrite(FICHIER_OUT+"\\masque.png",masque)
-O_bloque=fun_orientation(tab_normal, masque=masque,w=W_BLOCK,low_pass_size=LOW_PASS_FILTER_SIZE, coef_flou=COEF_FLOU)
-empreinte=affichage_orient(tab_normal, O_bloque,masque,w=W_BLOCK)
-
-
+    masque = masque_fun_v3(tab_normal)
+    cv2.imwrite(FICHIER_OUT+"\\masque.png",masque)
+    O_bloque=fun_orientation(tab_normal, masque=masque,w=W_BLOCK,low_pass_size=LOW_PASS_FILTER_SIZE, coef_flou=COEF_FLOU)
+    empreinte=affichage_orient(tab_normal, O_bloque,masque,w=W_BLOCK)
 
 
-cv2.imwrite(FICHIER_OUT+"\\orientation_empreinte.png", empreinte)
-np.save(FICHIER_OUT+"\\O_bloque.npy", O_bloque) #a voir comment reutiiser pour associer orientation <=> minutiae d
-print("ORIENTATION OK")
-print(orientation_matching(W_BLOCK, (200,150) ))
+
+
+    cv2.imwrite(FICHIER_OUT+"\\orientation_empreinte.png", empreinte)
+    np.save(FICHIER_OUT+"\\O_bloque.npy", O_bloque) #a voir comment reutiiser pour associer orientation <=> minutiae d
+    print("ORIENTATION OK")
+    print(orientation_matching(W_BLOCK, (200,150) ))

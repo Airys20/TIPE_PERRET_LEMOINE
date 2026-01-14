@@ -3,9 +3,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import math
 
-def find_minuatiae(filename, output_filename):
+def find_minuatiae(filename, output_filename, mask_filename=None, mask=None):
 
-    def find(squelette,sigma=0.5):
+    def find(squelette, mask01=None, sigma=0.5):
 
         minutiae_ending = []#stock minutiae
         minutiae_bifurcation = []
@@ -19,8 +19,10 @@ def find_minuatiae(filename, output_filename):
     #on regarde chaque picel de l'img
         for i in range(3, rows - 3):  # on évite les bords sinon bugs (bc n'a pas de voisinsins)
             for j in range(3, cols - 3):
+                if mask01 is not None and mask01[i, j] == 0: # ATTENTION SI PAS DANS MAQSQUE ZAPPER 
+                    continue
 
-                if squelette[i][j] == 1: # si est blanc
+                elif squelette[i][j] == 1: # si est blanc
                     voisins = squelette[i-1:i+2, j-1:j+2]
                     cmpt = np.sum(voisins) - 1  # suppr [i][j]
 
@@ -79,7 +81,7 @@ def find_minuatiae(filename, output_filename):
                                 continue
         
         res = [] #prepare tab adapté au style de struc, cf com de la fonction add personne dans json_utils
-
+    
         for (x, y), angle in minutiae_orientation:
             if (x, y) in minutiae_ending:
                 typ = "ending"
@@ -91,7 +93,7 @@ def find_minuatiae(filename, output_filename):
             #trouve comp sur x et y pour tracer trzait d'oriebntation
             dy = round(math.sin(angle), 4)
 
-            res.append([[x, y], typ, [dx, dy]])
+            res.append([[x/512, y/512], typ, [dx, dy]])  
 
 
 
@@ -101,19 +103,77 @@ def find_minuatiae(filename, output_filename):
 
    # import+ passage binaire
     img = cv2.imread(filename, cv2.IMREAD_GRAYSCALE)
+    if img is None:
+        raise FileNotFoundError(filename)
+
+    if mask is None and mask_filename is not None:
+        mask = cv2.imread(mask_filename, cv2.IMREAD_GRAYSCALE)
+        mask = cv2.resize(mask, (512, 512))
+    if mask is not None:
+        # force masque binaire 0/1 pour simplifier
+        mask01 = (mask > 0).astype(np.uint8)
+    else:
+        mask01 = None
+
+        
     _, binaire = cv2.threshold(img, 127, 1, cv2.THRESH_BINARY_INV)#passse en binaire pour traitement
 
     # minutiae[[coord], type, [dx, dy]]
-    minutiae= find(binaire)
+    minutiae= find(binaire, mask01=mask01)
 
-    
+
+
+
+    def filtrer_minuties_trop_proches(minuties, min_dist_px=16, img_size=512):
+        """
+        minuties: liste de minuties au format:
+            [[x_n, y_n], typ, orient]  OU [[x_n, y_n], typ, orient, ...]
+        min_dist_px: distance minimale (en pixels) entre 2 minuties conservées
+        img_size: taille de travail (512 si coords normalisées sur 512x512)
+
+        Retour: liste filtrée, même format que l'entrée
+        """
+        # convertit en (x_px, y_px, minutie_originale)
+        pts = []
+        for m in minuties:
+            (x_n, y_n) = m[0]
+            x = int(round(x_n * (img_size - 1)))
+            y = int(round(y_n * (img_size - 1)))
+            pts.append((x, y, m))
+
+        # petite astuce: trier pour avoir un résultat déterministe
+        pts.sort(key=lambda t: (t[1], t[0]))  # y puis x
+
+        keep = []
+        keep_xy = []
+        d2_min = min_dist_px * min_dist_px
+
+        for x, y, m in pts:
+            ok = True
+            # on compare aux points déjà gardés (O(n^2) mais OK si pas énorme)
+            for (xk, yk) in keep_xy:
+                dx = x - xk
+                dy = y - yk
+                if dx*dx + dy*dy < d2_min:
+                    ok = False
+                    break
+            if ok:
+                keep.append(m)
+                keep_xy.append((x, y))
+
+        return keep
+
+    minutt = filtrer_minuties_trop_proches(minutiae, min_dist_px=6, img_size=512)
 
     # passe en couleur pour dessin des ronds
     color_image = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)
 
     # affichageronds+ligne
 
-    for [x, y], typ, [dx, dy] in minutiae:
+    for [x_n, y_n], typ, [dx, dy] in minutt:
+        x = int(round(x_n * 512))
+        y = int(round(y_n * 512))
+
         if typ == "ending":
             color = (0, 0, 255)  # rouge
         elif typ == "bifurcation":
@@ -137,4 +197,5 @@ def find_minuatiae(filename, output_filename):
     plt.title("minutiae detecteees")
     plt.axis("off")
     plt.show()
-    return minutiae
+    return minutt
+
