@@ -84,7 +84,7 @@ def modifier_personne(data_file, nom_personne, minutiae_tab=None, nouveau_nom=No
 
             coord = item[0]
             typ = item[1]
-            orient = item[2]
+            orient = item[3]
 
             element = {
                 "coordonnees": coord,

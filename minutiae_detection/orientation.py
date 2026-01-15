@@ -17,6 +17,7 @@ getStructuringElement(cv2.MORPH_ELLIPSE, (15,15)) : creer un "element" de la for
 
 img = "C:/Users/Elise/Downloads/empreinte_overlined.jpeg" 
 
+from PIL import Image
 import numpy  as np
 import cv2
 from pathlib   import Path
@@ -79,7 +80,7 @@ def normalise_fun(img_grise, M0=100.0, VAR0=100.0):
     else:
         
 
-        d = I - M
+        d = I -M
         ajustement = np.sqrt((VAR0 * (d**2)) / VAR) #=TABLEAU des parties sous la racine pour chaque pixel
         #(on conserve le signe p/r a la moyenne mais si + que M on le rend + que M0 et inv)
         G = np.where(I>M, M0+ ajustement, M0 - ajustement ) #CREER un nouv TABLEAU et rempli selon condition : np.where(condition, si sup a la moyenne, si inf a la moy)
@@ -399,9 +400,11 @@ def main_orientation(img):
     empreinte=affichage_orient(tab_normal, O_bloque,masque,w=W_BLOCK)
 
 
+    
 
-
-    cv2.imwrite(FICHIER_OUT+"\\orientation_empreinte.png", empreinte)
+    cv2.imwrite(FICHIER_OUT+"\\orientation_empreinte.jpg", empreinte)
+    image = Image.open(FICHIER_OUT+"\\orientation_empreinte.jpg")
+    image.show()
     np.save(FICHIER_OUT+"\\O_bloque.npy", O_bloque) #a voir comment reutiiser pour associer orientation <=> minutiae d
     print("ORIENTATION OK")
     print(orientation_matching(W_BLOCK, (200,150) ))
