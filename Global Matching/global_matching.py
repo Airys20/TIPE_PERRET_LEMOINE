@@ -28,7 +28,7 @@ def classify(personne):
             # Tolérance spatiale
             if abs(coord_pers[0] - coord_cat[0]) < 5 and abs(coord_pers[1] - coord_cat[1]) < 5:
                 # Tolérance directionnelle
-                if abs(dir_pers[0] - dir_cat[0]) < 0.5 and abs(dir_pers[1] - dir_cat[1]) < 0.5:
+                if abs(dir_pers - dir_cat) < 0.5:
                     paired[i] = 2  # matched
                 else:
                     paired[i] = 1  # juste apparié
@@ -76,5 +76,5 @@ def global_matching(data_file):
 
 
 # 2. Lancer le matching
-best_match = global_matching("new_catalogue.json")
+best_match = global_matching("catalogue.json")
 print("\nMeilleure correspondance :", best_match)

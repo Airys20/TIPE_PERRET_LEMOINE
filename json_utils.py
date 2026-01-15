@@ -27,7 +27,8 @@ def clear_base(data_file):
 
 ###############################################################################################
 
-def ajouter_personne(nom_personne, minutiae_tab,data_file):
+def ajouter_personne(nom_personne, minutiae_tab, data_file):
+
     """
     struct de minutiae_tab :
     [
@@ -39,10 +40,11 @@ def ajouter_personne(nom_personne, minutiae_tab,data_file):
     """
 
     base = _charger_base(data_file)
+
     # modif format pour coller au json
     minutiae_struct = []
     for elt in minutiae_tab:
-        coord, typ, orient = elt
+        coord, typ, orient_faux, orient = elt
         minutiae_struct.append({
             "coordonnees": coord,
             "type": typ,
@@ -115,19 +117,43 @@ def get_data(nbr_empreinte, nom_base):
     dico_personne = base[nbr_empreinte]
     return dico_personne
 
-def iter_coordonnees (nom_base, f):
+def iter_coordonnees (nom_base, f,i):
     base = _charger_base(nom_base)
-    for i in range (len(base)): 
-        for m in range (len(base[i]["minutiae"])):
-            base[i]["minutiae"][m]["coordonnees"] = f(base[i]["minutiae"][m]["coordonnees"]) #on change celle qui y sont 
+    for m in range (len(base[i]["minutiae"])):
+        base[i]["minutiae"][m]["coordonnees"] = f(base[i]["minutiae"][m]["coordonnees"]) #on change celle qui y sont 
 
     
     print(f"fonction applique a toute les coordonées de  {nom_base}")
     _sauvegarder_base(base, nom_base)
      
+def iter_minutiae(nom_base, f):
+    base = _charger_base(nom_base)
+    for i in range (len(base)): 
+        for m in range (len(base[i]["minutiae"])):
+            base[i]["minutiae"][m] = f(base[i]["minutiae"][m]) #on change celle qui y sont 
 
     
+    print(f"fonction applique a toute les minutiae de  {nom_base}")
+    _sauvegarder_base(base, nom_base)
 
+
+    
+def compter_minuties_par_empreinte(data_file):
+    """
+    Retourne une liste de tuples (index, nom, nb_minuties) pour chaque entrée de la base.
+    """
+    base = _charger_base(data_file)
+    res = []
+    for i, p in enumerate(base):
+        nom = p.get("nom", f"#{i}")
+        nb = len(p.get("minutiae", []))
+        res.append((i, nom, nb))
+    return res
+
+nom_data = "base.json"
+table = compter_minuties_par_empreinte(nom_data)
+for i, nom, nb in table:
+    print(i, nom, nb)
 
 
 #####################################################################################################################
@@ -165,3 +191,5 @@ def f(m) :
 iter_coordonnees (nom_data, f)
 
 """
+
+#entree : img,chemin acces base, nom personne
