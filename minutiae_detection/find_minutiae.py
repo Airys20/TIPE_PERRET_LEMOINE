@@ -126,23 +126,22 @@ def find_minuatiae(filename, output_filename, mask_filename=None, mask=None):
 
     def filtrer_minuties_trop_proches(minuties, min_dist_px=16, img_size=512):
         """
-        minuties: liste de minuties au format:
-            [[x_n, y_n], typ, orient]  OU [[x_n, y_n], typ, orient, ...]
-        min_dist_px: distance minimale (en pixels) entre 2 minuties conservées
-        img_size: taille de travail (512 si coords normalisées sur 512x512)
+        liste minut: [[x_n, y_n], typ, orient]  OU [[x_n, y_n], typ, orient, ]
+        min_dist_px: distance min en px entre 2 minut (seuil avant enlever)
+        
 
-        Retour: liste filtrée, même format que l'entrée
+        renvoie: liste sans doublons
         """
-        # convertit en (x_px, y_px, minutie_originale)
+        # convertit en (x_px, y_px) -> on retrouve les coord init
         pts = []
         for m in minuties:
             (x_n, y_n) = m[0]
-            x = int(round(x_n * (img_size - 1)))
-            y = int(round(y_n * (img_size - 1)))
+            x= int(round(x_n *(img_size- 1)))
+            y =int(round(y_n *(img_size- 1)))
             pts.append((x, y, m))
 
-        # petite astuce: trier pour avoir un résultat déterministe
-        pts.sort(key=lambda t: (t[1], t[0]))  # y puis x
+        
+        #pts.sort(key=lambda t: (t[1], t[0]))  # y puis x
 
         keep = []
         keep_xy = []
@@ -150,7 +149,7 @@ def find_minuatiae(filename, output_filename, mask_filename=None, mask=None):
 
         for x, y, m in pts:
             ok = True
-            # on compare aux points déjà gardés (O(n^2) mais OK si pas énorme)
+            # on compare aux points déjà gardés complexité ignoble mais OK si pas trop)
             for (xk, yk) in keep_xy:
                 dx = x - xk
                 dy = y - yk
