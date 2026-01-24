@@ -15,9 +15,9 @@ from json_utils import ajouter_personne
 
 
 #REGLAGES 
-NOM = 'recherche'
-BASE = "recherche.json"
-FILENAME='minutiae_detection\input\empreinte_overlined_tournee.jpeg' #lien ou tu mets l'img a tester
+NOM = 'Fabien'
+BASE = "catalogue.json"
+FILENAME='minutiae_detection\input\\fabien.jpg' #lien ou tu mets l'img a tester
 output_filename = 'minutiae_detection/passage_main/' + NOM + '_output_minutiae.jpg' #lien ou tu stocke l'img superposée des minuties
 
 

@@ -1,7 +1,7 @@
 import json_utils as ju
 import numpy as np 
 import shutil
-import selection_des_minuties as am
+import bin.selection_des_minuties as am
 import cv2
 import math
 import matplotlib.pyplot as plt
