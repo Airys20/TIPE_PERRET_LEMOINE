@@ -3,52 +3,52 @@ import json
 
 ''' *************************************** OUTILS *************************************** '''
 
-def wrap_angle(theta):  #normalisation de l'angle theta
+def wrap_angle(theta):
     return (theta + np.pi) % (2*np.pi) - np.pi
 
-def angle_diff_biom(theta1, theta2):   #calcul de la différence entre nos deux angles une fois normalisés
+def angle_diff_biom(theta1, theta2):
     d = abs(wrap_angle(theta1 - theta2))
     return min(d, abs(d - np.pi))
 
-SPATIAL_TOL = 10       # tolérance spatiale (≈ ±10 px)
-ANGLE_TOL = 0.175      # tolérance angle (≈ ±10°)
+SPATIAL_TOL = 1
+ANGLE_TOL = 0.05
 
 ''' *************************************** NEIGHBORS *************************************** '''
 
 _neighbors_cache = {}
 
-def chgt_base(M,t): 
+def chgt_base(M, t):
     xm, ym, theta_m = M[t]
     M_new = []
     for i in range(len(M)):
         xi, yi, theta_i = M[i]
-        xi -= xm 
-        yi -= ym 
+        xi -= xm
+        yi -= ym
         xtmp = xi
-        xi =  np.cos(theta_m)*xi + np.sin(theta_m)*yi
+        xi = np.cos(theta_m)*xi + np.sin(theta_m)*yi
         yi = -np.sin(theta_m)*xtmp + np.cos(theta_m)*yi
         theta_new = wrap_angle(theta_i - theta_m)
-        M_new.append((xi,yi,theta_new))        
-    return(M_new)
+        M_new.append((xi, yi, theta_new))
+    return M_new
 
-def fusion(L1,L2): #fonction auxiliaire pour mon tri fusion 
-    n1,n2=len(L1),len(L2)
-    L12=[0]*(n1+n2);i1=i2=i=0
+def fusion(L1, L2):
+    n1, n2 = len(L1), len(L2)
+    L12 = [0]*(n1+n2); i1=i2=i=0
     while i1<n1 and i2<n2:
         if L1[i1][0] < L2[i2][0]:
-            L12[i]=L1[i1];i1+=1
+            L12[i] = L1[i1]; i1+=1
         else:
-            L12[i]=L2[i2];i2+=1
+            L12[i] = L2[i2]; i2+=1
         i+=1
-    while i1<n1: L12[i]=L1[i1];i1+=1;i+=1
-    while i2<n2: L12[i]=L2[i2];i2+=1;i+=1
+    while i1<n1: L12[i]=L1[i1]; i1+=1; i+=1
+    while i2<n2: L12[i]=L2[i2]; i2+=1; i+=1
     return L12
 
-def tri_fusion_recursif(L):  
+def tri_fusion_recursif(L):
     n=len(L)
     if n>1:
         p=n//2
-        L1=L[:p];L2=L[p:]
+        L1=L[:p]; L2=L[p:]
         tri_fusion_recursif(L1)
         tri_fusion_recursif(L2)
         L[:] = fusion(L1,L2)
@@ -58,43 +58,22 @@ def distances(M):
     tri_fusion_recursif(M_new)
     return M_new
 
-def neighbors(M , nb_nghbr, i):
+def neighbors(M, nb_nghbr, i):
     key=(id(M),i)
     if key in _neighbors_cache: return _neighbors_cache[key]
     M_tmp=chgt_base(M,i)
     M_new=distances(M_tmp)
-    n0=[]
-    j=1
+    n0=[]; j=1
     while len(n0)<nb_nghbr and j<len(M_new):
         n0.append(M_new[j][1]); j+=1
     _neighbors_cache[key]=n0
     return n0
 
-''' *************************************** SUBSTRUCTURES *************************************** '''
-
-lim_theta = 2.0
-nb_nghbr = 15
-
-def create_substructures(M, n1):
-    substruct=[]
-    for i in range(len(n1)):
-        x,y,_=M[n1[i]]
-        substruct.append([x,y])
-    return(substruct)
-
-def corresponding_substruct(substruct_c, substruct_r):
-    if len(substruct_c)!=len(substruct_r): return False
-    tol=5
-    for i in range(len(substruct_c)):
-        xc,yc=substruct_c[i]; xr,yr=substruct_r[i]
-        if abs(xc-xr)>tol or abs(yc-yr)>tol: return False
-    return True
-
 ''' *************************************** ALIGNEMENT *************************************** '''
 
-def kabsch_umeyama(A,B): #fonction qui permet de calculer les paramètres de transformation rigide
+def kabsch_umeyama(A,B):
     assert A.shape==B.shape
-    EA=np.mean(A,axis=0);EB=np.mean(B,axis=0)
+    EA=np.mean(A,axis=0); EB=np.mean(B,axis=0)
     VarA=np.mean(np.linalg.norm(A-EA,axis=1)**2)
     H=((A-EA).T @ (B-EB))/A.shape[0]
     U,D,VT=np.linalg.svd(H)
@@ -118,16 +97,15 @@ def apply_transformation(minutiae,R,c,t):
 ''' *************************************** MATCHING *************************************** '''
 
 def classify(minutiae_recherche,minutiae_catalogue):
-    n=len(minutiae_recherche)
-    np_=len(minutiae_catalogue)
-    paired=[0]*n
-    for i in range(n):
-        xr,yr=minutiae_recherche[i]["coordonnees"]
-        dr=minutiae_recherche[i]["orientation"]
+    nc=len(minutiae_catalogue)
+    paired=[0]*nc
+    for i in range(nc):
+        xc,yc=minutiae_catalogue[i]["coordonnees"]
+        dc=minutiae_catalogue[i]["orientation"]
         best=0
-        for j in range(np_):
-            xc,yc=minutiae_catalogue[j]["coordonnees"]
-            dc=minutiae_catalogue[j]["orientation"]
+        for m in minutiae_recherche:
+            xr,yr=m["coordonnees"]
+            dr=m["orientation"]
             if abs(xr-xc)<SPATIAL_TOL and abs(yr-yc)<SPATIAL_TOL:
                 if angle_diff_biom(dr,dc)<ANGLE_TOL:
                     best=2; break
@@ -137,48 +115,71 @@ def classify(minutiae_recherche,minutiae_catalogue):
     return paired
 
 def matching_score(minutiae_catalogue,paired):
-    np_=len(minutiae_catalogue)
-    Npair=paired.count(1);Nmatch=paired.count(2)
-    return ((Nmatch + 0.5*Npair)/np_)*100
+    nc=len(minutiae_catalogue)
+    return ((paired.count(2) + 0.5*paired.count(1))/nc)*100
 
 ''' *************************************** MATCHING GLOBAL *************************************** '''
 
-def global_matching_jips(data_catalogue,data_recherche):
-    
+MIN_REF = 15
+NB_NGHBR = 15
+LIM_THETA = 0.5
+
+def global_matching_reference(data_catalogue,data_recherche):
+
     with open(data_catalogue,"r") as f: catalogue=json.load(f)
     with open(data_recherche,"r") as f: recherche=json.load(f)
-    
+
     M_recherche=[(m["coordonnees"][0],m["coordonnees"][1],m["orientation"])
                  for m in recherche[0]["minutiae"]]
+
     best_score=0; best_name=None
-    
+
     for p in range(len(catalogue)):
-        print("Analyse de : " + catalogue[p]["nom"])
+        print("Analyse de :", catalogue[p]["nom"])
+
         M_catalogue=[(m["coordonnees"][0],m["coordonnees"][1],m["orientation"])
                      for m in catalogue[p]["minutiae"]]
-        
+
+        ref_r=[]; ref_c=[]
+        used_r=set(); used_c=set()
+
         for i in range(len(M_recherche)):
             for j in range(len(M_catalogue)):
-                if abs(wrap_angle(M_recherche[i][2]-M_catalogue[j][2]))>lim_theta:
+
+                if abs(wrap_angle(M_recherche[i][2]-M_catalogue[j][2]))>LIM_THETA:
                     continue
-                
-                sub_r=create_substructures(M_recherche,neighbors(M_recherche,nb_nghbr,i))
-                sub_c=create_substructures(M_catalogue,neighbors(M_catalogue,nb_nghbr,j))
-                
-                if not corresponding_substruct(sub_c,sub_r): continue
-                
-                R,c,t=kabsch_umeyama(np.array(sub_r),np.array(sub_c))
-                minutiae_aligned=apply_transformation(recherche[0]["minutiae"],R,c,t)
-                paired=classify(minutiae_aligned,catalogue[p]["minutiae"])
-                score=matching_score(catalogue[p]["minutiae"],paired)
-        
-                if score>best_score:
-                    best_score=score; best_name=catalogue[p]["nom"]
-                '''if best_score > 90 : 
-                    break'''  
-    return best_name,best_score
+
+                ngh_r = neighbors(M_recherche, NB_NGHBR, i)
+                ngh_c = neighbors(M_catalogue, NB_NGHBR, j)
+
+                d_err = abs(len(ngh_r) - len(ngh_c))
+                a_err = angle_diff_biom(M_recherche[i][2], M_catalogue[j][2])
+                err = d_err + a_err
+
+                if i not in used_r and j not in used_c:
+                    ref_r.append(M_recherche[i][:2])
+                    ref_c.append(M_catalogue[j][:2])
+                    used_r.add(i); used_c.add(j)
+
+        if len(ref_r) < MIN_REF:
+            print("Références insuffisantes :", len(ref_r))
+            continue
+
+        R,c,t = kabsch_umeyama(np.array(ref_r), np.array(ref_c))
+        minutiae_aligned = apply_transformation(recherche[0]["minutiae"],R,c,t)
+        paired = classify(minutiae_aligned,catalogue[p]["minutiae"])
+        score = matching_score(catalogue[p]["minutiae"],paired)
+
+        print("Score :", score)
+
+        if score > best_score:
+            best_score = score
+            best_name = catalogue[p]["nom"]
+
+    return best_name, best_score
 
 ''' *************************************** TEST *************************************** '''
-nom, score = global_matching_jips("catalogue.json", "recherche.json")
+
+nom, score = global_matching_reference("catalogue.json", "recherche.json")
 print("\nMeilleure correspondance :", nom)
 print("Score :", score)
