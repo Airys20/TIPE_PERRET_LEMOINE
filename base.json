@@ -1179,5 +1179,1474 @@
                 "orientation": -0.41867682337760925
             }
         ]
+    },
+    {
+        "nom": "Elise",
+        "minutiae": [
+            {
+                "coordonnees": [
+                    0.36328125,
+                    0.11328125
+                ],
+                "type": "ending",
+                "orientation": -1.3468838930130005
+            },
+            {
+                "coordonnees": [
+                    0.390625,
+                    0.115234375
+                ],
+                "type": "ending",
+                "orientation": -1.261389970779419
+            },
+            {
+                "coordonnees": [
+                    0.37109375,
+                    0.12890625
+                ],
+                "type": "ending",
+                "orientation": -1.3468838930130005
+            },
+            {
+                "coordonnees": [
+                    0.3828125,
+                    0.14453125
+                ],
+                "type": "ending",
+                "orientation": -1.2851797342300415
+            },
+            {
+                "coordonnees": [
+                    0.369140625,
+                    0.16015625
+                ],
+                "type": "ending",
+                "orientation": -1.3683775663375854
+            },
+            {
+                "coordonnees": [
+                    0.298828125,
+                    0.203125
+                ],
+                "type": "ending",
+                "orientation": -1.4190306663513184
+            },
+            {
+                "coordonnees": [
+                    0.681640625,
+                    0.232421875
+                ],
+                "type": "ending",
+                "orientation": -0.3694445788860321
+            },
+            {
+                "coordonnees": [
+                    0.423828125,
+                    0.244140625
+                ],
+                "type": "bifurcation",
+                "orientation": -1.067550778388977
+            },
+            {
+                "coordonnees": [
+                    0.693359375,
+                    0.244140625
+                ],
+                "type": "ending",
+                "orientation": -0.3694445788860321
+            },
+            {
+                "coordonnees": [
+                    0.376953125,
+                    0.255859375
+                ],
+                "type": "ending",
+                "orientation": -1.0858185291290283
+            },
+            {
+                "coordonnees": [
+                    0.419921875,
+                    0.255859375
+                ],
+                "type": "bifurcation",
+                "orientation": -1.0042234659194946
+            },
+            {
+                "coordonnees": [
+                    0.4453125,
+                    0.255859375
+                ],
+                "type": "ending",
+                "orientation": -1.0042234659194946
+            },
+            {
+                "coordonnees": [
+                    0.724609375,
+                    0.267578125
+                ],
+                "type": "ending",
+                "orientation": -0.21089568734169006
+            },
+            {
+                "coordonnees": [
+                    0.455078125,
+                    0.271484375
+                ],
+                "type": "bifurcation",
+                "orientation": -1.0042234659194946
+            },
+            {
+                "coordonnees": [
+                    0.513671875,
+                    0.275390625
+                ],
+                "type": "ending",
+                "orientation": -0.8488667607307434
+            },
+            {
+                "coordonnees": [
+                    0.658203125,
+                    0.28125
+                ],
+                "type": "ending",
+                "orientation": -0.42671364545822144
+            },
+            {
+                "coordonnees": [
+                    0.234375,
+                    0.287109375
+                ],
+                "type": "ending",
+                "orientation": -1.4656343460083008
+            },
+            {
+                "coordonnees": [
+                    0.716796875,
+                    0.2890625
+                ],
+                "type": "ending",
+                "orientation": -0.17249895632266998
+            },
+            {
+                "coordonnees": [
+                    0.744140625,
+                    0.29296875
+                ],
+                "type": "ending",
+                "orientation": -0.17249895632266998
+            },
+            {
+                "coordonnees": [
+                    0.49609375,
+                    0.294921875
+                ],
+                "type": "ending",
+                "orientation": -0.8553631901741028
+            },
+            {
+                "coordonnees": [
+                    0.509765625,
+                    0.30078125
+                ],
+                "type": "bifurcation",
+                "orientation": -0.7562904953956604
+            },
+            {
+                "coordonnees": [
+                    0.427734375,
+                    0.31640625
+                ],
+                "type": "bifurcation",
+                "orientation": -0.88265460729599
+            },
+            {
+                "coordonnees": [
+                    0.5234375,
+                    0.31640625
+                ],
+                "type": "ending",
+                "orientation": -0.6536009311676025
+            },
+            {
+                "coordonnees": [
+                    0.46484375,
+                    0.328125
+                ],
+                "type": "ending",
+                "orientation": -0.7773876190185547
+            },
+            {
+                "coordonnees": [
+                    0.35546875,
+                    0.337890625
+                ],
+                "type": "ending",
+                "orientation": -1.1083718538284302
+            },
+            {
+                "coordonnees": [
+                    0.578125,
+                    0.34765625
+                ],
+                "type": "ending",
+                "orientation": -0.5161307454109192
+            },
+            {
+                "coordonnees": [
+                    0.365234375,
+                    0.349609375
+                ],
+                "type": "ending",
+                "orientation": -1.1083718538284302
+            },
+            {
+                "coordonnees": [
+                    0.625,
+                    0.3515625
+                ],
+                "type": "ending",
+                "orientation": -0.2685656249523163
+            },
+            {
+                "coordonnees": [
+                    0.68359375,
+                    0.353515625
+                ],
+                "type": "bifurcation",
+                "orientation": -0.1073189377784729
+            },
+            {
+                "coordonnees": [
+                    0.220703125,
+                    0.361328125
+                ],
+                "type": "bifurcation",
+                "orientation": -1.330296516418457
+            },
+            {
+                "coordonnees": [
+                    0.404296875,
+                    0.365234375
+                ],
+                "type": "bifurcation",
+                "orientation": -1.0095829963684082
+            },
+            {
+                "coordonnees": [
+                    0.556640625,
+                    0.365234375
+                ],
+                "type": "bifurcation",
+                "orientation": -0.4032282829284668
+            },
+            {
+                "coordonnees": [
+                    0.625,
+                    0.365234375
+                ],
+                "type": "ending",
+                "orientation": -0.2685656249523163
+            },
+            {
+                "coordonnees": [
+                    0.572265625,
+                    0.369140625
+                ],
+                "type": "ending",
+                "orientation": -0.4032282829284668
+            },
+            {
+                "coordonnees": [
+                    0.595703125,
+                    0.37109375
+                ],
+                "type": "bifurcation",
+                "orientation": -0.2685656249523163
+            },
+            {
+                "coordonnees": [
+                    0.62890625,
+                    0.376953125
+                ],
+                "type": "bifurcation",
+                "orientation": -0.20836025476455688
+            },
+            {
+                "coordonnees": [
+                    0.17578125,
+                    0.3828125
+                ],
+                "type": "ending",
+                "orientation": -1.302686333656311
+            },
+            {
+                "coordonnees": [
+                    0.390625,
+                    0.3828125
+                ],
+                "type": "ending",
+                "orientation": -1.0095829963684082
+            },
+            {
+                "coordonnees": [
+                    0.560546875,
+                    0.3828125
+                ],
+                "type": "ending",
+                "orientation": -0.4032282829284668
+            },
+            {
+                "coordonnees": [
+                    0.626953125,
+                    0.388671875
+                ],
+                "type": "bifurcation",
+                "orientation": -0.07776875048875809
+            },
+            {
+                "coordonnees": [
+                    0.61328125,
+                    0.390625
+                ],
+                "type": "ending",
+                "orientation": -0.11382801830768585
+            },
+            {
+                "coordonnees": [
+                    0.630859375,
+                    0.404296875
+                ],
+                "type": "bifurcation",
+                "orientation": -0.07776875048875809
+            },
+            {
+                "coordonnees": [
+                    0.458984375,
+                    0.408203125
+                ],
+                "type": "bifurcation",
+                "orientation": -0.7241454720497131
+            },
+            {
+                "coordonnees": [
+                    0.482421875,
+                    0.4140625
+                ],
+                "type": "bifurcation",
+                "orientation": -0.7241454720497131
+            },
+            {
+                "coordonnees": [
+                    0.515625,
+                    0.416015625
+                ],
+                "type": "bifurcation",
+                "orientation": -0.47970858216285706
+            },
+            {
+                "coordonnees": [
+                    0.45703125,
+                    0.419921875
+                ],
+                "type": "bifurcation",
+                "orientation": -0.8968908786773682
+            },
+            {
+                "coordonnees": [
+                    0.603515625,
+                    0.419921875
+                ],
+                "type": "bifurcation",
+                "orientation": -0.11382801830768585
+            },
+            {
+                "coordonnees": [
+                    0.5703125,
+                    0.421875
+                ],
+                "type": "bifurcation",
+                "orientation": -0.06207956001162529
+            },
+            {
+                "coordonnees": [
+                    0.744140625,
+                    0.42578125
+                ],
+                "type": "bifurcation",
+                "orientation": 0.1892687976360321
+            },
+            {
+                "coordonnees": [
+                    0.5390625,
+                    0.427734375
+                ],
+                "type": "bifurcation",
+                "orientation": -0.3989565968513489
+            },
+            {
+                "coordonnees": [
+                    0.55078125,
+                    0.43359375
+                ],
+                "type": "ending",
+                "orientation": -0.06207956001162529
+            },
+            {
+                "coordonnees": [
+                    0.279296875,
+                    0.435546875
+                ],
+                "type": "ending",
+                "orientation": -1.096161127090454
+            },
+            {
+                "coordonnees": [
+                    0.630859375,
+                    0.435546875
+                ],
+                "type": "bifurcation",
+                "orientation": 0.08093369752168655
+            },
+            {
+                "coordonnees": [
+                    0.201171875,
+                    0.4375
+                ],
+                "type": "bifurcation",
+                "orientation": -0.9836421012878418
+            },
+            {
+                "coordonnees": [
+                    0.21484375,
+                    0.439453125
+                ],
+                "type": "ending",
+                "orientation": -1.1029326915740967
+            },
+            {
+                "coordonnees": [
+                    0.478515625,
+                    0.4453125
+                ],
+                "type": "ending",
+                "orientation": -0.8345487117767334
+            },
+            {
+                "coordonnees": [
+                    0.51171875,
+                    0.4453125
+                ],
+                "type": "bifurcation",
+                "orientation": -0.3989565968513489
+            },
+            {
+                "coordonnees": [
+                    0.53515625,
+                    0.4453125
+                ],
+                "type": "ending",
+                "orientation": -0.3989565968513489
+            },
+            {
+                "coordonnees": [
+                    0.8359375,
+                    0.447265625
+                ],
+                "type": "ending",
+                "orientation": 0.3115055561065674
+            },
+            {
+                "coordonnees": [
+                    0.822265625,
+                    0.455078125
+                ],
+                "type": "bifurcation",
+                "orientation": 0.2953914701938629
+            },
+            {
+                "coordonnees": [
+                    0.548828125,
+                    0.45703125
+                ],
+                "type": "ending",
+                "orientation": 0.23330099880695343
+            },
+            {
+                "coordonnees": [
+                    0.560546875,
+                    0.45703125
+                ],
+                "type": "bifurcation",
+                "orientation": 0.23330099880695343
+            },
+            {
+                "coordonnees": [
+                    0.578125,
+                    0.458984375
+                ],
+                "type": "ending",
+                "orientation": 0.23330099880695343
+            },
+            {
+                "coordonnees": [
+                    0.62890625,
+                    0.458984375
+                ],
+                "type": "bifurcation",
+                "orientation": 0.26380833983421326
+            },
+            {
+                "coordonnees": [
+                    0.25390625,
+                    0.462890625
+                ],
+                "type": "bifurcation",
+                "orientation": -1.0544735193252563
+            },
+            {
+                "coordonnees": [
+                    0.73828125,
+                    0.462890625
+                ],
+                "type": "ending",
+                "orientation": 0.33603766560554504
+            },
+            {
+                "coordonnees": [
+                    0.2890625,
+                    0.46484375
+                ],
+                "type": "bifurcation",
+                "orientation": -1.0544735193252563
+            },
+            {
+                "coordonnees": [
+                    0.494140625,
+                    0.466796875
+                ],
+                "type": "bifurcation",
+                "orientation": -1.0665472745895386
+            },
+            {
+                "coordonnees": [
+                    0.251953125,
+                    0.474609375
+                ],
+                "type": "bifurcation",
+                "orientation": -1.0544735193252563
+            },
+            {
+                "coordonnees": [
+                    0.591796875,
+                    0.474609375
+                ],
+                "type": "bifurcation",
+                "orientation": 0.26352444291114807
+            },
+            {
+                "coordonnees": [
+                    0.1953125,
+                    0.484375
+                ],
+                "type": "ending",
+                "orientation": -0.8680434226989746
+            },
+            {
+                "coordonnees": [
+                    0.28125,
+                    0.484375
+                ],
+                "type": "ending",
+                "orientation": -1.0544735193252563
+            },
+            {
+                "coordonnees": [
+                    0.26171875,
+                    0.486328125
+                ],
+                "type": "ending",
+                "orientation": -1.0544735193252563
+            },
+            {
+                "coordonnees": [
+                    0.51953125,
+                    0.48828125
+                ],
+                "type": "bifurcation",
+                "orientation": -0.7019934058189392
+            },
+            {
+                "coordonnees": [
+                    0.50390625,
+                    0.494140625
+                ],
+                "type": "ending",
+                "orientation": 1.4602073431015015
+            },
+            {
+                "coordonnees": [
+                    0.7421875,
+                    0.49609375
+                ],
+                "type": "ending",
+                "orientation": 0.503107488155365
+            },
+            {
+                "coordonnees": [
+                    0.251953125,
+                    0.501953125
+                ],
+                "type": "ending",
+                "orientation": -1.0515722036361694
+            },
+            {
+                "coordonnees": [
+                    0.41015625,
+                    0.5078125
+                ],
+                "type": "bifurcation",
+                "orientation": -1.109049677848816
+            },
+            {
+                "coordonnees": [
+                    0.20703125,
+                    0.509765625
+                ],
+                "type": "ending",
+                "orientation": -0.8095698952674866
+            },
+            {
+                "coordonnees": [
+                    0.318359375,
+                    0.515625
+                ],
+                "type": "bifurcation",
+                "orientation": -0.9812270998954773
+            },
+            {
+                "coordonnees": [
+                    0.748046875,
+                    0.521484375
+                ],
+                "type": "ending",
+                "orientation": 0.503107488155365
+            },
+            {
+                "coordonnees": [
+                    0.390625,
+                    0.5234375
+                ],
+                "type": "bifurcation",
+                "orientation": -1.109049677848816
+            },
+            {
+                "coordonnees": [
+                    0.484375,
+                    0.525390625
+                ],
+                "type": "bifurcation",
+                "orientation": -1.3519678115844727
+            },
+            {
+                "coordonnees": [
+                    0.734375,
+                    0.52734375
+                ],
+                "type": "bifurcation",
+                "orientation": 0.6722778677940369
+            },
+            {
+                "coordonnees": [
+                    0.49609375,
+                    0.53125
+                ],
+                "type": "ending",
+                "orientation": -1.4444656372070312
+            },
+            {
+                "coordonnees": [
+                    0.375,
+                    0.533203125
+                ],
+                "type": "ending",
+                "orientation": -1.1329492330551147
+            },
+            {
+                "coordonnees": [
+                    0.298828125,
+                    0.53515625
+                ],
+                "type": "ending",
+                "orientation": -0.9954379796981812
+            },
+            {
+                "coordonnees": [
+                    0.251953125,
+                    0.5390625
+                ],
+                "type": "bifurcation",
+                "orientation": -1.0627729892730713
+            },
+            {
+                "coordonnees": [
+                    0.419921875,
+                    0.541015625
+                ],
+                "type": "bifurcation",
+                "orientation": -1.257731318473816
+            },
+            {
+                "coordonnees": [
+                    0.2265625,
+                    0.548828125
+                ],
+                "type": "ending",
+                "orientation": -0.9700704216957092
+            },
+            {
+                "coordonnees": [
+                    0.546875,
+                    0.548828125
+                ],
+                "type": "bifurcation",
+                "orientation": 1.1085885763168335
+            },
+            {
+                "coordonnees": [
+                    0.390625,
+                    0.552734375
+                ],
+                "type": "bifurcation",
+                "orientation": -1.1329492330551147
+            },
+            {
+                "coordonnees": [
+                    0.923828125,
+                    0.5546875
+                ],
+                "type": "bifurcation",
+                "orientation": 0.5318292379379272
+            },
+            {
+                "coordonnees": [
+                    0.95703125,
+                    0.560546875
+                ],
+                "type": "ending",
+                "orientation": 0.5318292379379272
+            },
+            {
+                "coordonnees": [
+                    0.224609375,
+                    0.5625
+                ],
+                "type": "ending",
+                "orientation": -1.0054963827133179
+            },
+            {
+                "coordonnees": [
+                    0.41015625,
+                    0.568359375
+                ],
+                "type": "ending",
+                "orientation": -1.1687049865722656
+            },
+            {
+                "coordonnees": [
+                    0.423828125,
+                    0.5703125
+                ],
+                "type": "bifurcation",
+                "orientation": -1.282895803451538
+            },
+            {
+                "coordonnees": [
+                    0.455078125,
+                    0.5703125
+                ],
+                "type": "bifurcation",
+                "orientation": -1.282895803451538
+            },
+            {
+                "coordonnees": [
+                    0.365234375,
+                    0.572265625
+                ],
+                "type": "ending",
+                "orientation": -1.1039103269577026
+            },
+            {
+                "coordonnees": [
+                    0.79296875,
+                    0.57421875
+                ],
+                "type": "ending",
+                "orientation": 0.7651363015174866
+            },
+            {
+                "coordonnees": [
+                    0.947265625,
+                    0.576171875
+                ],
+                "type": "bifurcation",
+                "orientation": 0.5909027457237244
+            },
+            {
+                "coordonnees": [
+                    0.44140625,
+                    0.5859375
+                ],
+                "type": "ending",
+                "orientation": -1.282895803451538
+            },
+            {
+                "coordonnees": [
+                    0.453125,
+                    0.58984375
+                ],
+                "type": "ending",
+                "orientation": -1.282895803451538
+            },
+            {
+                "coordonnees": [
+                    0.927734375,
+                    0.58984375
+                ],
+                "type": "ending",
+                "orientation": 0.5909027457237244
+            },
+            {
+                "coordonnees": [
+                    0.44140625,
+                    0.60546875
+                ],
+                "type": "bifurcation",
+                "orientation": -1.3062323331832886
+            },
+            {
+                "coordonnees": [
+                    0.916015625,
+                    0.607421875
+                ],
+                "type": "bifurcation",
+                "orientation": 0.7351259589195251
+            },
+            {
+                "coordonnees": [
+                    0.927734375,
+                    0.607421875
+                ],
+                "type": "ending",
+                "orientation": 0.6781532764434814
+            },
+            {
+                "coordonnees": [
+                    0.341796875,
+                    0.609375
+                ],
+                "type": "bifurcation",
+                "orientation": -1.1598845720291138
+            },
+            {
+                "coordonnees": [
+                    0.294921875,
+                    0.611328125
+                ],
+                "type": "ending",
+                "orientation": -1.138866662979126
+            },
+            {
+                "coordonnees": [
+                    0.2578125,
+                    0.61328125
+                ],
+                "type": "ending",
+                "orientation": -1.139628529548645
+            },
+            {
+                "coordonnees": [
+                    0.306640625,
+                    0.619140625
+                ],
+                "type": "ending",
+                "orientation": -1.138866662979126
+            },
+            {
+                "coordonnees": [
+                    0.951171875,
+                    0.619140625
+                ],
+                "type": "ending",
+                "orientation": 0.6781532764434814
+            },
+            {
+                "coordonnees": [
+                    0.232421875,
+                    0.62109375
+                ],
+                "type": "bifurcation",
+                "orientation": -1.0164704322814941
+            },
+            {
+                "coordonnees": [
+                    0.2578125,
+                    0.625
+                ],
+                "type": "bifurcation",
+                "orientation": -1.139628529548645
+            },
+            {
+                "coordonnees": [
+                    0.560546875,
+                    0.62890625
+                ],
+                "type": "ending",
+                "orientation": 1.3799498081207275
+            },
+            {
+                "coordonnees": [
+                    0.970703125,
+                    0.6328125
+                ],
+                "type": "ending",
+                "orientation": 0.6677185297012329
+            },
+            {
+                "coordonnees": [
+                    0.283203125,
+                    0.634765625
+                ],
+                "type": "bifurcation",
+                "orientation": -1.1569076776504517
+            },
+            {
+                "coordonnees": [
+                    0.369140625,
+                    0.63671875
+                ],
+                "type": "ending",
+                "orientation": -1.2160260677337646
+            },
+            {
+                "coordonnees": [
+                    0.517578125,
+                    0.638671875
+                ],
+                "type": "bifurcation",
+                "orientation": 1.5661084651947021
+            },
+            {
+                "coordonnees": [
+                    0.599609375,
+                    0.638671875
+                ],
+                "type": "ending",
+                "orientation": 1.2979052066802979
+            },
+            {
+                "coordonnees": [
+                    0.556640625,
+                    0.642578125
+                ],
+                "type": "bifurcation",
+                "orientation": 1.4335662126541138
+            },
+            {
+                "coordonnees": [
+                    0.90625,
+                    0.646484375
+                ],
+                "type": "ending",
+                "orientation": 0.7753909826278687
+            },
+            {
+                "coordonnees": [
+                    0.32421875,
+                    0.65234375
+                ],
+                "type": "ending",
+                "orientation": -1.2042784690856934
+            },
+            {
+                "coordonnees": [
+                    0.255859375,
+                    0.654296875
+                ],
+                "type": "ending",
+                "orientation": -1.1569076776504517
+            },
+            {
+                "coordonnees": [
+                    0.90625,
+                    0.6640625
+                ],
+                "type": "bifurcation",
+                "orientation": 0.7753909826278687
+            },
+            {
+                "coordonnees": [
+                    0.94921875,
+                    0.666015625
+                ],
+                "type": "ending",
+                "orientation": 0.7131373882293701
+            },
+            {
+                "coordonnees": [
+                    0.83203125,
+                    0.66796875
+                ],
+                "type": "bifurcation",
+                "orientation": 1.053389310836792
+            },
+            {
+                "coordonnees": [
+                    0.884765625,
+                    0.671875
+                ],
+                "type": "bifurcation",
+                "orientation": 0.8281532526016235
+            },
+            {
+                "coordonnees": [
+                    0.935546875,
+                    0.673828125
+                ],
+                "type": "bifurcation",
+                "orientation": 0.7548401951789856
+            },
+            {
+                "coordonnees": [
+                    0.271484375,
+                    0.677734375
+                ],
+                "type": "bifurcation",
+                "orientation": -1.1171826124191284
+            },
+            {
+                "coordonnees": [
+                    0.341796875,
+                    0.677734375
+                ],
+                "type": "bifurcation",
+                "orientation": -1.2461742162704468
+            },
+            {
+                "coordonnees": [
+                    0.861328125,
+                    0.68359375
+                ],
+                "type": "ending",
+                "orientation": 0.9644012451171875
+            },
+            {
+                "coordonnees": [
+                    0.306640625,
+                    0.685546875
+                ],
+                "type": "ending",
+                "orientation": -1.204085111618042
+            },
+            {
+                "coordonnees": [
+                    0.9375,
+                    0.6875
+                ],
+                "type": "ending",
+                "orientation": 0.7548401951789856
+            },
+            {
+                "coordonnees": [
+                    0.923828125,
+                    0.69140625
+                ],
+                "type": "ending",
+                "orientation": 0.7548401951789856
+            },
+            {
+                "coordonnees": [
+                    0.294921875,
+                    0.693359375
+                ],
+                "type": "ending",
+                "orientation": -1.204085111618042
+            },
+            {
+                "coordonnees": [
+                    0.474609375,
+                    0.703125
+                ],
+                "type": "ending",
+                "orientation": -1.4327661991119385
+            },
+            {
+                "coordonnees": [
+                    0.287109375,
+                    0.708984375
+                ],
+                "type": "ending",
+                "orientation": -1.0950478315353394
+            },
+            {
+                "coordonnees": [
+                    0.482421875,
+                    0.712890625
+                ],
+                "type": "ending",
+                "orientation": -1.4327661991119385
+            },
+            {
+                "coordonnees": [
+                    0.263671875,
+                    0.720703125
+                ],
+                "type": "ending",
+                "orientation": -1.0950478315353394
+            },
+            {
+                "coordonnees": [
+                    0.3359375,
+                    0.724609375
+                ],
+                "type": "ending",
+                "orientation": -1.2710118293762207
+            },
+            {
+                "coordonnees": [
+                    0.705078125,
+                    0.7265625
+                ],
+                "type": "bifurcation",
+                "orientation": 1.2931305170059204
+            },
+            {
+                "coordonnees": [
+                    0.484375,
+                    0.728515625
+                ],
+                "type": "ending",
+                "orientation": -1.4327661991119385
+            },
+            {
+                "coordonnees": [
+                    0.46875,
+                    0.734375
+                ],
+                "type": "ending",
+                "orientation": -1.4327661991119385
+            },
+            {
+                "coordonnees": [
+                    0.28125,
+                    0.748046875
+                ],
+                "type": "ending",
+                "orientation": -1.0716018676757812
+            },
+            {
+                "coordonnees": [
+                    0.44140625,
+                    0.751953125
+                ],
+                "type": "bifurcation",
+                "orientation": -1.3355927467346191
+            },
+            {
+                "coordonnees": [
+                    0.470703125,
+                    0.751953125
+                ],
+                "type": "ending",
+                "orientation": -1.4063817262649536
+            },
+            {
+                "coordonnees": [
+                    0.697265625,
+                    0.7578125
+                ],
+                "type": "bifurcation",
+                "orientation": 1.3549000024795532
+            },
+            {
+                "coordonnees": [
+                    0.4453125,
+                    0.779296875
+                ],
+                "type": "bifurcation",
+                "orientation": -1.335974097251892
+            },
+            {
+                "coordonnees": [
+                    0.365234375,
+                    0.783203125
+                ],
+                "type": "ending",
+                "orientation": -1.3194001913070679
+            },
+            {
+                "coordonnees": [
+                    0.462890625,
+                    0.7890625
+                ],
+                "type": "ending",
+                "orientation": -1.3867729902267456
+            },
+            {
+                "coordonnees": [
+                    0.40234375,
+                    0.796875
+                ],
+                "type": "ending",
+                "orientation": -1.2940325736999512
+            },
+            {
+                "coordonnees": [
+                    0.369140625,
+                    0.8046875
+                ],
+                "type": "ending",
+                "orientation": -1.3194001913070679
+            },
+            {
+                "coordonnees": [
+                    0.744140625,
+                    0.8046875
+                ],
+                "type": "bifurcation",
+                "orientation": 1.3298990726470947
+            },
+            {
+                "coordonnees": [
+                    0.5703125,
+                    0.80859375
+                ],
+                "type": "bifurcation",
+                "orientation": -1.4848190546035767
+            },
+            {
+                "coordonnees": [
+                    0.693359375,
+                    0.80859375
+                ],
+                "type": "bifurcation",
+                "orientation": 1.4551304578781128
+            },
+            {
+                "coordonnees": [
+                    0.412109375,
+                    0.8203125
+                ],
+                "type": "bifurcation",
+                "orientation": -1.2826261520385742
+            },
+            {
+                "coordonnees": [
+                    0.693359375,
+                    0.822265625
+                ],
+                "type": "ending",
+                "orientation": 1.4551304578781128
+            },
+            {
+                "coordonnees": [
+                    0.7578125,
+                    0.830078125
+                ],
+                "type": "bifurcation",
+                "orientation": 1.2048382759094238
+            },
+            {
+                "coordonnees": [
+                    0.30859375,
+                    0.833984375
+                ],
+                "type": "ending",
+                "orientation": -1.1776951551437378
+            },
+            {
+                "coordonnees": [
+                    0.7265625,
+                    0.837890625
+                ],
+                "type": "bifurcation",
+                "orientation": 1.351681113243103
+            },
+            {
+                "coordonnees": [
+                    0.3984375,
+                    0.83984375
+                ],
+                "type": "ending",
+                "orientation": -1.2826261520385742
+            },
+            {
+                "coordonnees": [
+                    0.66015625,
+                    0.849609375
+                ],
+                "type": "ending",
+                "orientation": -1.5273844003677368
+            },
+            {
+                "coordonnees": [
+                    0.462890625,
+                    0.8515625
+                ],
+                "type": "ending",
+                "orientation": -1.3380848169326782
+            },
+            {
+                "coordonnees": [
+                    0.50390625,
+                    0.861328125
+                ],
+                "type": "ending",
+                "orientation": -1.389488697052002
+            },
+            {
+                "coordonnees": [
+                    0.634765625,
+                    0.86328125
+                ],
+                "type": "bifurcation",
+                "orientation": -1.5273844003677368
+            },
+            {
+                "coordonnees": [
+                    0.54296875,
+                    0.8671875
+                ],
+                "type": "ending",
+                "orientation": -1.415862798690796
+            },
+            {
+                "coordonnees": [
+                    0.6015625,
+                    0.8671875
+                ],
+                "type": "bifurcation",
+                "orientation": -1.476771354675293
+            },
+            {
+                "coordonnees": [
+                    0.5546875,
+                    0.869140625
+                ],
+                "type": "ending",
+                "orientation": -1.415862798690796
+            },
+            {
+                "coordonnees": [
+                    0.58984375,
+                    0.869140625
+                ],
+                "type": "bifurcation",
+                "orientation": -1.476771354675293
+            },
+            {
+                "coordonnees": [
+                    0.46875,
+                    0.876953125
+                ],
+                "type": "bifurcation",
+                "orientation": -1.3380848169326782
+            },
+            {
+                "coordonnees": [
+                    0.50390625,
+                    0.87890625
+                ],
+                "type": "ending",
+                "orientation": -1.3519400358200073
+            },
+            {
+                "coordonnees": [
+                    0.48828125,
+                    0.8828125
+                ],
+                "type": "bifurcation",
+                "orientation": -1.3257421255111694
+            },
+            {
+                "coordonnees": [
+                    0.38671875,
+                    0.88671875
+                ],
+                "type": "bifurcation",
+                "orientation": -1.2755942344665527
+            },
+            {
+                "coordonnees": [
+                    0.451171875,
+                    0.900390625
+                ],
+                "type": "bifurcation",
+                "orientation": -1.3397680521011353
+            },
+            {
+                "coordonnees": [
+                    0.474609375,
+                    0.91015625
+                ],
+                "type": "ending",
+                "orientation": -1.3257421255111694
+            },
+            {
+                "coordonnees": [
+                    0.521484375,
+                    0.916015625
+                ],
+                "type": "ending",
+                "orientation": -1.351300597190857
+            },
+            {
+                "coordonnees": [
+                    0.43359375,
+                    0.91796875
+                ],
+                "type": "bifurcation",
+                "orientation": -1.3549309968948364
+            },
+            {
+                "coordonnees": [
+                    0.5078125,
+                    0.9296875
+                ],
+                "type": "ending",
+                "orientation": -1.351300597190857
+            },
+            {
+                "coordonnees": [
+                    0.51953125,
+                    0.94140625
+                ],
+                "type": "ending",
+                "orientation": -1.351300597190857
+            },
+            {
+                "coordonnees": [
+                    0.513671875,
+                    0.953125
+                ],
+                "type": "bifurcation",
+                "orientation": -1.3427690267562866
+            },
+            {
+                "coordonnees": [
+                    0.447265625,
+                    0.96484375
+                ],
+                "type": "ending",
+                "orientation": -1.3387943506240845
+            },
+            {
+                "coordonnees": [
+                    0.494140625,
+                    0.974609375
+                ],
+                "type": "ending",
+                "orientation": -1.3183598518371582
+            }
+        ]
     }
 ]

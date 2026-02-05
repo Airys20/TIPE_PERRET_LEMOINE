@@ -4,8 +4,8 @@ import os
 import cv2
 import math
 
-from pretraitement import pretraitements
-from find_minutiae import find_minuatiae
+from pretraitement import pretraitements 
+from find_minutiae2 import find_minuatiae 
 from orientation import main_orientation 
 # methode pour acceder a utile ??
 parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
@@ -17,7 +17,7 @@ from json_utils import ajouter_personne
 #REGLAGES 
 NOM = 'Elise'
 BASE = "base.json"
-FILENAME='C:/Users/Elise/Downloads/empreinte_overlined.jpeg' #lien ou tu mets l'img a tester
+FILENAME='C:/Users/Elise/Downloads/empreinte_moche.jpg' #lien ou tu mets l'img a tester
 output_filename = 'minutiae_detection/passage_main/' + NOM + '_output_minutiae.jpg' #lien ou tu stocke l'img superposée des minuties
 
 
