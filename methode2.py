@@ -10,8 +10,8 @@ def angle_diff_biom(theta1, theta2):
     d = abs(wrap_angle(theta1 - theta2))
     return min(d, abs(d - np.pi))
 
-SPATIAL_TOL = 1
-ANGLE_TOL = 0.05
+SPATIAL_TOL = 0.5
+ANGLE_TOL = 0.3
 
 ''' *************************************** NEIGHBORS *************************************** '''
 
@@ -130,10 +130,10 @@ def matching_score(minutiae_catalogue,paired):
 
 ''' *************************************** MATCHING GLOBAL *************************************** '''
 
-MIN_REF = 30
-NB_NGHBR = 15
+MIN_REF = 15
+NB_NGHBR = 20
 LIM_THETA = 0.3
-
+LIM_ERREUR_DIST = 550 #550
 def global_matching_reference(data_catalogue,data_recherche):
 
     with open(data_catalogue,"r") as f: 
@@ -177,11 +177,15 @@ def global_matching_reference(data_catalogue,data_recherche):
                 ngh_r = neighbors(M_recherche, NB_NGHBR, i)
                 ngh_c = neighbors(M_catalogue, NB_NGHBR, j)
 
-                d_err = abs(len(ngh_r) - len(ngh_c))
-                a_err = angle_diff_biom(M_recherche[i][2], M_catalogue[j][2])
-                err = d_err + a_err
+                d_err = abs(len(ngh_r) - len(ngh_c)) #PROBLèME 
+                if len(ngh_c) != len(ngh_r) :
+                    continue
+                
+                dist = 0 
+                for t in range (len(ngh_c)):
+                    dist = dist + abs(ngh_c[t] - ngh_r[t])
 
-                if i not in used_r and j not in used_c:
+                if i not in used_r and j not in used_c and dist<LIM_ERREUR_DIST:
                     ref_r.append(M_recherche[i][:2])
                     ref_c.append(M_catalogue[j][:2])
                     used_r.add(i)

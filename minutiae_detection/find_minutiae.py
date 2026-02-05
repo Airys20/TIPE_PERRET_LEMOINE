@@ -3,6 +3,37 @@ import numpy as np
 import matplotlib.pyplot as plt
 import math
 
+
+def filtrer_minuties_proches_bord(minuties, mask01, marge_px=12, img_size=512):
+    """
+    Supprime les minuties trop proches du bord de la ROI (mask01).
+    marge_px : distance minimale (en pixels) au bord du masque.
+    """
+    if mask01 is None:
+        return minuties  # rien à faire
+
+    # cv2.distanceTransform attend une image 8-bit avec 0=background, >0=foreground
+    mask_u8 = (mask01.astype(np.uint8) * 255)
+
+    # Distance (en pixels) au plus proche pixel 0 (donc au bord du masque)
+    dist = cv2.distanceTransform(mask_u8, distanceType=cv2.DIST_L2, maskSize=3)
+
+    keep = []
+    for m in minuties:
+        (x_n, y_n) = m[0]
+        x = int(round(x_n * (img_size - 1)))
+        y = int(round(y_n * (img_size - 1)))
+
+        # si hors masque ou trop près du bord -> on enlève
+        if mask01[y, x] == 0:
+            continue
+        if dist[y, x] < marge_px:
+            continue
+
+        keep.append(m)
+
+    return keep
+
 def find_minuatiae(filename, output_filename, mask_filename=None, mask=None):
 
     def find(squelette, mask01=None, sigma=0.5):
@@ -124,25 +155,24 @@ def find_minuatiae(filename, output_filename, mask_filename=None, mask=None):
 
 
 
-    def filtrer_minuties_trop_proches(minuties, min_dist_px=16, img_size=512):
+    def filtrer_minuties_trop_proches(minuties,  min_dist_px=20, img_size=512):
         """
-        minuties: liste de minuties au format:
-            [[x_n, y_n], typ, orient]  OU [[x_n, y_n], typ, orient, ...]
-        min_dist_px: distance minimale (en pixels) entre 2 minuties conservées
-        img_size: taille de travail (512 si coords normalisées sur 512x512)
+        liste minut: [[x_n, y_n], typ, orient]  OU [[x_n, y_n], typ, orient, ]
+        min_dist_px: distance min en px entre 2 minut (seuil avant enlever)
+        
 
-        Retour: liste filtrée, même format que l'entrée
+        renvoie: liste sans doublons
         """
-        # convertit en (x_px, y_px, minutie_originale)
+        # convertit en (x_px, y_px) -> on retrouve les coord init
         pts = []
         for m in minuties:
             (x_n, y_n) = m[0]
-            x = int(round(x_n * (img_size - 1)))
-            y = int(round(y_n * (img_size - 1)))
+            x= int(round(x_n *(img_size- 1)))
+            y =int(round(y_n *(img_size- 1)))
             pts.append((x, y, m))
 
-        # petite astuce: trier pour avoir un résultat déterministe
-        pts.sort(key=lambda t: (t[1], t[0]))  # y puis x
+        
+        #pts.sort(key=lambda t: (t[1], t[0]))  # y puis x
 
         keep = []
         keep_xy = []
@@ -150,7 +180,7 @@ def find_minuatiae(filename, output_filename, mask_filename=None, mask=None):
 
         for x, y, m in pts:
             ok = True
-            # on compare aux points déjà gardés (O(n^2) mais OK si pas énorme)
+            # on compare aux points déjà gardés complexité ignoble mais OK si pas trop)
             for (xk, yk) in keep_xy:
                 dx = x - xk
                 dy = y - yk
@@ -164,7 +194,7 @@ def find_minuatiae(filename, output_filename, mask_filename=None, mask=None):
         return keep
 
     minutt = filtrer_minuties_trop_proches(minutiae, min_dist_px=6, img_size=512)
-
+    minutt = filtrer_minuties_proches_bord(minutt, mask01, marge_px=12, img_size=512)
     # passe en couleur pour dessin des ronds
     color_image = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)
 
