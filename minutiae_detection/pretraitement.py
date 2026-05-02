@@ -215,7 +215,9 @@ def pretraitements(filename):
     #   entrées : tab_normal (image), O_bloque (orientations), masque
     #   sortie  : enhanced  (même taille, même type uint8)
     # ----------------------------------------------------------
-    enhanced = gabor_enhance(tab_normal, O_bloque, masque, w=W_BLOCK)
+    
+    
+    #enhanced = gabor_enhance(tab_normal, O_bloque, masque, w=W_BLOCK)
 
     # ----------------------------------------------------------
     # ETAPE 6 : CLAHE (contraste adaptatif)
@@ -234,7 +236,7 @@ def pretraitements(filename):
     paramètre : clipLimit=2.5 : Limite le renforcement du contraste
     tileGridSize=(8, 8) : découpe img en zones  de 8x8 blocs 
     '''
-    contrast = clahe.apply(enhanced) #applique le contraste 
+    contrast = clahe.apply(tab_normal) #applique le contraste 
 
     #lisser
     filtered = cv2.bilateralFilter(contrast, 5, 100, 125) #lisse img mais garde contours
@@ -293,7 +295,7 @@ def pretraitements(filename):
     plt.axis('off')
 
     plt.subplot(1, 4, 2)
-    plt.imshow(enhanced, cmap='gray')   # ← nouveau panneau : résultat Gabor
+    #plt.imshow(enhanced, cmap='gray')   # ← nouveau panneau : résultat Gabor
     plt.title("après Gabor")
     plt.axis('off')
 
