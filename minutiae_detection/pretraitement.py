@@ -180,8 +180,52 @@ def pretraitements(filename):
 
     #TRANSFORMATION DE L'IMAGE
 
-    
+    # ETAPE 2 : normalisation  ← AVANT TOUT LE RESTE
+    #   (dans l'article c'est la toute première étape du pipeline)
+    #   avant : cette étape était faite à la fin juste pour le masque,
+    #           maintenant elle sert de base à toute la chaîne
+    # ----------------------------------------------------------
+    tab_normal = normalise_fun(image)
+    # ----------------------------------------------------------
+    # ETAPE 3 : masque ROI
+    #   avant : calculé à la fin, après la squelettisation
+    #           → le Gabor n'y avait pas accès
+    #   maintenant : calculé ici pour être disponible pour Gabor
+    # ----------------------------------------------------------
+    masque = masque_fun_v3(tab_normal)
+    cv2.imwrite('minutiae_detection/masque/masque.png', masque)
+
+    # ----------------------------------------------------------
+    # ETAPE 4 : orientation locale
+    #   avant : orientation.py était appelé séparément dans main_find.py
+    #           puis O_bloque était chargé depuis un .npy
+    #   maintenant : on appelle fun_orientation directement ici
+    #           pour que le Gabor puisse l'utiliser dans la même fonction
+    # ----------------------------------------------------------
+    #   W_BLOCK=16 doit correspondre à ce qu'utilise orientation.py
+    W_BLOCK = 16
+    O_bloque = fun_orientation(tab_normal, masque=masque, w=W_BLOCK)
+    np.save('minutiae_detection/output_orientation/O_bloque.npy', O_bloque)
+    #   [ ] on sauvegarde quand même le .npy pour que main_find.py
+    #       puisse encore le recharger comme avant (pas de changement à faire là-bas)
+ # ----------------------------------------------------------
+    # ETAPE 5 : filtre de Gabor  ← NOUVEAU
+    #   on améliore l'image normalisée AVANT la binarisation
+    #   le Gabor renforce les crêtes et supprime le bruit orienté
+    #   entrées : tab_normal (image), O_bloque (orientations), masque
+    #   sortie  : enhanced  (même taille, même type uint8)
+    # ----------------------------------------------------------
+    enhanced = gabor_enhance(tab_normal, O_bloque, masque, w=W_BLOCK)
+
+    # ----------------------------------------------------------
+    # ETAPE 6 : CLAHE (contraste adaptatif)
+    #   avant : appliqué sur `image` (brute)
+    #   maintenant : appliqué sur `enhanced` (déjà améliorée par Gabor)
+    #   les deux se complètent : Gabor améliore la structure,
+    #   CLAHE améliore le contraste local résiduel
+    # ----------------------------------------------------------
     #contraste
+
     clahe = cv2.createCLAHE(clipLimit=2.5, tileGridSize=(8, 8))
 
     '''
@@ -190,7 +234,7 @@ def pretraitements(filename):
     paramètre : clipLimit=2.5 : Limite le renforcement du contraste
     tileGridSize=(8, 8) : découpe img en zones  de 8x8 blocs 
     '''
-    contrast = clahe.apply(image) #applique le contraste 
+    contrast = clahe.apply(enhanced) #applique le contraste 
 
     #lisser
     filtered = cv2.bilateralFilter(contrast, 5, 100, 125) #lisse img mais garde contours
@@ -241,31 +285,29 @@ def pretraitements(filename):
     #CREATION DU MASQUE 
     
     
-    gray = niv_de_gris(filename)
-    image = cv2.resize(gray, (512, 512))
-    tab_normal = normalise_fun(image)
+   
     
-
-    masque = masque_fun_v3(tab_normal)
-    cv2.imwrite('minutiae_detection/masque/masque.png',masque)
-    
-    #compte rendu
-    plt.figure(figsize=(12, 4))
-    plt.subplot(1, 3, 1)
+    plt.subplot(1, 4, 1)
     plt.imshow(image, cmap='gray')
     plt.title("originale")
     plt.axis('off')
 
-    plt.subplot(1, 3, 2)
+    plt.subplot(1, 4, 2)
+    plt.imshow(enhanced, cmap='gray')   # ← nouveau panneau : résultat Gabor
+    plt.title("après Gabor")
+    plt.axis('off')
+
+    plt.subplot(1, 4, 3)
     plt.imshow(morph, cmap='gray')
     plt.title("après clean")
     plt.axis('off')
 
-    plt.subplot(1, 3, 3)
+    plt.subplot(1, 4, 4)
     plt.imshow(inverted, cmap='gray')
     plt.title("squelette")
     plt.axis('off')
 
-    plt.tight_layout() #pour que tout soit bien sur l'img
+    plt.tight_layout()
     plt.show()
+
     return output_filename
