@@ -1,0 +1,199 @@
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+from skimage.morphology import skeletonize
+from scipy.ndimage import binary_opening
+from skimage.measure import label, regionprops
+import os
+
+from gabor import gabor_enhance           # [ ] gabor.py doit etre dans le meme dossier
+from orientation import fun_orientation   # [ ] on reutilise la fonction deja ecrite
+
+
+# ============================================================
+#  Fonctions utilitaires (inchangées)
+# ============================================================
+
+def niv_de_gris(path):
+    img_nivgris = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
+    if img_nivgris is not None:
+        return img_nivgris
+
+
+def normalise_fun(img_grise, M0=100.0, VAR0=100.0):
+    I = img_grise.astype(np.float64)
+    if I.max() <= 1.0:
+        I *= 255.0
+    M = I.mean()
+    VAR = I.var()
+    if VAR < 1e-9:
+        G = np.full_like(I, fill_value=M0, dtype=np.float64)
+    else:
+        d = I - M
+        ajustement = np.sqrt((VAR0 * (d ** 2)) / VAR)
+        G = np.where(I > M, M0 + ajustement, M0 - ajustement)
+    return np.clip(G, 0, 255).astype(np.uint8)
+
+
+def fill_holes_safe(binary255):
+    m = binary255.copy()
+    h, w = m.shape
+    m[0, :] = 0
+    m[-1, :] = 0
+    m[:, 0] = 0
+    m[:, -1] = 0
+    flood = m.copy()
+    mask_ff = np.zeros((h + 2, w + 2), np.uint8)
+    cv2.floodFill(flood, mask_ff, (0, 0), 255)
+    holes = cv2.bitwise_not(flood)
+    filled = cv2.bitwise_or(m, holes)
+    return filled
+
+
+def masque_fun_v3(img_grise, debug=False):
+    flou_gros = cv2.GaussianBlur(img_grise, (0, 0), 25.0)
+    thr, mask = cv2.threshold(flou_gros, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+    corners = np.array([mask[0, 0], mask[0, -1], mask[-1, 0], mask[-1, -1]])
+    if np.mean(corners) > 127:
+        mask = 255 - mask
+    kclose = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (41, 41))
+    mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kclose, iterations=2)
+    num, lbl, stats, _ = cv2.connectedComponentsWithStats((mask > 0).astype(np.uint8), 8)
+    if num > 1:
+        largest = 1 + np.argmax(stats[1:, cv2.CC_STAT_AREA])
+        mask = (lbl == largest).astype(np.uint8) * 255
+    mask = fill_holes_safe(mask)
+    kdil = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (11, 11))
+    mask = cv2.dilate(mask, kdil, iterations=1)
+    kopen = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (9, 9))
+    mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, kopen, iterations=1)
+    return mask
+
+
+# ============================================================
+#  Fonction principale
+# ============================================================
+
+def pretraitements(filename):
+
+    # [ ] a changer avec str_modif(filename, _pretraitement)
+    output_filename = 'minutiae_detection/pretraitees/empreinte_pretraitee.jpg'
+
+    # ----------------------------------------------------------
+    # ETAPE 1 : lecture + resize
+    # ----------------------------------------------------------
+    image = cv2.imread(filename, cv2.IMREAD_GRAYSCALE)
+    image = cv2.resize(image, (512, 512))
+
+    # ----------------------------------------------------------
+    # ETAPE 2 : normalisation  ← AVANT TOUT LE RESTE
+    #   (dans l'article c'est la toute première étape du pipeline)
+    #   avant : cette étape était faite à la fin juste pour le masque,
+    #           maintenant elle sert de base à toute la chaîne
+    # ----------------------------------------------------------
+    tab_normal = normalise_fun(image)
+
+    # ----------------------------------------------------------
+    # ETAPE 3 : masque ROI
+    #   avant : calculé à la fin, après la squelettisation
+    #           → le Gabor n'y avait pas accès
+    #   maintenant : calculé ici pour être disponible pour Gabor
+    # ----------------------------------------------------------
+    masque = masque_fun_v3(tab_normal)
+    cv2.imwrite('minutiae_detection/masque/masque.png', masque)
+
+    # ----------------------------------------------------------
+    # ETAPE 4 : orientation locale
+    #   avant : orientation.py était appelé séparément dans main_find.py
+    #           puis O_bloque était chargé depuis un .npy
+    #   maintenant : on appelle fun_orientation directement ici
+    #           pour que le Gabor puisse l'utiliser dans la même fonction
+    # ----------------------------------------------------------
+    #   W_BLOCK=16 doit correspondre à ce qu'utilise orientation.py
+    W_BLOCK = 16
+    O_bloque = fun_orientation(tab_normal, masque=masque, w=W_BLOCK)
+    np.save('minutiae_detection/output_orientation/O_bloque.npy', O_bloque)
+    #   [ ] on sauvegarde quand même le .npy pour que main_find.py
+    #       puisse encore le recharger comme avant (pas de changement à faire là-bas)
+
+    # ----------------------------------------------------------
+    # ETAPE 5 : filtre de Gabor  ← NOUVEAU
+    #   on améliore l'image normalisée AVANT la binarisation
+    #   le Gabor renforce les crêtes et supprime le bruit orienté
+    #   entrées : tab_normal (image), O_bloque (orientations), masque
+    #   sortie  : enhanced  (même taille, même type uint8)
+    # ----------------------------------------------------------
+    enhanced = gabor_enhance(tab_normal, O_bloque, masque, w=W_BLOCK)
+
+    # ----------------------------------------------------------
+    # ETAPE 6 : CLAHE (contraste adaptatif)
+    #   avant : appliqué sur `image` (brute)
+    #   maintenant : appliqué sur `enhanced` (déjà améliorée par Gabor)
+    #   les deux se complètent : Gabor améliore la structure,
+    #   CLAHE améliore le contraste local résiduel
+    # ----------------------------------------------------------
+    clahe = cv2.createCLAHE(clipLimit=2.5, tileGridSize=(8, 8))
+    contrast = clahe.apply(enhanced)     # ← `enhanced` remplace `image`
+
+    # ----------------------------------------------------------
+    # ETAPE 7 : lissage bilatéral (inchangé)
+    # ----------------------------------------------------------
+    filtered = cv2.bilateralFilter(contrast, 5, 100, 125)
+
+    # ----------------------------------------------------------
+    # ETAPE 8 : binarisation adaptative (inchangée)
+    # ----------------------------------------------------------
+    binary = cv2.adaptiveThreshold(
+        filtered, 255,
+        cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
+        cv2.THRESH_BINARY_INV,
+        blockSize=21, C=10
+    )
+
+    # ----------------------------------------------------------
+    # ETAPE 9 : morphologie + nettoyage (inchangé)
+    # ----------------------------------------------------------
+    morph = cv2.morphologyEx(binary, cv2.MORPH_OPEN,  np.ones((3, 3), np.uint8))
+    morph = cv2.morphologyEx(morph,  cv2.MORPH_CLOSE, np.ones((3, 3), np.uint8))
+    morph_bin = (morph > 0).astype(np.uint8)
+    cleaned = binary_opening(morph_bin, structure=np.ones((3, 3)))
+
+    # ----------------------------------------------------------
+    # ETAPE 10 : squelettisation (inchangée)
+    # ----------------------------------------------------------
+    skeleton = skeletonize(cleaned)
+    skeleton_img = (skeleton * 255).astype(np.uint8)
+    inverted = cv2.bitwise_not(skeleton_img)
+
+    cv2.imwrite(output_filename, inverted)
+    print("Image prétraitée enregistrée")
+
+    # ----------------------------------------------------------
+    # Affichage (inchangé, juste un panneau de plus pour Gabor)
+    # ----------------------------------------------------------
+    plt.figure(figsize=(16, 4))
+
+    plt.subplot(1, 4, 1)
+    plt.imshow(image, cmap='gray')
+    plt.title("originale")
+    plt.axis('off')
+
+    plt.subplot(1, 4, 2)
+    plt.imshow(enhanced, cmap='gray')   # ← nouveau panneau : résultat Gabor
+    plt.title("après Gabor")
+    plt.axis('off')
+
+    plt.subplot(1, 4, 3)
+    plt.imshow(morph, cmap='gray')
+    plt.title("après clean")
+    plt.axis('off')
+
+    plt.subplot(1, 4, 4)
+    plt.imshow(inverted, cmap='gray')
+    plt.title("squelette")
+    plt.axis('off')
+
+    plt.tight_layout()
+    plt.show()
+
+    return output_filename

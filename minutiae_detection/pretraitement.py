@@ -6,7 +6,8 @@ from scipy.ndimage import binary_opening #supprime bruit
                                          #lisse les bords
                                          #ne touche pas ce qui esr bien formé
 from skimage.measure import label, regionprops
-
+from gabor import gabor_enhance # [ ] gabor.py doit etre dans le meme dossier
+from orientation import fun_orientation  
 import os
 
 
@@ -72,92 +73,8 @@ def normalise_fun(img_grise, M0=100.0, VAR0=100.0):
 
 #. isolement empreinte (pas dans article mais bug sur orientation sinon)
 
-"""
-on veut crree un masque binaire pour isoler empreintre :
-0= masque
-255= empreinte
-"""
-def masque_fun(img_grise):
-    flou = cv2.GaussianBlur(img_grise, (0,0), 3.0) 
-    _, mask = cv2.threshold(flou, 0, 255, cv2.THRESH_BINARY+cv2.THRESH_OTSU) #treshold avec valeur optimal deduite par l'algo renvoi val , masque 
-    #on veut le masque en blanc ?
-    if np.sum(mask==255) > np.sum(mask==0): #si + de noir que de blanc
-        mask = 255 - mask #on inv
-    k = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (15,15))  #COMMENT :⚠️si trop aggressif baissé ou augmenter la taille (memo 15 ok la plupart du temps)
-    mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, k) #enleve petits trous
-    mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN,  k) #supprime petits points
 
 
-    #PARTIE TROUVER DANS UN ARTICLE, marche mais jsp comment 
-    num,lbl,stats,_ = cv2.connectedComponentsWithStats((mask>0).astype(np.uint8), 8)
-    if num > 1:
-        largest = 1 + np.argmax(stats[1:, cv2.CC_STAT_AREA])
-        mask = (lbl==largest).astype(np.uint8)*255
-    
-
-
-    mask = cv2.erode(mask, cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(5,5)), 1) #lisse le tour
-    return mask
-
-
-import numpy as np
-import cv2
-
-def fill_holes(binary255):
-    """
-    Remplit les trous à l'intérieur d'un masque binaire 0/255.
-    """
-    h, w = binary255.shape
-    flood = binary255.copy()
-    mask_ff = np.zeros((h+2, w+2), np.uint8)
-
-    # floodfill depuis le bord (0,0) supposé être du fond
-    cv2.floodFill(flood, mask_ff, (0, 0), 255)
-
-    # les trous = pixels restés à 0 dans flood
-    holes = cv2.bitwise_not(flood)
-    filled = cv2.bitwise_or(binary255, holes)
-    return filled
-
-
-def masque_fun_v2(img_grise):
-    """
-    Masque ROI doigt (0 fond, 255 empreinte) robuste.
-    """
-    # 1) flou TRÈS fort pour supprimer les crêtes (ne garder que la "forme")
-    # -> ajuste sigma selon taille image (ici ça marche bien sur ~1000px)
-    flou_gros = cv2.GaussianBlur(img_grise, (0, 0), 25.0)
-
-    # 2) Otsu sur image très lissée
-    _, mask = cv2.threshold(flou_gros, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
-
-    # 3) forcer la zone doigt en blanc (255)
-    # (on veut que le fond majoritaire soit noir)
-    if np.sum(mask == 255) > np.sum(mask == 0):
-        mask = 255 - mask
-
-    # 4) fermeture morpho GRANDE pour coller et boucher les trous
-    kclose = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (41, 41))
-    mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kclose, iterations=2)
-
-    # 5) garder la plus grande composante connexe
-    num, lbl, stats, _ = cv2.connectedComponentsWithStats((mask > 0).astype(np.uint8), 8)
-    if num > 1:
-        largest = 1 + np.argmax(stats[1:, cv2.CC_STAT_AREA])
-        mask = ((lbl == largest).astype(np.uint8) * 255)
-
-    # 6) remplir les trous internes (important)
-    mask = fill_holes(mask)
-
-    # 7) dé-sélectiver un peu : dilatation légère + lissage bord
-    kdil = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (15, 15))
-    mask = cv2.dilate(mask, kdil, iterations=1)
-
-    # 8) optionnel: petit open pour lisser les bords
-    kopen = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (9, 9))
-    mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, kopen, iterations=1)
-
-    return mask
 
 def fill_holes_safe(binary255):
     """
@@ -244,11 +161,9 @@ def masque_fun_v3(img_grise, debug=False):
 
     return mask
 
+
+
 #. code principal
-
-
-
-
 
 def pretraitements(filename):
 
@@ -265,6 +180,7 @@ def pretraitements(filename):
 
     #TRANSFORMATION DE L'IMAGE
 
+    
     #contraste
     clahe = cv2.createCLAHE(clipLimit=2.5, tileGridSize=(8, 8))
 
