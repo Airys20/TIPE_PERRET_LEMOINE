@@ -17,7 +17,7 @@ from json_utils import ajouter_personne
 #REGLAGES 
 NOM = 'Syria'
 BASE = "recherche.json"
-FILENAME='minutiae_detection\input\\Syria2.jpg' #lien ou tu mets l'img a tester
+FILENAME='minutiae_detection\input\\Syria3.jpeg' #lien ou tu mets l'img a tester
 output_filename = 'minutiae_detection/passage_main/' + NOM + '_output_minutiae.jpg' #lien ou tu stocke l'img superposée des minuties
 
 
