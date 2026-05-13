@@ -219,7 +219,7 @@ def find_minuatiae(filename, output_filename, mask_filename=None, mask=None):
 
         # rond
         
-        cv2.circle(color_image, (x, y), 1, color, 1)
+        cv2.circle(color_image, (x, y), 3, color, 1)
     '''
         # trait orientartion
         lx = int(round(x + dx * 6)) #calc point arrivée trait orient. apres 6px

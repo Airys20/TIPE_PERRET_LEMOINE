@@ -5,14 +5,8 @@ from skimage.morphology import skeletonize
 from scipy.ndimage import binary_opening #supprime bruit
                                          #lisse les bords
                                          #ne touche pas ce qui esr bien formé
-from skimage.measure import label, regionprops
-from gabor import gabor_enhance # [ ] gabor.py doit etre dans le meme dossier
+
 from orientation import fun_orientation  
-import os
-
-
-
-#[x] faire en sorte que ça renvoie tableau avec les coordonnées 
 
 
 #. Pretraitement de base
@@ -21,12 +15,12 @@ import os
 def niv_de_gris(path):
 
     img_nivgris = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
-    #img_resize = cv2.resize(img_nivgris, (512, 512))  # resize pr meilleur "generalisation" <- pas forcement le bon mot
     if img_nivgris  is not None: 
         return img_nivgris
 
+
 """
-Le but de normilise est d'imposer une moyenne et variance a atteindre ici M0 et VAR0 
+normilise :imposer  moyenne et variance a atteindre ici M0 et VAR0 
 
 formule que l'on veut traduire  (cf article)
 $$
@@ -46,8 +40,6 @@ VAR = \dfrac{1}{N} \sum_{i,j} \bigl(I(i,j) - M\bigr)^2
 $$
 """
 
-
-
 def normalise_fun(img_grise, M0=100.0, VAR0=100.0):
 
     I = img_grise.astype(np.float64) #passe l'image en TABLEAU de la val de chaque pixel 
@@ -62,53 +54,51 @@ def normalise_fun(img_grise, M0=100.0, VAR0=100.0):
         G = np.full_like(I, fill_value=M0, dtype=np.float64)  
     else:
         
-
         d = I - M
-        ajustement = np.sqrt((VAR0 * (d**2)) / VAR) #=TABLEAU des parties sous la racine pour chaque pixel
-        #(on conserve le signe p/r a la moyenne mais si + que M on le rend + que M0 et inv)
-        G = np.where(I>M, M0+ ajustement, M0 - ajustement ) #CREER un nouv TABLEAU et rempli selon condition : np.where(condition, si sup a la moyenne, si inf a la moy)
+        ajustement = np.sqrt((VAR0 * (d**2)) / VAR) #pour chaque pixel : écart normalisé 
+        #conserve l'amplitude relative p/r à la moyenne, mais à échelle de la variance cible VAR0
+
+        G = np.where(I>M, M0+ ajustement, M0 - ajustement ) 
+        # construit img normalisée pixel par pixel :
+        #   plus clair que M  → M0 + ajustement (reste au-dessus de M0)
+        #   plus sombre que M → M0 - ajustement (reste en-dessous de M0)
+        #-> signe conservé, amplitude remise à échelle vers VAR0
     return np.clip(G, 0, 255).astype(np.uint8) #recadre entre [0,255 ] et repasse format uint8 ⚠️sinon bug
 
 
 
-#. isolement empreinte (pas dans article mais bug sur orientation sinon)
-
-
-
-
-def fill_holes_safe(binary255):
+def fill_holes_safe(binary255): 
     """
-    Remplit les trous d'un masque 0/255 de manière robuste.
-    Astuce : on force une bordure noire pour garantir que le fond est connecté au bord.
+     remplis les trous du masque pour qu'il soit uniforme 
     """
     m = binary255.copy()
     h, w = m.shape
 
-    # force une bordure noire (très important)
+    # force bordure noire pour que floodfill démarre dans le fond
     m[0, :] = 0
     m[-1, :] = 0
     m[:, 0] = 0
     m[:, -1] = 0
 
     flood = m.copy()
-    mask_ff = np.zeros((h + 2, w + 2), np.uint8)
+    mask_ff = np.zeros((h + 2, w + 2), np.uint8) #zone de "coloriage"
 
     # floodfill depuis (0,0) qui est maintenant garanti fond (0)
     cv2.floodFill(flood, mask_ff, (0, 0), 255)
 
     # trous = zones non atteintes par floodfill
-    holes = cv2.bitwise_not(flood)
-    filled = cv2.bitwise_or(m, holes)
+    holes = cv2.bitwise_not(flood) # fond=0, empreinte=0, trous=255 (inverse tt)
+    filled = cv2.bitwise_or(m, holes) # fusionne masque original + trous => res = masque rempli
     return filled
 
 
 def masque_fun_v3(img_grise, debug=False):
     """
-    Masque ROI doigt robuste :
+    Masque ROI :
     0 = fond
     255 = empreinte
     """
-    # 1) flou fort pour effacer les crêtes (forme globale)
+    # 1) flou fort pour effacer crêtes 
     flou_gros = cv2.GaussianBlur(img_grise, (0, 0), 25.0)
 
     # 2) Otsu
@@ -170,7 +160,6 @@ def pretraitements(filename):
     #nom du fichier entree+ sortie (voir si on peut automatiser)
     
     output_filename = 'minutiae_detection\pretraitees\empreinte4_pretraitee.jpg'
-    #[ ] a changer avec str_modif(filename , _pretraitement)
 
     #recup image
     image = cv2.imread(filename, cv2.IMREAD_GRAYSCALE) #teinte de gris
