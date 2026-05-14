@@ -1,18 +1,16 @@
 """
 . memo
-code permet de determiner l'orientation des zone de l'img = block de taille W_BLOCK  
- etape 1: pretrzitement simple (=normalize + grayscale)
+permet de determiner orientation des zone de l'img 
+=> block de taille W_BLOCK  
+ etape 1: pretraitement simple (=normalize + grayscale)
  etape 2: masque = masque autour de l'empreinte
  etape 3: orientation 
 """
 """
 .documentation CV2
 
-THRESH_OTSU : treshold où la valeur seuil est determiner automatiquement et n'est donc pas arbitraire
-TRESH_BINARY : treshold binaire si pix sup a la val seuil alors passe a val max sinon =0
-               ⚠️prend que des img src en niv de gris 
-getStructuringElement(cv2.MORPH_ELLIPSE, (15,15)) : creer un "element" de la forme puis taille demandée 
-
+THRESH_OTSU : treshold avec seuil automatique
+TRESH_BINARY : treshold binaire 
 """             
 
 img = "C:/Users/Elise/Downloads/empreinte_overlined.jpeg" 
@@ -27,7 +25,7 @@ from PIL import Image
 #. Variable reglables 
 FICHIER_OUT = "minutiae_detection\\output_orientation"
 W_BLOCK =16    
-LOW_PASS_FILTER_SIZE=5  #taille lissageetape 4 de l'orientation
+LOW_PASS_FILTER_SIZE=5  #taille lissage  etape 4 de l'orientation
 COEF_FLOU= 1.0   #écart-type du flou gaussien avant Sobel    
 USE_TANGENT=False 
 
@@ -42,32 +40,11 @@ def niv_de_gris(path):
     if img_nivgris  is not None: 
         return img_nivgris
 
-"""
-Le but de normilise est d'imposer une moyenne et variance a atteindre ici M0 et VAR0 
-
-formule que l'on veut traduire  (cf article)
-$$
-\
-G(i,j) =
-\begin{cases}
-M_0 + \sqrt{\dfrac{VAR_0 \, (I(i,j) - M)^2}{VAR}}, & \text{si } I(i,j) > M \\[1.2em]
-M_0 - \sqrt{\dfrac{VAR_0 \, (I(i,j) - M)^2}{VAR}}, & \text{sinon.}
-\end{cases}
-\
-
-\
-M = \dfrac{1}{N} \sum_{i,j} I(i,j),
-\qquad
-VAR = \dfrac{1}{N} \sum_{i,j} \bigl(I(i,j) - M\bigr)^2
-\
-$$
-"""
-
-
 
 def normalise_fun(img_grise, M0=100.0, VAR0=100.0):
 
-    I = img_grise.astype(np.float64) #passe l'image en TABLEAU de la val de chaque pixel 
+    #passe l'image en TABLEAU de la val de chaque pixel 
+    I = img_grise.astype(np.float64) 
     
     if I.max() <= 1.0: 
         I *= 255.0 #on elargit les niv de gris 
@@ -75,17 +52,22 @@ def normalise_fun(img_grise, M0=100.0, VAR0=100.0):
     M = I.mean(); #val moy de gris
     VAR = I.var(); #variance moy de gris 
 
-    if VAR < 1e-9: #cas si variance null on rempli tt pour eviter la div par 0 
+    if VAR < 1e-9: #eviter div par 0 
         G = np.full_like(I, fill_value=M0, dtype=np.float64)  
     else:
-        
+        d = I - M
+        ajustement = np.sqrt((VAR0 * (d**2)) / VAR) 
+        #pour chaque pixel : écart normalisé 
+        #conserve l'amplitude relative p/r à la moyenne, 
+        # mais à échelle de la variance cible VAR0
 
-        d = I -M
-        ajustement = np.sqrt((VAR0 * (d**2)) / VAR) #=TABLEAU des parties sous la racine pour chaque pixel
-        #(on conserve le signe p/r a la moyenne mais si + que M on le rend + que M0 et inv)
-        G = np.where(I>M, M0+ ajustement, M0 - ajustement ) #CREER un nouv TABLEAU et rempli selon condition : np.where(condition, si sup a la moyenne, si inf a la moy)
-    return np.clip(G, 0, 255).astype(np.uint8) #recadre entre [0,255 ] et repasse format uint8 ⚠️sinon bug
-
+        G = np.where(I>M, M0+ ajustement, M0 - ajustement ) 
+        # construit img normalisée pixel par pixel :
+        #   plus clair que M  → M0 + ajustement 
+        #   plus sombre que M → M0 - ajustement 
+        #-> signe conservé, amplitude remise vers VAR0
+    return np.clip(G, 0, 255).astype(np.uint8) 
+    #recadre entre [0,255 ] et passe format uint8 sinon bug
 
 
 #. isolement empreinte (pas dans article mais bug sur orientation sinon)

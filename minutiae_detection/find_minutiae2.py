@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import math
 
 
-def filtrer_minuties_proches_bord(minuties, mask01, marge_px=12,/
+def filtrer_minuties_proches_bord(minuties, mask01, marge_px=12,\
                                    img_size=512):
     """
     Supprime minuties trop proches du bord de la ROI 
@@ -17,8 +17,8 @@ def filtrer_minuties_proches_bord(minuties, mask01, marge_px=12,/
     mask_u8 = (mask01.astype(np.uint8) * 255)
 
     # pour chaque pix blanc de masque calc dist au ROI 
-    dist = cv2.distanceTransform(mask_u8, distanceType=cv2.DIST_L2,/
-                                  maskSize=3)
+    dist = cv2.distanceTransform(mask_u8, distanceType=cv2.DIST_L2,\
+                                 maskSize=3)
 
     keep = []
     for m in minuties:
@@ -36,7 +36,7 @@ def filtrer_minuties_proches_bord(minuties, mask01, marge_px=12,/
 
     return keep
 
-def find_minuatiae(filename, output_filename,/
+def find_minuatiae(filename, output_filename,\
                     mask_filename=None, mask=None):
     
     
@@ -113,7 +113,7 @@ def find_minuatiae(filename, output_filename,/
 
 
 
-    def filtrer_minuties_trop_proches(minuties, /
+    def filtrer_minuties_trop_proches(minuties, \
                                        min_dist_px=20, img_size=512):
         """
         liste minut: [[x_n, y_n], typ, orient]  OU [[x_n, y_n], typ, orient, ]
