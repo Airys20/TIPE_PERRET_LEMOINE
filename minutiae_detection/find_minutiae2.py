@@ -4,7 +4,8 @@ import matplotlib.pyplot as plt
 import math
 
 
-def filtrer_minuties_proches_bord(minuties, mask01, marge_px=12, img_size=512):
+def filtrer_minuties_proches_bord(minuties, mask01, marge_px=12,/
+                                   img_size=512):
     """
     Supprime minuties trop proches du bord de la ROI 
     marge_px : distance minimale
@@ -16,7 +17,8 @@ def filtrer_minuties_proches_bord(minuties, mask01, marge_px=12, img_size=512):
     mask_u8 = (mask01.astype(np.uint8) * 255)
 
     # pour chaque pix blanc de masque calc dist au ROI 
-    dist = cv2.distanceTransform(mask_u8, distanceType=cv2.DIST_L2, maskSize=3)
+    dist = cv2.distanceTransform(mask_u8, distanceType=cv2.DIST_L2,/
+                                  maskSize=3)
 
     keep = []
     for m in minuties:
@@ -34,70 +36,59 @@ def filtrer_minuties_proches_bord(minuties, mask01, marge_px=12, img_size=512):
 
     return keep
 
-def find_minuatiae(filename, output_filename, mask_filename=None, mask=None):
-
-    def find(squelette, mask01=None, sigma=0.5):
-
-        minutiae_ending = []#stock minutiae
-        minutiae_bifurcation = []
-        minutiae_orientation = []
-
-        rows, cols = squelette.shape #recupere nbr lignes et colonnes de l’img
-        directions = [(-1,-1), (-1,0), (-1,1),
-                    (0,-1),          (0,1),
-                    (1,-1),  (1,0),  (1,1)] # pixels a checker quand on a celui du milieu [0,0]
-
-    #on regarde chaque picel de l'img
-        for i in range(3, rows - 3):  # on évite les bords sinon bugs (bc n'a pas de voisinsins)
-            for j in range(3, cols - 3):
-                if mask01 is not None and mask01[i, j] == 0: # ATTENTION SI PAS DANS MAQSQUE ZAPPER 
-                    continue
-
-                elif squelette[i][j] == 1: # si est blanc
-                    voisins = squelette[i-1:i+2, j-1:j+2]
-                    cmpt = np.sum(voisins) - 1  # suppr [i][j]
-
-                    point = (j, i)  # (x, y), inverse bc img = matrice , inverse des axes normaux
-
-                    # id minutiae
-                    if cmpt==1:
-                        voisins_5 = squelette[i-2:i+3, j-2:j+3]
-                        nb_blancs_5 = int(np.sum(voisins_5))  # centre compris
-
-                        if nb_blancs_5 > 3:
-                            continue  # faux positif probable
-                        else:
-                            minutiae_ending.append(point) #1 voisin blanc = ending
-                    elif cmpt==3:
-                        minutiae_bifurcation.append(point)#3 voisin blanc ->biffurcassion
-                    else:
-
-                        continue  # pas  minutiae
-
-                   
-                    minutiae_orientation.append((point, 0)) #plceholder 
-                    
-        
-        res = [] #prepare tab adapté au style de struc, cf com de la fonction add personne dans json_utils
+def find_minuatiae(filename, output_filename,/
+                    mask_filename=None, mask=None):
     
-        for (x, y), angle in minutiae_orientation:
+    
+    def find(squelette, mask01=None):
+
+        minutiae_ending = set()
+        minutiae_bifurcation = set()
+        points = []
+
+        rows, cols = squelette.shape #recupere taille squelette 
+
+        for i in range(3, rows - 3):
+            for j in range(3, cols - 3):
+                if mask01 is not None and mask01[i, j] == 0:
+                    continue # si pas dans masque, on check pas
+                if squelette[i][j] == 1:
+                    #on verifie couleurs des 8 voisins
+                    voisins = squelette[i-1:i+2, j-1:j+2] 
+                    #enleve pixel centre
+                    cmpt = int(np.sum(voisins)) - 1 
+                    point = (j, i)
+
+                    if cmpt == 1:
+                        voisins_5 = squelette[i-2:i+3, j-2:j+3]
+                        if int(np.sum(voisins_5)) > 3:
+                            continue
+                        minutiae_ending.add(point)
+                        points.append(point)
+                    
+                    elif cmpt == 3:
+                        minutiae_bifurcation.add(point)
+                        points.append(point)
+
+        res = []
+        for (x, y) in points:
             if (x, y) in minutiae_ending:
                 typ = "ending"
             elif (x, y) in minutiae_bifurcation:
                 typ = "bifurcation"
             else:
-                typ = "ERREUR" #PAS CENSE ARRIVER
+                continue  # n'arrive pas
+            
+            # [0,0] = orient_faux placeholder
+            res.append([[x/512, y/512], typ, [0, 0]])  
+        
 
-            #trouve comp sur x et y pour tracer trzait d'oriebntation
-            dy = round(math.sin(angle), 4)
-
-            res.append([[x/512, y/512], typ, [dx, dy]])  
-
-
-
-
+        print("endings:", len(minutiae_ending))
+        print("bifurcations:", len(minutiae_bifurcation))  
+        print("total points:", len(points))
+        print("res final:", len(res))
         return res
-
+   
 
    # import+ passage binaire
     img = cv2.imread(filename, cv2.IMREAD_GRAYSCALE)
@@ -113,8 +104,8 @@ def find_minuatiae(filename, output_filename, mask_filename=None, mask=None):
     else:
         mask01 = None
 
-        
-    _, binaire = cv2.threshold(img, 127, 1, cv2.THRESH_BINARY_INV)#passse en binaire pour traitement
+    #passse en binaire pour traitement
+    _, binaire = cv2.threshold(img, 127, 1, cv2.THRESH_BINARY_INV)
 
     # minutiae[[coord], type, [dx, dy]]
     minutiae= find(binaire, mask01=mask01)
@@ -122,15 +113,15 @@ def find_minuatiae(filename, output_filename, mask_filename=None, mask=None):
 
 
 
-    def filtrer_minuties_trop_proches(minuties,  min_dist_px=20, img_size=512):
+    def filtrer_minuties_trop_proches(minuties, /
+                                       min_dist_px=20, img_size=512):
         """
         liste minut: [[x_n, y_n], typ, orient]  OU [[x_n, y_n], typ, orient, ]
         min_dist_px: distance min en px entre 2 minut (seuil avant enlever)
-        
-
         renvoie: liste sans doublons
         """
         # convertit en (x_px, y_px) -> on retrouve les coord init
+        
         pts = []
         for m in minuties:
             (x_n, y_n) = m[0]
@@ -160,14 +151,16 @@ def find_minuatiae(filename, output_filename, mask_filename=None, mask=None):
 
         return keep
 
-    minut = filtrer_minuties_trop_proches(minutiae, min_dist_px=6, img_size=512)
-    minut = filtrer_minuties_proches_bord(minut, mask01, marge_px=12, img_size=512)
+    minut = filtrer_minuties_trop_proches(minutiae,\
+                                           min_dist_px=6, img_size=512)
+    minut = filtrer_minuties_proches_bord(minut, mask01,\
+                                           marge_px=12, img_size=512)
     # passe en couleur pour dessin des ronds
     color_image = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)
 
     # affichage ronds+ligne
 
-    for [x_n, y_n], typ, [dx, dy] in minut:
+    for [x_n, y_n], typ, orient in minut:
         x = int(round(x_n * 512))
         y = int(round(y_n * 512))
 
@@ -181,12 +174,7 @@ def find_minuatiae(filename, output_filename, mask_filename=None, mask=None):
         # rond
         
         cv2.circle(color_image, (x, y), 3, color, 1)
-    '''
-        # trait orientartion
-        lx = int(round(x + dx * 6)) #calc point arrivée trait orient. apres 6px
-        ly = int(round(y + dy * 6))
-        cv2.line(color_image, (x, y), (lx, ly), (255, 0, 0), 1)
-        '''
+   
     cv2.imwrite(output_filename, color_image)
 
     plt.figure(figsize=(10, 10))
