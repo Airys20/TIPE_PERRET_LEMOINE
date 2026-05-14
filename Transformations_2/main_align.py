@@ -1,7 +1,7 @@
 import masque
 import Re_alignment as ra 
 import cv2
-
+'''
 def main(img_path): 
     masque_path = masque.main(img_path)
     Q = ra.TFCP(masque_path)
@@ -17,6 +17,6 @@ def main(img_path):
     cv2.waitKey(0)
     cv2.destroyAllWindows()
     
-    
-    
-main('Transformations_2\input\empreinte_overlined.jpeg')
+  '''  
+import visualisation
+visualisation.main("ton_image.jpeg", output_dir="mes_figures")

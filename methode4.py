@@ -4,11 +4,11 @@ import json
 ''' *************************************** OUTILS *************************************** '''
 
 def wrap_angle(theta):
-    """Ramène un angle en radians dans l'intervalle [-pi, pi]."""
+    #Ramène un angle en radians dans l'intervalle [-pi, pi].
     return (theta + np.pi) % (2 * np.pi) - np.pi
 
 def angle_diff_biom(theta1, theta2):
-    """Calcule la plus petite différence angulaire entre deux angles."""
+    #Calcule la plus petite différence angulaire entre deux angles.
     d = abs(wrap_angle(theta1 - theta2))
     return min(d, abs(d - np.pi))
 
@@ -20,7 +20,7 @@ ANGLE_TOL = 0.3
 _neighbors_cache = {}
 
 def chgt_base(M, t):
-    """Change la base des minuties M en prenant la minutie t comme référence."""
+    #change la base des minuties M en prenant la minutie t comme référence.
     xm, ym, theta_m, _ = M[t]
     M_new = []
     for i in range(len(M)):
@@ -35,7 +35,7 @@ def chgt_base(M, t):
     return M_new
 
 def neighbors(M, nb_nghbr, i):
-    """Retourne les nb_nghbr plus proches voisins de la minutie i dans M, dans la base centrée sur i."""
+    #Retourne les nb_nghbr plus proches voisins de la minutie i dans M, dans la base centrée sur i.
     key = (id(M), i)
     if key in _neighbors_cache:
         return _neighbors_cache[key]
@@ -57,7 +57,7 @@ def neighbors(M, nb_nghbr, i):
 ''' *************************************** ALIGNEMENT *************************************** '''
 
 def kabsch_umeyama(A, B):
-    """Calcule la transformation affine (rotation R, échelle c, translation t) alignant B sur A."""
+    #Calcule la transformation affine (rotation R, échelle c, translation t) alignant B sur A.
     EA = np.mean(A, axis=0)
     EB = np.mean(B, axis=0)
     VarA = np.mean(np.linalg.norm(A - EA, axis=1)**2)
@@ -71,7 +71,7 @@ def kabsch_umeyama(A, B):
     return R, c, t
 
 def apply_transformation(minutiae, R, c, t):
-    """Applique la transformation affine aux minuties."""
+    #Applique la transformation affine aux minuties.
     new_minutiae = []
     angle_rot = np.arctan2(R[1, 0], R[0, 0])
     for m in minutiae:
@@ -89,17 +89,12 @@ def apply_transformation(minutiae, R, c, t):
 ''' *************************************** CLASSIFICATION PONDÉRÉE *************************************** '''
 
 def classify_weighted(minutiae_recherche, minutiae_catalogue):
-    """
-    Pour chaque minutie du catalogue, calcule un score de correspondance pondéré avec la liste recherchée.
-    Le score combine une gaussienne spatiale et angulaire.
-    """
     nc = len(minutiae_catalogue)
-    scores = [0] * nc
+    matched = 0
     for i in range(nc):
         xc, yc = minutiae_catalogue[i]["coordonnees"]
         dc = minutiae_catalogue[i]["orientation"]
         tc = minutiae_catalogue[i]["type"]
-        best_score = 0
         for m in minutiae_recherche:
             xr, yr = m["coordonnees"]
             dr = m["orientation"]
@@ -108,24 +103,25 @@ def classify_weighted(minutiae_recherche, minutiae_catalogue):
                 continue
             dist = np.hypot(xr - xc, yr - yc)
             angle_diff = angle_diff_biom(dr, dc)
-            if dist < SPATIAL_TOL * 2 and angle_diff < ANGLE_TOL * 2:
-                score = np.exp(- (dist / SPATIAL_TOL) ** 2) * np.exp(- (angle_diff / ANGLE_TOL) ** 2)
-                if score > best_score:
-                    best_score = score
-        scores[i] = best_score
-    return scores
+            if dist < SPATIAL_TOL and angle_diff < ANGLE_TOL:
+                matched += 1
+                break  # ← une seule correspondance suffit par minutie catalogue
+    return matched, nc
 
-def matching_score_weighted(scores):
-    """Calcule un score global de matching en pourcentage."""
-    if len(scores) == 0:
+def matching_score_weighted(matched, total_catalogue, total_recherche):
+    if total_catalogue == 0 or total_recherche == 0:
         return 0
-    return (sum(scores) / len(scores)) * 100
+    precision = matched / total_recherche   # proportion de la recherche bien placée
+    recall    = matched / total_catalogue   # proportion du catalogue retrouvée
+    if precision + recall == 0:
+        return 0
+    f1 = 2 * precision * recall / (precision + recall)
+    return f1 * 100
 
 ''' *************************************** MATCHING GLOBAL *************************************** '''
-
-MIN_REF = 20
-NB_NGHBR = 15
-LIM_THETA = 0.2
+MIN_REF = 15
+NB_NGHBR = 20
+LIM_THETA = 0.4
 LIM_ERREUR_DIST = 1
 
 def global_matching_reference(data_catalogue, data_recherche):
@@ -136,23 +132,19 @@ def global_matching_reference(data_catalogue, data_recherche):
 
     M_recherche = [
         (m["coordonnees"][0], m["coordonnees"][1], m["orientation"], m["type"])
-        for m in recherche[0]["minutiae"]
-    ]
-
+        for m in recherche[0]["minutiae"] ]
     best_score = 0
     best_name = None
 
     for p in range(len(catalogue)):
         print("Analyse de :", catalogue[p]["nom"])
-
         M_catalogue = [
             (m["coordonnees"][0], m["coordonnees"][1], m["orientation"], m["type"])
-            for m in catalogue[p]["minutiae"]
-        ]
+            for m in catalogue[p]["minutiae"]]
 
-        ref_r = []
+        ref_r = [] 
         ref_c = []
-        used_r = set()
+        used_r = set() 
         used_c = set()
 
         for i in range(len(M_recherche)):
@@ -160,7 +152,6 @@ def global_matching_reference(data_catalogue, data_recherche):
 
                 if abs(wrap_angle(M_recherche[i][2] - M_catalogue[j][2])) > LIM_THETA:
                     continue
-
                 if M_recherche[i][3] != M_catalogue[j][3]:
                     continue
 
@@ -169,10 +160,8 @@ def global_matching_reference(data_catalogue, data_recherche):
 
                 if len(ngh_r) != len(ngh_c):
                     continue
-
-                dr = sorted([d for d, _ in ngh_r])
+                dr = sorted([d for d, _ in ngh_r]) 
                 dc = sorted([d for d, _ in ngh_c])
-
                 erreur = sum(abs(dr[k] - dc[k]) for k in range(len(dr)))
 
                 if erreur < LIM_ERREUR_DIST and i not in used_r and j not in used_c:
@@ -180,20 +169,19 @@ def global_matching_reference(data_catalogue, data_recherche):
                     ref_c.append(M_catalogue[j][:2])
                     used_r.add(i)
                     used_c.add(j)
-
         if len(ref_r) < MIN_REF:
             print("Références insuffisantes :", len(ref_r))
             continue
 
         R, c, t = kabsch_umeyama(np.array(ref_r), np.array(ref_c))
         minutiae_aligned = apply_transformation(recherche[0]["minutiae"], R, c, t)
-        scores = classify_weighted(minutiae_aligned, catalogue[p]["minutiae"])
-        score = matching_score_weighted(scores)
-
+        matched, total_catalogue = classify_weighted(minutiae_aligned, catalogue[p]["minutiae"])
+        score = matching_score_weighted(matched, total_catalogue, len(minutiae_aligned))
+        confidence = min(len(ref_r) / 20, 1.0)  # normalisé entre 0 et 1
+        score = score * (0.6 + 0.4 * confidence)  # pondère le score final
         print("Score :", score)
-
         if score > best_score:
-            best_score = score
+            best_score = score 
             best_name = catalogue[p]["nom"]
 
     return best_name, best_score
@@ -201,5 +189,7 @@ def global_matching_reference(data_catalogue, data_recherche):
 ''' *************************************** TEST *************************************** '''
 
 nom, score = global_matching_reference("catalogue.json", "recherche.json")
+if score < 65 : 
+    print("ATTENTION : Pas de correspondance fiable ! ")
 print("\nMeilleure correspondance :", nom)
 print("Score :", score)
