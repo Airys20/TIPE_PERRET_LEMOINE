@@ -6,16 +6,16 @@ import math
 
 def filtrer_minuties_proches_bord(minuties, mask01, marge_px=12, img_size=512):
     """
-    Supprime les minuties trop proches du bord de la ROI (mask01).
-    marge_px : distance minimale (en pixels) au bord du masque.
+    Supprime minuties trop proches du bord de la ROI 
+    marge_px : distance minimale
     """
     if mask01 is None:
         return minuties  # rien à faire
 
-    # cv2.distanceTransform attend une image 8-bit avec 0=background, >0=foreground
+    # cv2.distanceTransform -> 0=background, >0=foreground
     mask_u8 = (mask01.astype(np.uint8) * 255)
 
-    # Distance (en pixels) au plus proche pixel 0 (donc au bord du masque)
+    # pour chaque pix blanc de masque calc dist au ROI 
     dist = cv2.distanceTransform(mask_u8, distanceType=cv2.DIST_L2, maskSize=3)
 
     keep = []
@@ -74,48 +74,9 @@ def find_minuatiae(filename, output_filename, mask_filename=None, mask=None):
 
                         continue  # pas  minutiae
 
-                    #cherche d'orientation sur 4 puis 3 puis 2px pour que tt les points en est unee mm si pas hyper precise
-                    angle_bool_trouve = False
-
-                    #  4 pixels
-                    for dy, dx in directions:
-                        try:
-                            if (squelette[i+ dy][j +dx] == 1 and
-                                squelette[i+2*dy][j+ 2*dx] == 1 and
-                                squelette[i+ 3*dy][j+3*dx] == 1):
-
-                                angle = math.atan2(dy, dx) #angle entre vect et axe x
-
-                                minutiae_orientation.append((point, angle))
-                                angle_bool_trouve = True #pas besoin chercher les autre bc trouvé le max
-                                break
-
-                        except IndexError:
-                            continue #⚠️⚠️eviter les bords!!!!!!
-
-                    # 3px (mm chose)
-                    if not angle_bool_trouve:
-                        for dy, dx in directions:
-                            try:
-                                if (squelette[i + dy][j + dx] == 1 and
-                                    squelette[i + 2*dy][j + 2*dx] == 1):
-                                    angle = math.atan2(dy, dx)
-                                    minutiae_orientation.append((point, angle))
-                                    angle_bool_trouve = True
-                                    break
-                            except IndexError:
-                                continue
-
-                    # 2px (pareil)
-                    if not angle_bool_trouve:
-                        for dy, dx in directions:
-                            try:
-                                if squelette[i + dy][j + dx] == 1:
-                                    angle = math.atan2(dy, dx)
-                                    minutiae_orientation.append((point, angle))
-                                    break
-                            except IndexError:
-                                continue
+                   
+                    minutiae_orientation.append((point, 0)) #plceholder 
+                    
         
         res = [] #prepare tab adapté au style de struc, cf com de la fonction add personne dans json_utils
     
@@ -186,7 +147,7 @@ def find_minuatiae(filename, output_filename, mask_filename=None, mask=None):
 
         for x, y, m in pts:
             ok = True
-            # on compare aux points déjà gardés complexité ignoble mais OK si pas trop)
+            # on compare aux points déjà gardés 
             for (xk, yk) in keep_xy:
                 dx = x - xk
                 dy = y - yk
@@ -199,14 +160,14 @@ def find_minuatiae(filename, output_filename, mask_filename=None, mask=None):
 
         return keep
 
-    minutt = filtrer_minuties_trop_proches(minutiae, min_dist_px=6, img_size=512)
-    minutt = filtrer_minuties_proches_bord(minutt, mask01, marge_px=12, img_size=512)
+    minut = filtrer_minuties_trop_proches(minutiae, min_dist_px=6, img_size=512)
+    minut = filtrer_minuties_proches_bord(minut, mask01, marge_px=12, img_size=512)
     # passe en couleur pour dessin des ronds
     color_image = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)
 
-    # affichageronds+ligne
+    # affichage ronds+ligne
 
-    for [x_n, y_n], typ, [dx, dy] in minutt:
+    for [x_n, y_n], typ, [dx, dy] in minut:
         x = int(round(x_n * 512))
         y = int(round(y_n * 512))
 
@@ -229,9 +190,9 @@ def find_minuatiae(filename, output_filename, mask_filename=None, mask=None):
     cv2.imwrite(output_filename, color_image)
 
     plt.figure(figsize=(10, 10))
-    plt.imshow(color_image[..., ::-1])# inversant les canaux BGR → RGB pour matplotlib ??
+    plt.imshow(color_image[..., ::-1])# inverse les canaux BGR → RGB pour matplotlib 
     plt.title("minutiae detecteees")
     plt.axis("off")
     plt.show()
-    return minutt
+    return minut
 

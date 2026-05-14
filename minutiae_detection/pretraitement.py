@@ -8,7 +8,6 @@ from orientation import fun_orientation
 
 #. Pretraitement de base
 
-
 def niv_de_gris(path):
 
     img_nivgris = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
@@ -40,8 +39,7 @@ $$
 
 def normalise_fun(img_grise, M0=100.0, VAR0=100.0):
 
-    I = img_grise.astype(np.float64) #passe l'image en TABLEAU de la
-    # val de chaque pixel 
+    I = img_grise.astype(np.float64) #passe l'image en TABLEAU de la val de chaque pixel 
     
     if I.max() <= 1.0: 
         I *= 255.0 #on elargit les niv de gris 
@@ -63,9 +61,9 @@ def normalise_fun(img_grise, M0=100.0, VAR0=100.0):
         # construit img normalisée pixel par pixel :
         #   plus clair que M  → M0 + ajustement 
         #   plus sombre que M → M0 - ajustement 
-        #-> signe conservé, amplitude remise à échelle vers VAR0
+        #-> signe conservé, amplitude remise vers VAR0
     return np.clip(G, 0, 255).astype(np.uint8) 
-    #recadre entre [0,255 ] et repasse format uint8 sinon bug
+    #recadre entre [0,255 ] et passe format uint8 sinon bug
 
 
 
@@ -76,7 +74,7 @@ def fill_holes_safe(binary255):
     m = binary255.copy()
     h, w = m.shape
 
-    # force bordure noire pour que floodfill démarre dans le fond
+    # force bordure noire pour demarrer floodfill dans fond
     m[0, :] = 0
     m[-1, :] = 0
     m[:, 0] = 0
@@ -116,14 +114,17 @@ def masque_fun_v3(img_grise, debug=False):
     mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kclose, iterations=2)
 
     # 5) plus grande comp connexe
-    num, lbl, stats, _ = cv2.connectedComponentsWithStats((mask > 0).astype(np.uint8), 8)
+    num, lbl, stats, _ = cv2.connectedComponentsWithStats(\
+        (mask > 0).astype(np.uint8), 8)
     #num = nbr de composantes trouvées
     #lbl = image de même taille que mask, pour chaque pixel : numéro de sa comp connexe 
     #stats = tableau de stats pour chaque comp connexe : [x_min, y_min, largeur, hauteur, aire]
 
     if num > 1:
-        max_comp_connexe = 1 + np.argmax(stats[1:, cv2.CC_STAT_AREA]) #aire la + grd(fond exclus)
-        mask = (lbl == max_comp_connexe).astype(np.uint8) * 255 #creer masque booleen
+        #aire la + grd(fond exclus)
+        max_comp_connexe = 1 + np.argmax(stats[1:, cv2.CC_STAT_AREA]) 
+        #creer masque booleen
+        mask = (lbl == max_comp_connexe).astype(np.uint8) * 255 
 
     # 6) remplissage trous
     mask = fill_holes_safe(mask)
@@ -147,11 +148,13 @@ def pretraitements(filename):
 
     #nom du fichier entree+ sortie 
     output_filename = 'minutiae_detection\pretraitees\empreinte4_pretraitee.jpg'
+    mask_output_filename ='minutiae_detection/masque/masque.png'
 
     #recup image
-    image = cv2.imread(filename, cv2.IMREAD_GRAYSCALE) #teinte de gris
-    image = cv2.resize(image, (512, 512))  # resize pr meilleur "generalisation" 
+    image = cv2.imread(filename, cv2.IMREAD_GRAYSCALE) 
+    # resize pr meilleur "generalisation" 
 
+    image = cv2.resize(image, (512, 512))  
 
 
     #TRANSFORMATION DE L'IMAGE
@@ -161,7 +164,7 @@ def pretraitements(filename):
     
     #3)masque ROI
     masque = masque_fun_v3(tab_normal)
-    cv2.imwrite('minutiae_detection/masque/masque.png', masque)
+    cv2.imwrite(mask_output_filename, masque)
 
     
     #4) orientation locale
