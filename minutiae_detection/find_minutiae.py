@@ -29,7 +29,7 @@ def filtrer_minuties_proches_bord(minuties, mask01, marge_px=12, img_size=512):
             continue
         if dist[y, x] < marge_px:
             continue
-
+ 
         keep.append(m)
 
     return keep
