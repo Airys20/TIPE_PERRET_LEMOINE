@@ -1,75 +1,105 @@
-img = "C:/Users/Elise/Downloads/empreinte_overlined.jpeg" 
-
-
-import numpy  as np
 import cv2
+import numpy as np
 import matplotlib.pyplot as plt
-
-FICHIER_OUT = "minutiae_detection/masque"
-
-def niv_de_gris(path):
-
-    img_nivgris = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
-    if img_nivgris  is not None: 
-        return img_nivgris
+from skimage.morphology import skeletonize 
+from scipy.ndimage import binary_opening 
 
 
 
-def normalise_fun(img_grise, M0=100.0, VAR0=100.0):
 
-    I = img_grise.astype(np.float64) #passe l'image en TABLEAU de la val de chaque pixel 
-    
-    if I.max() <= 1.0: 
-        I *= 255.0 #on elargit les niv de gris 
+def masque_fun_v3(img_grise, debug=False):
 
-    M = I.mean(); #val moy de gris
-    VAR = I.var(); #variance moy de gris 
 
-    if VAR < 1e-9: #cas si variance null on rempli tt pour eviter la div par 0 
-        G = np.full_like(I, fill_value=M0, dtype=np.float64)  
+    def fill_holes_safe(binary255): 
+        """
+        remplis les trous du masque pour qu'il soit uniforme 
+        """
+        m = binary255.copy()
+        h, w = m.shape
+
+        # force bordure noire pour demarrer floodfill dans fond
+        m[0, :] = 0
+        m[-1, :] = 0
+        m[:, 0] = 0
+        m[:, -1] = 0
+
+        flood = m.copy()
+        mask_ff = np.zeros((h + 2, w + 2), np.uint8) #zone de "coloriage"
+
+        # floodfill depuis (0,0) qui est maintenant garanti fond (0)
+        cv2.floodFill(flood, mask_ff, (0, 0), 255)
+
+        # trous = zones non atteintes par floodfill
+        holes = cv2.bitwise_not(flood) # fond=0, empreinte=0, trous=255 
+        filled = cv2.bitwise_or(m, holes) # fusionne binary255 et trous 
+        return filled
+
+
+    """
+    Masque ROI :
+    0 = fond
+    255 = empreinte
+    """
+    # 1) flou fort pour effacer crêtes 
+    flou_gros = cv2.GaussianBlur(img_grise, (0, 0), 25.0)
+
+    # 2) Otsu: trouve meilleur seuil pour passage N&B
+    thr, mask = cv2.threshold(flou_gros, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+
+    # 3) décider inversion en regardant BORDS de l'image originale = fond
+    # bordure = 10%  taille de l'image
+
+
+    h_img, w_img = img_grise.shape
+    border = max(5, int(min(h_img, w_img) * 0.10))
+
+    border_pixels = np.concatenate([
+        img_grise[:border, :].ravel(),      # haut
+        img_grise[-border:, :].ravel(),     # bas
+        img_grise[:, :border].ravel(),      # gauche
+        img_grise[:, -border:].ravel()      # droite
+    ])
+    mean_border = np.mean(border_pixels)
+    mean_center = np.mean(img_grise[h_img//4:3*h_img//4, w_img//4:3*w_img//4])
+
+    # Si fond  +CLAIR que  → empreinte sombre 
+    # Après Otsu,  pixels clairs deviennent blancs  → inverser
+    if mean_border > mean_center:
+       if np.mean(mask[0:border, :]) > 127:  # si bords du masque sont blancs
+            mask = 255 - mask
     else:
-        
+        # fond sombre → on check les coins
+        corners = np.array([mask[0,0], mask[0,-1], mask[-1,0], mask[-1,-1]])
+        if np.mean(corners) > 127:
+            mask = 255 - mask
 
-        d = I - M
-        ajustement = np.sqrt((VAR0 * (d**2)) / VAR) #=TABLEAU des parties sous la racine pour chaque pixel
-        #(on conserve le signe p/r a la moyenne mais si + que M on le rend + que M0 et inv)
-        G = np.where(I>M, M0+ ajustement, M0 - ajustement ) #CREER un nouv TABLEAU et rempli selon condition : np.where(condition, si sup a la moyenne, si inf a la moy)
-    return np.clip(G, 0, 255).astype(np.uint8) #recadre entre [0,255 ] et repasse format uint8 ⚠️sinon bug
+    # 4) fermeture morpho (bouche trous)
+    kclose = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (41, 41))
+    mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kclose, iterations=2)
 
+    # 5) plus grande comp connexe
+    num, lbl, stats, _ = cv2.connectedComponentsWithStats(\
+        (mask > 0).astype(np.uint8), 8)
+    #num = nbr de composantes trouvées
+    #lbl = image de même taille que mask, pour chaque pixel : numéro de sa comp connexe 
+    #stats = tableau de stats pour chaque comp connexe : [x_min, y_min, largeur, hauteur, aire]
 
-
-#. isolement empreinte (pas dans article mais bug sur orientation sinon)
-
-"""
-on veut crree un masque binaire pour isoler empreintre :
-0= masque
-255= empreinte
-"""
-def masque_fun(img_grise):
-    flou = cv2.GaussianBlur(img_grise, (0,0), 3.0) 
-    _, mask = cv2.threshold(flou, 0, 255, cv2.THRESH_BINARY+cv2.THRESH_OTSU) #treshold avec valeur optimal deduite par l'algo renvoi val , masque 
-    #on veut le masque en blanc ?
-    if np.sum(mask==255) > np.sum(mask==0): #si + de noir que de blanc
-        mask = 255 - mask #on inv
-    k = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (15,15))  #COMMENT :⚠️si trop aggressif baissé ou augmenter la taille (memo 15 ok la plupart du temps)
-    mask =cv2.morphologyEx(mask, cv2.MORPH_CLOSE, k) #enleve petits trous
-    mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN,  k) #supprime petits points
-
-
-    #PARTIE TROUVER DANS UN ARTICLE, marche mais jsp comment 
-    num,lbl,stats,_ = cv2.connectedComponentsWithStats((mask>0).astype(np.uint8), 8)
     if num > 1:
-        largest = 1+np.argmax(stats[1:, cv2.CC_STAT_AREA])
-        mask = (lbl==largest).astype(np.uint8)*255
-    
+        #aire la + grd(fond exclus)
+        max_comp_connexe = 1 + np.argmax(stats[1:, cv2.CC_STAT_AREA]) 
+        #creer masque booleen
+        mask = (lbl == max_comp_connexe).astype(np.uint8) * 255 
 
+    # 6) remplissage trous
+    mask = fill_holes_safe(mask)
 
-    mask = cv2.erode(mask, cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(5,5)), 1) #lisse le tour
+   
+    # 7) dilatation -> éviter masque trop “serré”
+    kdil = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (11, 11))
+    mask = cv2.dilate(mask, kdil, iterations=1)
+
+    # 8) lissage bords 
+    kopen = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (9, 9))
+    mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, kopen, iterations=1)
+
     return mask
-
-
-
-gray = niv_de_gris(img)
-tab_normal = normalise_fun(gray)
-masque = masque_fun(tab_normal)
-cv2.imwrite(FICHIER_OUT+"\\masque.png",masque)
