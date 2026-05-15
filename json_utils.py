@@ -102,7 +102,6 @@ def modifier_personne(data_file, nom_personne, minutiae_tab=None, nouveau_nom=No
     if nouveau_nom:
 
         # vérif persoonne avec ce nom
-       #[ ] Verif que personne avec ce nom
         base[index]["nom"] = nouveau_nom
     print(f"modif de {nom_personne}")
     _sauvegarder_base(base, data_file)
@@ -193,4 +192,3 @@ iter_coordonnees (nom_data, f)
 
 """
 
-#entree : img,chemin acces base, nom personne

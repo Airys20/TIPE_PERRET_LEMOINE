@@ -5,7 +5,7 @@ import math
 
 
 def filtrer_minuties_proches_bord(minuties, mask01, marge_px=12,\
-                                   img_size=512): #marge precedente = 12px
+                                   img_size=512): 
     """
     Supprime minuties trop proches du bord de la ROI 
     marge_px : distance minimale
