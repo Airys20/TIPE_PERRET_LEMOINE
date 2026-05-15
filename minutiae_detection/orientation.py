@@ -23,6 +23,7 @@ from PIL import Image
 from masque import masque_fun_v3
 
 
+
 #. Variable reglables 
 FICHIER_OUT = "minutiae_detection\\output_orientation"
 W_BLOCK =16    
@@ -203,12 +204,12 @@ $$
     phiy = np.sin(2*theta)
 
 
-    if low_pass_size > 1: # phi' juste remplacer par des flou parsque 
+    if low_pass_size > 1: # phi' juste remplacer par des flou 
 
         #blur = somme pondéré des voisins de phi = phi'
-
-        phix=cv2.blur(phix,(low_pass_size, low_pass_size)) #passe bas = attenue les variations rapides de phi
-        phiy=cv2.blur(phiy, (low_pass_size,low_pass_size)) #c'est a dire les angles abérants 
+        #passe bas = attenue les variations rapides de phi = angles abérants
+        phix=cv2.blur(phix,(low_pass_size, low_pass_size)) 
+        phiy=cv2.blur(phiy, (low_pass_size,low_pass_size))  
     
     
     O_bloc = 0.5*np.arctan2(phiy, phix) #=tab de l'orientation par bloc
@@ -234,7 +235,7 @@ def affichage_orient(img_grise, orient_bloc, masque, w=8):
 
             centre_y=int(bi*w+w/2)
             centre_x= int(bj*w+w/2)
-            #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            
             if (masque[centre_y,centre_x]<=0): #on verifie que appartient bien a l'emprie=nte pour pas dessine autour
                 continue
             
@@ -245,11 +246,11 @@ def affichage_orient(img_grise, orient_bloc, masque, w=8):
             dx =int(taille_trait*np.cos(th))
 
 
-            y1,x1=centre_y-dy,centre_x-dx #coordonée e seglent  
+            y1,x1=centre_y-dy,centre_x-dx #coordonée segment  
             y2,x2=centre_y+dy,centre_x+dx
 
 
-            if 0<=y1<H and 0<=y2<H and 0  <=x1<W and 0 <=x2<  W: #condition de tracage => que sdi ds l'eimg
+            if 0<=y1<H and 0<=y2<H and 0  <=x1<W and 0 <=x2<  W: #condition de tracage => que si dans l'img
 
                 cv2.line(empreinte,(x1,y1),(x2,y2),(0,255,0),1) 
                 
@@ -257,59 +258,26 @@ def affichage_orient(img_grise, orient_bloc, masque, w=8):
     return empreinte
 
 
-#. Orientation matching (non utilisé pour l'instant)
-def orientation_matching(w, coord ):
-    x,y = coord
-    O_bloque = np.load('minutiae_detection\\output_orientation\\O_bloque.npy', mmap_mode='r')
-    bi = y// w
-    bj = x// w
-    return O_bloque[bi, bj]
-
-
-
-'''
-#. Ridge frequency image 
-
-def ridge_freq_fun(img_grise,masque,w, O_bloque):
-    G = img_grise.astype(np.float32) #repasse l'img en TAB de val
-    H= len(G)
-    W = len (G[0])
-    Hb, Wb = H//w, W//w
-    X = np.zeros(w)
-    for bi in range(0, Hb): #on regarde tt les centre de blocs 
-        for bj in range(0, Wb):
-            centre_y=int(bi*w+w/2)
-            centre_x= int(bj*w+w/2)
-            for d in range (0,w-1):
-                u= centre_x  + (d-w/2)*np.cos( O_bloque[centre_x][centre_y]) + ()
-                X[bi*w+bj] = 1/w * 
- 
-           
-'''
-
-
-
-    
-
 
 #. code principal
 
 def main_orientation(img):
+
     gray = niv_de_gris(img)
     tab_normal = normalise_fun(gray)
     cv2.imwrite(FICHIER_OUT + "\\normalized.png", tab_normal)
 
     masque = masque_fun_v3(tab_normal)
     cv2.imwrite(FICHIER_OUT+"\\masque.png",masque)
-    O_bloque=fun_orientation(tab_normal, masque=masque,w=W_BLOCK,low_pass_size=LOW_PASS_FILTER_SIZE, coef_flou=COEF_FLOU)
-    empreinte=affichage_orient(tab_normal, O_bloque,masque,w=W_BLOCK)
-
-
+    O_bloque=fun_orientation(tab_normal, masque=masque,w=W_BLOCK,\
+                             low_pass_size=LOW_PASS_FILTER_SIZE, coef_flou=COEF_FLOU)
     
+    empreinte=affichage_orient(tab_normal, O_bloque,masque,w=W_BLOCK)
 
     cv2.imwrite(FICHIER_OUT+"\\orientation_empreinte.jpg", empreinte)
     image = Image.open(FICHIER_OUT+"\\orientation_empreinte.jpg")
     image.show()
-    np.save(FICHIER_OUT+"\\O_bloque.npy", O_bloque) #a voir comment reutiiser pour associer orientation <=> minutiae d
+    #sauvegarde de la matrice d'orientation par bloc 
+    np.save(FICHIER_OUT+"\\O_bloque.npy", O_bloque) 
     print("ORIENTATION OK")
-    print(orientation_matching(W_BLOCK, (200,150) ))
+
