@@ -64,7 +64,9 @@ def ajouter_personne(nom_personne, minutiae_tab, data_file):
     print(f"add {nom_personne}")
 
 
-def modifier_personne(data_file, nom_personne, minutiae_tab=None, nouveau_nom=None, merge=False): #qd None -> PEUT etre remplacé mais Pas OBLIGE
+def modifier_personne(data_file, nom_personne, minutiae_tab=None,\
+                      nouveau_nom=None, merge=False):
+     #qd None -> PEUT etre remplacé mais Pas OBLIGE
     base = _charger_base(data_file)
     index = None  
 
@@ -120,7 +122,9 @@ def iter_coordonnees (nom_base, f):
     base = _charger_base(nom_base)
     for i in range (len(base)): 
         for m in range (len(base[i]["minutiae"])):
-            base[i]["minutiae"][m]["coordonnees"] = f(base[i]["minutiae"][m]["coordonnees"]) #on change celle qui y sont 
+            base[i]["minutiae"][m]["coordonnees"] =\
+                  f(base[i]["minutiae"][m]["coordonnees"]) 
+                #on change celle qui y sont 
 
     
     print(f"fonction applique a toute les coordonées de  {nom_base}")
@@ -130,7 +134,8 @@ def iter_minutiae(nom_base, f):
     base = _charger_base(nom_base)
     for i in range (len(base)): 
         for m in range (len(base[i]["minutiae"])):
-            base[i]["minutiae"][m] = f(base[i]["minutiae"][m]) #on change celle qui y sont 
+            base[i]["minutiae"][m] = f(base[i]["minutiae"][m]) 
+            #on change celle qui y sont 
 
     
     print(f"fonction applique a toute les minutiae de  {nom_base}")

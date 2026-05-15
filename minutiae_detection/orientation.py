@@ -38,7 +38,7 @@ USE_TANGENT=False
 def niv_de_gris(path):
 
     img_nivgris = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
-    #img_resize = cv2.resize(img_nivgris, (512, 512))  # resize pr meilleur "generalisation" <- pas forcement le bon mot
+    #img_resize = cv2.resize(img_nivgris, (512, 512))  # resize pr meilleur "generalisation" 
     if img_nivgris  is not None: 
         return img_nivgris
 
