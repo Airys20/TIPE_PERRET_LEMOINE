@@ -46,10 +46,32 @@ def masque_fun_v3(img_grise, debug=False):
     # 2) Otsu: trouve meilleur seuil pour passage N&B
     thr, mask = cv2.threshold(flou_gros, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
 
-    # 3) décider inversion en regardant les coins 
-    corners = np.array([mask[0,0], mask[0,-1], mask[-1,0], mask[-1,-1]])
-    if np.mean(corners) > 127:
-        mask = 255 - mask
+    # 3) décider inversion en regardant BORDS de l'image originale = fond
+    # bordure = 10%  taille de l'image
+
+
+    h_img, w_img = img_grise.shape
+    border = max(5, int(min(h_img, w_img) * 0.10))
+
+    border_pixels = np.concatenate([
+        img_grise[:border, :].ravel(),      # haut
+        img_grise[-border:, :].ravel(),     # bas
+        img_grise[:, :border].ravel(),      # gauche
+        img_grise[:, -border:].ravel()      # droite
+    ])
+    mean_border = np.mean(border_pixels)
+    mean_center = np.mean(img_grise[h_img//4:3*h_img//4, w_img//4:3*w_img//4])
+
+    # Si fond  +CLAIR que  → empreinte sombre 
+    # Après Otsu,  pixels clairs deviennent blancs  → inverser
+    if mean_border > mean_center:
+       if np.mean(mask[0:border, :]) > 127:  # si bords du masque sont blancs
+            mask = 255 - mask
+    else:
+        # fond sombre → on check les coins
+        corners = np.array([mask[0,0], mask[0,-1], mask[-1,0], mask[-1,-1]])
+        if np.mean(corners) > 127:
+            mask = 255 - mask
 
     # 4) fermeture morpho (bouche trous)
     kclose = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (41, 41))

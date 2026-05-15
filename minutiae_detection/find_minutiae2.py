@@ -5,7 +5,7 @@ import math
 
 
 def filtrer_minuties_proches_bord(minuties, mask01, marge_px=12,\
-                                   img_size=512):
+                                   img_size=512): #marge precedente = 12px
     """
     Supprime minuties trop proches du bord de la ROI 
     marge_px : distance minimale
@@ -114,7 +114,7 @@ def find_minuatiae(filename, output_filename,\
 
 
     def filtrer_minuties_trop_proches(minuties, \
-                                       min_dist_px=20, img_size=512):
+                                       min_dist_px=30, img_size=512):
         """
         liste minut: [[x_n, y_n], typ, orient]  OU [[x_n, y_n], typ, orient, ]
         min_dist_px: distance min en px entre 2 minut (seuil avant enlever)
