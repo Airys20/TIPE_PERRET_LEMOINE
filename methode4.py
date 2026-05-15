@@ -121,8 +121,8 @@ def matching_score_weighted(matched, total_catalogue, total_recherche):
 ''' *************************************** MATCHING GLOBAL *************************************** '''
 MIN_REF = 15
 NB_NGHBR = 20
-LIM_THETA = 0.4
-LIM_ERREUR_DIST = 1
+LIM_THETA = 0.3
+LIM_ERREUR_DIST = 0.6
 
 def global_matching_reference(data_catalogue, data_recherche):
     with open(data_catalogue, "r") as f:
