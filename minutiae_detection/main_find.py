@@ -15,10 +15,10 @@ from json_utils import ajouter_personne
 
 
 #REGLAGES 
-NOM = 'Elise'
+NOM = 'Test_biffurcations'
 BASE = "base.json"
-#FILENAME='minutiae_detection\input\empreinte_feutre.jpeg '#lien ou tu mets l img a tester
-FILENAME='minutiae_detection\input\empreinte_ratee_input.jpeg '#lien ou tu mets l img a tester
+FILENAME='minutiae_detection\input\empreinte_feutre.jpeg '#lien ou tu mets l img a tester
+#FILENAME='minutiae_detection\input\empreinte_ratee_input.jpeg '#lien ou tu mets l img a tester
 output_filename = 'minutiae_detection/passage_main/' + NOM + '_output_minutiae.jpg' #lien ou tu stocke l'img superposée des minuties
 
 
@@ -68,8 +68,12 @@ tab = find_minuatiae(pretraitée_file_name,output_filename, mask_filename=file_m
 
 tab = ajouter_orientation_aux_minuties(tab, O_bloque, H_orig, W_orig) 
 
-ajouter_personne(NOM,tab,BASE)
 
+# filtre biffurcation Syria 
+tab_bifurcations = [m for m in tab if m[1] == "bifurcation"]
+
+#ajouter_personne(NOM,tab,BASE)
+ajouter_personne(NOM, tab_bifurcations, BASE)
 
 #np.set_printoptions(threshold=sys.maxsize)
 #print(O_bloque)

@@ -168,15 +168,15 @@ $$
 
     # CALCULE DE THETA 
 
-    """$$
-    \
-    \theta = \tfrac{1}{2} \, \tan^{-1}\!\left( \frac{V_x}{V_y} \right)
-    \
-    $$
-    """
-    theta = 0.5 * np.arctan2(Vx, Vy) #on utilise 2 pour avoir qqch appartenant a [-180,180] (sino [-90,90])
+    #$$\theta = \tfrac{1}{2} \, \tan^{-1}\!\left( \frac{V_x}{V_y} \right) $$
+    
+    theta = 0.5 * np.arctan2(Vx, Vy) #appartenant a [-180,180] 
 
-    # etape 4  : LOW PASS FILTER
+    
+    # etape 4  : FILTRE PASSE - BAS 
+    #lisser mais en faisant attention que 179° et 1° sont les meme pentes 
+    #on repasse ne 2theta pour "deplier"
+    
     """
     $$
     \
@@ -199,16 +199,16 @@ $$
     \
     $$    
     """
-    phix = np.cos(2*theta)
+    phix = np.cos(2*theta) #val dans [-1,1] pour chaque bloc
     phiy = np.sin(2*theta)
 
 
-    if low_pass_size > 1: # phi' juste remplacer par des flou parsque jsp quoi faire sinon ;-;
+    if low_pass_size > 1: # phi' juste remplacer par des flou parsque 
 
+        #blur = somme pondéré des voisins de phi = phi'
 
-
-        phix=cv2.blur(phix,(low_pass_size, low_pass_size))
-        phiy=cv2.blur(phiy, (low_pass_size,low_pass_size))
+        phix=cv2.blur(phix,(low_pass_size, low_pass_size)) #passe bas = attenue les variations rapides de phi
+        phiy=cv2.blur(phiy, (low_pass_size,low_pass_size)) #c'est a dire les angles abérants 
     
     
     O_bloc = 0.5*np.arctan2(phiy, phix) #=tab de l'orientation par bloc
@@ -225,22 +225,20 @@ def affichage_orient(img_grise, orient_bloc, masque, w=8):
     W = len(img_grise[0])
     Hb= len(orient_bloc)
     Wb =len (orient_bloc[0])
-    empreinte = cv2.cvtColor(img_grise, cv2.COLOR_GRAY2BGR) #=img de fo nd
+
+    empreinte = cv2.cvtColor(img_grise, cv2.COLOR_GRAY2BGR) #=img de fond
     taille_trait =int (0.4*w) 
 
-    for bi in range(0, Hb): #on regarde tt les centre de blocs 
+    for bi in range(0, Hb): #on regarde tout les centre de blocs 
         for bj in range(0, Wb):
+
             centre_y=int(bi*w+w/2)
             centre_x= int(bj*w+w/2)
-
+            #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
             if (masque[centre_y,centre_x]<=0): #on verifie que appartient bien a l'emprie=nte pour pas dessine autour
                 continue
-
-
-
-
             
-            th = (float(orient_bloc[bi,bj])+np.pi/2.0) % np.pi #sinon fzit l'opposé mais jsp pourquoi ;-;
+            th = (float(orient_bloc[bi,bj])+np.pi/2.0) % np.pi #axe y de open cv inversé donc ajoute pi/2 
 
             #CALCUL EXTREMITES SEGMENTS
             dy=int(taille_trait*np.sin(th))
@@ -254,7 +252,7 @@ def affichage_orient(img_grise, orient_bloc, masque, w=8):
             if 0<=y1<H and 0<=y2<H and 0  <=x1<W and 0 <=x2<  W: #condition de tracage => que sdi ds l'eimg
 
                 cv2.line(empreinte,(x1,y1),(x2,y2),(0,255,0),1) 
-                #COMMENT : trester cv2.LINE_AA une fois que ça marche
+                
 
     return empreinte
 
