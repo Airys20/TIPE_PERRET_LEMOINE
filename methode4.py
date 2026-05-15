@@ -119,10 +119,10 @@ def matching_score_weighted(matched, total_catalogue, total_recherche):
     return f1 * 100
 
 ''' *************************************** MATCHING GLOBAL *************************************** '''
-MIN_REF = 15
-NB_NGHBR = 20
+MIN_REF = 5
+NB_NGHBR = 5
 LIM_THETA = 0.3
-LIM_ERREUR_DIST = 0.6
+LIM_ERREUR_DIST = 0.2
 
 def global_matching_reference(data_catalogue, data_recherche):
     with open(data_catalogue, "r") as f:
