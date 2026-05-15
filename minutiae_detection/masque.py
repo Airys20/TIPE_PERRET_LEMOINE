@@ -6,7 +6,6 @@ from scipy.ndimage import binary_opening
 
 
 
-
 def masque_fun_v3(img_grise, debug=False):
 
 
@@ -102,4 +101,4 @@ def masque_fun_v3(img_grise, debug=False):
     kopen = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (9, 9))
     mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, kopen, iterations=1)
 
-    return mask
+    return mask 

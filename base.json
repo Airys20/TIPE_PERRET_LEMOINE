@@ -163,5 +163,6251 @@
                 "orientation": -0.6242756247520447
             }
         ]
+    },
+    {
+        "nom": "Elise",
+        "minutiae": [
+            {
+                "coordonnees": [
+                    0.31640625,
+                    0.142578125
+                ],
+                "type": "ending",
+                "orientation": 0.7767496109008789
+            },
+            {
+                "coordonnees": [
+                    0.541015625,
+                    0.166015625
+                ],
+                "type": "ending",
+                "orientation": 1.2721943855285645
+            },
+            {
+                "coordonnees": [
+                    0.5234375,
+                    0.169921875
+                ],
+                "type": "ending",
+                "orientation": 1.2414358854293823
+            },
+            {
+                "coordonnees": [
+                    0.609375,
+                    0.171875
+                ],
+                "type": "ending",
+                "orientation": 1.3450541496276855
+            },
+            {
+                "coordonnees": [
+                    0.501953125,
+                    0.173828125
+                ],
+                "type": "ending",
+                "orientation": 1.1454135179519653
+            },
+            {
+                "coordonnees": [
+                    0.298828125,
+                    0.17578125
+                ],
+                "type": "ending",
+                "orientation": 0.8642084002494812
+            },
+            {
+                "coordonnees": [
+                    0.34375,
+                    0.17578125
+                ],
+                "type": "ending",
+                "orientation": 0.9332705140113831
+            },
+            {
+                "coordonnees": [
+                    0.384765625,
+                    0.17578125
+                ],
+                "type": "ending",
+                "orientation": 0.9567993879318237
+            },
+            {
+                "coordonnees": [
+                    0.59765625,
+                    0.17578125
+                ],
+                "type": "ending",
+                "orientation": 1.3170392513275146
+            },
+            {
+                "coordonnees": [
+                    0.48828125,
+                    0.177734375
+                ],
+                "type": "ending",
+                "orientation": 1.1704951524734497
+            },
+            {
+                "coordonnees": [
+                    0.568359375,
+                    0.177734375
+                ],
+                "type": "ending",
+                "orientation": 1.2728456258773804
+            },
+            {
+                "coordonnees": [
+                    0.26171875,
+                    0.1796875
+                ],
+                "type": "ending",
+                "orientation": 0.7487162947654724
+            },
+            {
+                "coordonnees": [
+                    0.62890625,
+                    0.18359375
+                ],
+                "type": "ending",
+                "orientation": 1.3499085903167725
+            },
+            {
+                "coordonnees": [
+                    0.615234375,
+                    0.185546875
+                ],
+                "type": "ending",
+                "orientation": 1.2984427213668823
+            },
+            {
+                "coordonnees": [
+                    0.318359375,
+                    0.1875
+                ],
+                "type": "ending",
+                "orientation": 0.9301393032073975
+            },
+            {
+                "coordonnees": [
+                    0.599609375,
+                    0.189453125
+                ],
+                "type": "ending",
+                "orientation": 1.319984793663025
+            },
+            {
+                "coordonnees": [
+                    0.25,
+                    0.19140625
+                ],
+                "type": "ending",
+                "orientation": 0.7354731559753418
+            },
+            {
+                "coordonnees": [
+                    0.443359375,
+                    0.19140625
+                ],
+                "type": "ending",
+                "orientation": 1.040510892868042
+            },
+            {
+                "coordonnees": [
+                    0.30859375,
+                    0.1953125
+                ],
+                "type": "ending",
+                "orientation": 0.9543493390083313
+            },
+            {
+                "coordonnees": [
+                    0.34765625,
+                    0.1953125
+                ],
+                "type": "ending",
+                "orientation": 0.9374891519546509
+            },
+            {
+                "coordonnees": [
+                    0.662109375,
+                    0.1953125
+                ],
+                "type": "ending",
+                "orientation": 1.0473626852035522
+            },
+            {
+                "coordonnees": [
+                    0.650390625,
+                    0.197265625
+                ],
+                "type": "ending",
+                "orientation": 1.3194557428359985
+            },
+            {
+                "coordonnees": [
+                    0.37890625,
+                    0.19921875
+                ],
+                "type": "ending",
+                "orientation": 0.9350927472114563
+            },
+            {
+                "coordonnees": [
+                    0.546875,
+                    0.19921875
+                ],
+                "type": "ending",
+                "orientation": 1.1911377906799316
+            },
+            {
+                "coordonnees": [
+                    0.33203125,
+                    0.203125
+                ],
+                "type": "ending",
+                "orientation": 0.9613065719604492
+            },
+            {
+                "coordonnees": [
+                    0.41015625,
+                    0.205078125
+                ],
+                "type": "ending",
+                "orientation": 0.9956379532814026
+            },
+            {
+                "coordonnees": [
+                    0.609375,
+                    0.205078125
+                ],
+                "type": "ending",
+                "orientation": 1.2870535850524902
+            },
+            {
+                "coordonnees": [
+                    0.279296875,
+                    0.208984375
+                ],
+                "type": "ending",
+                "orientation": 0.9334929585456848
+            },
+            {
+                "coordonnees": [
+                    0.447265625,
+                    0.2109375
+                ],
+                "type": "ending",
+                "orientation": 1.0714257955551147
+            },
+            {
+                "coordonnees": [
+                    0.572265625,
+                    0.212890625
+                ],
+                "type": "ending",
+                "orientation": 1.2338225841522217
+            },
+            {
+                "coordonnees": [
+                    0.673828125,
+                    0.212890625
+                ],
+                "type": "ending",
+                "orientation": 1.2460582256317139
+            },
+            {
+                "coordonnees": [
+                    0.306640625,
+                    0.21484375
+                ],
+                "type": "ending",
+                "orientation": 1.003271222114563
+            },
+            {
+                "coordonnees": [
+                    0.66015625,
+                    0.21484375
+                ],
+                "type": "ending",
+                "orientation": 1.288840413093567
+            },
+            {
+                "coordonnees": [
+                    0.5546875,
+                    0.216796875
+                ],
+                "type": "ending",
+                "orientation": 1.221859097480774
+            },
+            {
+                "coordonnees": [
+                    0.345703125,
+                    0.21875
+                ],
+                "type": "ending",
+                "orientation": 0.9370583295822144
+            },
+            {
+                "coordonnees": [
+                    0.6328125,
+                    0.220703125
+                ],
+                "type": "ending",
+                "orientation": 1.2585653066635132
+            },
+            {
+                "coordonnees": [
+                    0.333984375,
+                    0.2265625
+                ],
+                "type": "ending",
+                "orientation": 0.9859997630119324
+            },
+            {
+                "coordonnees": [
+                    0.408203125,
+                    0.2265625
+                ],
+                "type": "ending",
+                "orientation": 1.0520483255386353
+            },
+            {
+                "coordonnees": [
+                    0.517578125,
+                    0.2265625
+                ],
+                "type": "ending",
+                "orientation": 1.2548030614852905
+            },
+            {
+                "coordonnees": [
+                    0.28125,
+                    0.23046875
+                ],
+                "type": "ending",
+                "orientation": 0.8899652361869812
+            },
+            {
+                "coordonnees": [
+                    0.447265625,
+                    0.23046875
+                ],
+                "type": "ending",
+                "orientation": 1.1641523838043213
+            },
+            {
+                "coordonnees": [
+                    0.322265625,
+                    0.232421875
+                ],
+                "type": "ending",
+                "orientation": 0.9745633006095886
+            },
+            {
+                "coordonnees": [
+                    0.1953125,
+                    0.23828125
+                ],
+                "type": "bifurcation",
+                "orientation": 0.732977569103241
+            },
+            {
+                "coordonnees": [
+                    0.302734375,
+                    0.23828125
+                ],
+                "type": "ending",
+                "orientation": 0.9221397042274475
+            },
+            {
+                "coordonnees": [
+                    0.1796875,
+                    0.248046875
+                ],
+                "type": "ending",
+                "orientation": 0.7380617260932922
+            },
+            {
+                "coordonnees": [
+                    0.21484375,
+                    0.25
+                ],
+                "type": "ending",
+                "orientation": 0.6929764747619629
+            },
+            {
+                "coordonnees": [
+                    0.705078125,
+                    0.25
+                ],
+                "type": "ending",
+                "orientation": 1.2961758375167847
+            },
+            {
+                "coordonnees": [
+                    0.716796875,
+                    0.25
+                ],
+                "type": "ending",
+                "orientation": 1.2961758375167847
+            },
+            {
+                "coordonnees": [
+                    0.16796875,
+                    0.25390625
+                ],
+                "type": "ending",
+                "orientation": 0.7247825264930725
+            },
+            {
+                "coordonnees": [
+                    0.68359375,
+                    0.25390625
+                ],
+                "type": "ending",
+                "orientation": 1.308948278427124
+            },
+            {
+                "coordonnees": [
+                    0.134765625,
+                    0.255859375
+                ],
+                "type": "ending",
+                "orientation": 0.7335364818572998
+            },
+            {
+                "coordonnees": [
+                    0.345703125,
+                    0.255859375
+                ],
+                "type": "ending",
+                "orientation": 0.9523482322692871
+            },
+            {
+                "coordonnees": [
+                    0.205078125,
+                    0.259765625
+                ],
+                "type": "ending",
+                "orientation": 0.6918399930000305
+            },
+            {
+                "coordonnees": [
+                    0.236328125,
+                    0.259765625
+                ],
+                "type": "ending",
+                "orientation": 0.7432428598403931
+            },
+            {
+                "coordonnees": [
+                    0.26953125,
+                    0.259765625
+                ],
+                "type": "ending",
+                "orientation": 0.7758144736289978
+            },
+            {
+                "coordonnees": [
+                    0.125,
+                    0.263671875
+                ],
+                "type": "ending",
+                "orientation": 0.7178150415420532
+            },
+            {
+                "coordonnees": [
+                    0.150390625,
+                    0.263671875
+                ],
+                "type": "ending",
+                "orientation": 0.7682033777236938
+            },
+            {
+                "coordonnees": [
+                    0.29296875,
+                    0.265625
+                ],
+                "type": "ending",
+                "orientation": 0.8257496356964111
+            },
+            {
+                "coordonnees": [
+                    0.32421875,
+                    0.267578125
+                ],
+                "type": "ending",
+                "orientation": 0.9010500907897949
+            },
+            {
+                "coordonnees": [
+                    0.22265625,
+                    0.271484375
+                ],
+                "type": "ending",
+                "orientation": 0.7063218951225281
+            },
+            {
+                "coordonnees": [
+                    0.16796875,
+                    0.2734375
+                ],
+                "type": "ending",
+                "orientation": 0.7078612446784973
+            },
+            {
+                "coordonnees": [
+                    0.28125,
+                    0.2734375
+                ],
+                "type": "ending",
+                "orientation": 0.7983298301696777
+            },
+            {
+                "coordonnees": [
+                    0.33984375,
+                    0.275390625
+                ],
+                "type": "ending",
+                "orientation": 0.9121015071868896
+            },
+            {
+                "coordonnees": [
+                    0.134765625,
+                    0.27734375
+                ],
+                "type": "ending",
+                "orientation": 0.7486521601676941
+            },
+            {
+                "coordonnees": [
+                    0.654296875,
+                    0.27734375
+                ],
+                "type": "ending",
+                "orientation": 1.3740097284317017
+            },
+            {
+                "coordonnees": [
+                    0.185546875,
+                    0.279296875
+                ],
+                "type": "ending",
+                "orientation": 0.6608915328979492
+            },
+            {
+                "coordonnees": [
+                    0.158203125,
+                    0.28125
+                ],
+                "type": "ending",
+                "orientation": 0.7007018327713013
+            },
+            {
+                "coordonnees": [
+                    0.20703125,
+                    0.28125
+                ],
+                "type": "ending",
+                "orientation": 0.6848593354225159
+            },
+            {
+                "coordonnees": [
+                    0.564453125,
+                    0.2890625
+                ],
+                "type": "ending",
+                "orientation": 1.3996238708496094
+            },
+            {
+                "coordonnees": [
+                    0.740234375,
+                    0.2890625
+                ],
+                "type": "ending",
+                "orientation": 1.3665663003921509
+            },
+            {
+                "coordonnees": [
+                    0.150390625,
+                    0.291015625
+                ],
+                "type": "ending",
+                "orientation": 0.6801087856292725
+            },
+            {
+                "coordonnees": [
+                    0.2578125,
+                    0.291015625
+                ],
+                "type": "ending",
+                "orientation": 0.7408970594406128
+            },
+            {
+                "coordonnees": [
+                    0.314453125,
+                    0.291015625
+                ],
+                "type": "ending",
+                "orientation": 0.8449556231498718
+            },
+            {
+                "coordonnees": [
+                    0.71875,
+                    0.291015625
+                ],
+                "type": "ending",
+                "orientation": 1.397145390510559
+            },
+            {
+                "coordonnees": [
+                    0.677734375,
+                    0.29296875
+                ],
+                "type": "ending",
+                "orientation": 1.4547902345657349
+            },
+            {
+                "coordonnees": [
+                    0.646484375,
+                    0.294921875
+                ],
+                "type": "ending",
+                "orientation": 1.4181474447250366
+            },
+            {
+                "coordonnees": [
+                    0.171875,
+                    0.296875
+                ],
+                "type": "ending",
+                "orientation": 0.7047733664512634
+            },
+            {
+                "coordonnees": [
+                    0.658203125,
+                    0.296875
+                ],
+                "type": "ending",
+                "orientation": 1.4181474447250366
+            },
+            {
+                "coordonnees": [
+                    0.216796875,
+                    0.298828125
+                ],
+                "type": "ending",
+                "orientation": 0.7352530360221863
+            },
+            {
+                "coordonnees": [
+                    0.626953125,
+                    0.298828125
+                ],
+                "type": "ending",
+                "orientation": 1.3985439538955688
+            },
+            {
+                "coordonnees": [
+                    0.2734375,
+                    0.30078125
+                ],
+                "type": "ending",
+                "orientation": 0.7941597104072571
+            },
+            {
+                "coordonnees": [
+                    0.421875,
+                    0.30078125
+                ],
+                "type": "ending",
+                "orientation": 1.093322992324829
+            },
+            {
+                "coordonnees": [
+                    0.6015625,
+                    0.30078125
+                ],
+                "type": "ending",
+                "orientation": 1.373643159866333
+            },
+            {
+                "coordonnees": [
+                    0.583984375,
+                    0.302734375
+                ],
+                "type": "ending",
+                "orientation": 1.3693101406097412
+            },
+            {
+                "coordonnees": [
+                    0.2421875,
+                    0.3046875
+                ],
+                "type": "ending",
+                "orientation": 0.727442741394043
+            },
+            {
+                "coordonnees": [
+                    0.5703125,
+                    0.3046875
+                ],
+                "type": "ending",
+                "orientation": 1.3456096649169922
+            },
+            {
+                "coordonnees": [
+                    0.744140625,
+                    0.3046875
+                ],
+                "type": "ending",
+                "orientation": 1.4174113273620605
+            },
+            {
+                "coordonnees": [
+                    0.40625,
+                    0.306640625
+                ],
+                "type": "ending",
+                "orientation": 1.0502119064331055
+            },
+            {
+                "coordonnees": [
+                    0.712890625,
+                    0.306640625
+                ],
+                "type": "ending",
+                "orientation": 1.4700874090194702
+            },
+            {
+                "coordonnees": [
+                    0.755859375,
+                    0.306640625
+                ],
+                "type": "ending",
+                "orientation": 1.3829071521759033
+            },
+            {
+                "coordonnees": [
+                    0.26171875,
+                    0.30859375
+                ],
+                "type": "ending",
+                "orientation": 0.7815601229667664
+            },
+            {
+                "coordonnees": [
+                    0.3671875,
+                    0.30859375
+                ],
+                "type": "ending",
+                "orientation": 0.9406262040138245
+            },
+            {
+                "coordonnees": [
+                    0.701171875,
+                    0.30859375
+                ],
+                "type": "ending",
+                "orientation": 1.4676498174667358
+            },
+            {
+                "coordonnees": [
+                    0.638671875,
+                    0.310546875
+                ],
+                "type": "ending",
+                "orientation": 1.4657825231552124
+            },
+            {
+                "coordonnees": [
+                    0.666015625,
+                    0.310546875
+                ],
+                "type": "ending",
+                "orientation": 1.5014346837997437
+            },
+            {
+                "coordonnees": [
+                    0.52734375,
+                    0.3125
+                ],
+                "type": "ending",
+                "orientation": 1.2714418172836304
+            },
+            {
+                "coordonnees": [
+                    0.61328125,
+                    0.3125
+                ],
+                "type": "ending",
+                "orientation": 1.409714937210083
+            },
+            {
+                "coordonnees": [
+                    0.681640625,
+                    0.3125
+                ],
+                "type": "ending",
+                "orientation": 1.496358036994934
+            },
+            {
+                "coordonnees": [
+                    0.625,
+                    0.314453125
+                ],
+                "type": "ending",
+                "orientation": 1.4384623765945435
+            },
+            {
+                "coordonnees": [
+                    0.650390625,
+                    0.314453125
+                ],
+                "type": "ending",
+                "orientation": 1.4755373001098633
+            },
+            {
+                "coordonnees": [
+                    0.224609375,
+                    0.31640625
+                ],
+                "type": "ending",
+                "orientation": 0.7423307299613953
+            },
+            {
+                "coordonnees": [
+                    0.41796875,
+                    0.31640625
+                ],
+                "type": "ending",
+                "orientation": 1.04959237575531
+            },
+            {
+                "coordonnees": [
+                    0.591796875,
+                    0.31640625
+                ],
+                "type": "ending",
+                "orientation": 1.3831404447555542
+            },
+            {
+                "coordonnees": [
+                    0.2734375,
+                    0.318359375
+                ],
+                "type": "ending",
+                "orientation": 0.8006848096847534
+            },
+            {
+                "coordonnees": [
+                    0.3828125,
+                    0.318359375
+                ],
+                "type": "ending",
+                "orientation": 0.9271491765975952
+            },
+            {
+                "coordonnees": [
+                    0.240234375,
+                    0.32421875
+                ],
+                "type": "ending",
+                "orientation": 0.7340220808982849
+            },
+            {
+                "coordonnees": [
+                    0.263671875,
+                    0.326171875
+                ],
+                "type": "ending",
+                "orientation": 0.7681910395622253
+            },
+            {
+                "coordonnees": [
+                    0.4765625,
+                    0.326171875
+                ],
+                "type": "ending",
+                "orientation": 1.250288486480713
+            },
+            {
+                "coordonnees": [
+                    0.537109375,
+                    0.326171875
+                ],
+                "type": "ending",
+                "orientation": 1.3100571632385254
+            },
+            {
+                "coordonnees": [
+                    0.365234375,
+                    0.328125
+                ],
+                "type": "ending",
+                "orientation": 0.8702713251113892
+            },
+            {
+                "coordonnees": [
+                    0.423828125,
+                    0.328125
+                ],
+                "type": "ending",
+                "orientation": 1.0190571546554565
+            },
+            {
+                "coordonnees": [
+                    0.708984375,
+                    0.328125
+                ],
+                "type": "ending",
+                "orientation": 1.5056604146957397
+            },
+            {
+                "coordonnees": [
+                    0.25390625,
+                    0.333984375
+                ],
+                "type": "ending",
+                "orientation": 0.7165054678916931
+            },
+            {
+                "coordonnees": [
+                    0.44921875,
+                    0.333984375
+                ],
+                "type": "ending",
+                "orientation": 1.1420477628707886
+            },
+            {
+                "coordonnees": [
+                    0.6171875,
+                    0.333984375
+                ],
+                "type": "ending",
+                "orientation": 1.4458938837051392
+            },
+            {
+                "coordonnees": [
+                    0.224609375,
+                    0.3359375
+                ],
+                "type": "ending",
+                "orientation": 0.6951984167098999
+            },
+            {
+                "coordonnees": [
+                    0.595703125,
+                    0.3359375
+                ],
+                "type": "ending",
+                "orientation": 1.4023346900939941
+            },
+            {
+                "coordonnees": [
+                    0.2421875,
+                    0.34375
+                ],
+                "type": "ending",
+                "orientation": 0.6787468194961548
+            },
+            {
+                "coordonnees": [
+                    0.21484375,
+                    0.345703125
+                ],
+                "type": "ending",
+                "orientation": 0.6635215878486633
+            },
+            {
+                "coordonnees": [
+                    0.533203125,
+                    0.345703125
+                ],
+                "type": "ending",
+                "orientation": 1.3267362117767334
+            },
+            {
+                "coordonnees": [
+                    0.6953125,
+                    0.34765625
+                ],
+                "type": "ending",
+                "orientation": 1.519748330116272
+            },
+            {
+                "coordonnees": [
+                    0.12109375,
+                    0.349609375
+                ],
+                "type": "ending",
+                "orientation": 0.7235933542251587
+            },
+            {
+                "coordonnees": [
+                    0.521484375,
+                    0.349609375
+                ],
+                "type": "ending",
+                "orientation": 1.2924301624298096
+            },
+            {
+                "coordonnees": [
+                    0.640625,
+                    0.349609375
+                ],
+                "type": "ending",
+                "orientation": 1.5123616456985474
+            },
+            {
+                "coordonnees": [
+                    0.681640625,
+                    0.349609375
+                ],
+                "type": "ending",
+                "orientation": 1.5043498277664185
+            },
+            {
+                "coordonnees": [
+                    0.453125,
+                    0.3515625
+                ],
+                "type": "ending",
+                "orientation": 1.1187512874603271
+            },
+            {
+                "coordonnees": [
+                    0.50390625,
+                    0.353515625
+                ],
+                "type": "ending",
+                "orientation": 1.229731559753418
+            },
+            {
+                "coordonnees": [
+                    0.23046875,
+                    0.35546875
+                ],
+                "type": "ending",
+                "orientation": 0.6738424301147461
+            },
+            {
+                "coordonnees": [
+                    0.435546875,
+                    0.357421875
+                ],
+                "type": "ending",
+                "orientation": 1.0162463188171387
+            },
+            {
+                "coordonnees": [
+                    0.486328125,
+                    0.357421875
+                ],
+                "type": "ending",
+                "orientation": 1.142823576927185
+            },
+            {
+                "coordonnees": [
+                    0.388671875,
+                    0.359375
+                ],
+                "type": "ending",
+                "orientation": 0.8337567448616028
+            },
+            {
+                "coordonnees": [
+                    0.419921875,
+                    0.36328125
+                ],
+                "type": "ending",
+                "orientation": 0.9166147708892822
+            },
+            {
+                "coordonnees": [
+                    0.8046875,
+                    0.36328125
+                ],
+                "type": "ending",
+                "orientation": 1.402845859527588
+            },
+            {
+                "coordonnees": [
+                    0.22265625,
+                    0.365234375
+                ],
+                "type": "ending",
+                "orientation": 0.6571297645568848
+            },
+            {
+                "coordonnees": [
+                    0.513671875,
+                    0.365234375
+                ],
+                "type": "ending",
+                "orientation": 1.237278699874878
+            },
+            {
+                "coordonnees": [
+                    0.658203125,
+                    0.365234375
+                ],
+                "type": "ending",
+                "orientation": 1.5062109231948853
+            },
+            {
+                "coordonnees": [
+                    0.46484375,
+                    0.3671875
+                ],
+                "type": "ending",
+                "orientation": 1.0876431465148926
+            },
+            {
+                "coordonnees": [
+                    0.501953125,
+                    0.369140625
+                ],
+                "type": "ending",
+                "orientation": 1.177558422088623
+            },
+            {
+                "coordonnees": [
+                    0.44140625,
+                    0.373046875
+                ],
+                "type": "bifurcation",
+                "orientation": 0.9193680286407471
+            },
+            {
+                "coordonnees": [
+                    0.208984375,
+                    0.375
+                ],
+                "type": "ending",
+                "orientation": 0.61053067445755
+            },
+            {
+                "coordonnees": [
+                    0.484375,
+                    0.375
+                ],
+                "type": "ending",
+                "orientation": 1.11674964427948
+            },
+            {
+                "coordonnees": [
+                    0.55859375,
+                    0.375
+                ],
+                "type": "ending",
+                "orientation": 1.3494354486465454
+            },
+            {
+                "coordonnees": [
+                    0.47265625,
+                    0.37890625
+                ],
+                "type": "ending",
+                "orientation": 1.0588778257369995
+            },
+            {
+                "coordonnees": [
+                    0.744140625,
+                    0.380859375
+                ],
+                "type": "ending",
+                "orientation": -1.558796763420105
+            },
+            {
+                "coordonnees": [
+                    0.77734375,
+                    0.3828125
+                ],
+                "type": "ending",
+                "orientation": 1.4859563112258911
+            },
+            {
+                "coordonnees": [
+                    0.22265625,
+                    0.384765625
+                ],
+                "type": "ending",
+                "orientation": 0.6241323351860046
+            },
+            {
+                "coordonnees": [
+                    0.802734375,
+                    0.384765625
+                ],
+                "type": "ending",
+                "orientation": -1.4943137168884277
+            },
+            {
+                "coordonnees": [
+                    0.505859375,
+                    0.38671875
+                ],
+                "type": "ending",
+                "orientation": 1.223700761795044
+            },
+            {
+                "coordonnees": [
+                    0.548828125,
+                    0.392578125
+                ],
+                "type": "ending",
+                "orientation": 1.3186527490615845
+            },
+            {
+                "coordonnees": [
+                    0.21484375,
+                    0.39453125
+                ],
+                "type": "ending",
+                "orientation": 0.5893309712409973
+            },
+            {
+                "coordonnees": [
+                    0.537109375,
+                    0.39453125
+                ],
+                "type": "ending",
+                "orientation": 1.250401258468628
+            },
+            {
+                "coordonnees": [
+                    0.455078125,
+                    0.396484375
+                ],
+                "type": "bifurcation",
+                "orientation": 0.9434284567832947
+            },
+            {
+                "coordonnees": [
+                    0.525390625,
+                    0.396484375
+                ],
+                "type": "ending",
+                "orientation": 1.2304831743240356
+            },
+            {
+                "coordonnees": [
+                    0.1875,
+                    0.3984375
+                ],
+                "type": "ending",
+                "orientation": 0.5914914608001709
+            },
+            {
+                "coordonnees": [
+                    0.689453125,
+                    0.3984375
+                ],
+                "type": "ending",
+                "orientation": 1.545996069908142
+            },
+            {
+                "coordonnees": [
+                    0.712890625,
+                    0.3984375
+                ],
+                "type": "ending",
+                "orientation": -1.562583327293396
+            },
+            {
+                "coordonnees": [
+                    0.654296875,
+                    0.400390625
+                ],
+                "type": "ending",
+                "orientation": 1.5212674140930176
+            },
+            {
+                "coordonnees": [
+                    0.666015625,
+                    0.400390625
+                ],
+                "type": "ending",
+                "orientation": 1.533326506614685
+            },
+            {
+                "coordonnees": [
+                    0.759765625,
+                    0.400390625
+                ],
+                "type": "ending",
+                "orientation": -1.4560785293579102
+            },
+            {
+                "coordonnees": [
+                    0.205078125,
+                    0.40234375
+                ],
+                "type": "ending",
+                "orientation": 0.5893309712409973
+            },
+            {
+                "coordonnees": [
+                    0.509765625,
+                    0.40234375
+                ],
+                "type": "ending",
+                "orientation": 1.2043063640594482
+            },
+            {
+                "coordonnees": [
+                    0.62109375,
+                    0.40234375
+                ],
+                "type": "ending",
+                "orientation": 1.486847162246704
+            },
+            {
+                "coordonnees": [
+                    0.6328125,
+                    0.40234375
+                ],
+                "type": "ending",
+                "orientation": 1.500945806503296
+            },
+            {
+                "coordonnees": [
+                    0.7265625,
+                    0.40234375
+                ],
+                "type": "ending",
+                "orientation": -1.5397781133651733
+            },
+            {
+                "coordonnees": [
+                    0.79296875,
+                    0.40234375
+                ],
+                "type": "ending",
+                "orientation": -1.4831314086914062
+            },
+            {
+                "coordonnees": [
+                    0.552734375,
+                    0.404296875
+                ],
+                "type": "ending",
+                "orientation": 1.26205575466156
+            },
+            {
+                "coordonnees": [
+                    0.587890625,
+                    0.408203125
+                ],
+                "type": "ending",
+                "orientation": 1.3467038869857788
+            },
+            {
+                "coordonnees": [
+                    0.529296875,
+                    0.41015625
+                ],
+                "type": "ending",
+                "orientation": 1.2079260349273682
+            },
+            {
+                "coordonnees": [
+                    0.4765625,
+                    0.412109375
+                ],
+                "type": "ending",
+                "orientation": 1.09735107421875
+            },
+            {
+                "coordonnees": [
+                    0.720703125,
+                    0.4140625
+                ],
+                "type": "ending",
+                "orientation": -1.5027034282684326
+            },
+            {
+                "coordonnees": [
+                    0.275390625,
+                    0.416015625
+                ],
+                "type": "ending",
+                "orientation": 0.5687772035598755
+            },
+            {
+                "coordonnees": [
+                    0.46484375,
+                    0.41796875
+                ],
+                "type": "ending",
+                "orientation": 1.0091029405593872
+            },
+            {
+                "coordonnees": [
+                    0.568359375,
+                    0.41796875
+                ],
+                "type": "bifurcation",
+                "orientation": 1.3184453248977661
+            },
+            {
+                "coordonnees": [
+                    0.76953125,
+                    0.41796875
+                ],
+                "type": "ending",
+                "orientation": -1.4315361976623535
+            },
+            {
+                "coordonnees": [
+                    0.5,
+                    0.419921875
+                ],
+                "type": "ending",
+                "orientation": 1.1246697902679443
+            },
+            {
+                "coordonnees": [
+                    0.619140625,
+                    0.419921875
+                ],
+                "type": "ending",
+                "orientation": 1.4788709878921509
+            },
+            {
+                "coordonnees": [
+                    0.630859375,
+                    0.419921875
+                ],
+                "type": "ending",
+                "orientation": 1.4788709878921509
+            },
+            {
+                "coordonnees": [
+                    0.185546875,
+                    0.42578125
+                ],
+                "type": "ending",
+                "orientation": 0.5642952919006348
+            },
+            {
+                "coordonnees": [
+                    0.529296875,
+                    0.431640625
+                ],
+                "type": "ending",
+                "orientation": 1.1516236066818237
+            },
+            {
+                "coordonnees": [
+                    0.603515625,
+                    0.439453125
+                ],
+                "type": "ending",
+                "orientation": 1.446571707725525
+            },
+            {
+                "coordonnees": [
+                    0.833984375,
+                    0.4453125
+                ],
+                "type": "ending",
+                "orientation": -1.453099012374878
+            },
+            {
+                "coordonnees": [
+                    0.44140625,
+                    0.44921875
+                ],
+                "type": "ending",
+                "orientation": 0.8215025067329407
+            },
+            {
+                "coordonnees": [
+                    0.6796875,
+                    0.453125
+                ],
+                "type": "ending",
+                "orientation": -1.5510810613632202
+            },
+            {
+                "coordonnees": [
+                    0.693359375,
+                    0.45703125
+                ],
+                "type": "ending",
+                "orientation": -1.4755570888519287
+            },
+            {
+                "coordonnees": [
+                    0.552734375,
+                    0.458984375
+                ],
+                "type": "ending",
+                "orientation": 1.194322943687439
+            },
+            {
+                "coordonnees": [
+                    0.744140625,
+                    0.458984375
+                ],
+                "type": "ending",
+                "orientation": -1.4135267734527588
+            },
+            {
+                "coordonnees": [
+                    0.755859375,
+                    0.458984375
+                ],
+                "type": "ending",
+                "orientation": -1.3751075267791748
+            },
+            {
+                "coordonnees": [
+                    0.767578125,
+                    0.458984375
+                ],
+                "type": "ending",
+                "orientation": -1.3430477380752563
+            },
+            {
+                "coordonnees": [
+                    0.541015625,
+                    0.462890625
+                ],
+                "type": "ending",
+                "orientation": 1.1445093154907227
+            },
+            {
+                "coordonnees": [
+                    0.798828125,
+                    0.46484375
+                ],
+                "type": "ending",
+                "orientation": -1.3498454093933105
+            },
+            {
+                "coordonnees": [
+                    0.654296875,
+                    0.466796875
+                ],
+                "type": "ending",
+                "orientation": -1.5702412128448486
+            },
+            {
+                "coordonnees": [
+                    0.671875,
+                    0.466796875
+                ],
+                "type": "ending",
+                "orientation": -1.552103877067566
+            },
+            {
+                "coordonnees": [
+                    0.7109375,
+                    0.46875
+                ],
+                "type": "ending",
+                "orientation": -1.451124906539917
+            },
+            {
+                "coordonnees": [
+                    0.814453125,
+                    0.46875
+                ],
+                "type": "ending",
+                "orientation": -1.3061634302139282
+            },
+            {
+                "coordonnees": [
+                    0.6875,
+                    0.470703125
+                ],
+                "type": "ending",
+                "orientation": -1.5271352529525757
+            },
+            {
+                "coordonnees": [
+                    0.7265625,
+                    0.470703125
+                ],
+                "type": "ending",
+                "orientation": -1.4398380517959595
+            },
+            {
+                "coordonnees": [
+                    0.5546875,
+                    0.47265625
+                ],
+                "type": "ending",
+                "orientation": 1.1384022235870361
+            },
+            {
+                "coordonnees": [
+                    0.740234375,
+                    0.474609375
+                ],
+                "type": "ending",
+                "orientation": -1.4137914180755615
+            },
+            {
+                "coordonnees": [
+                    0.54296875,
+                    0.4765625
+                ],
+                "type": "ending",
+                "orientation": 1.092707872390747
+            },
+            {
+                "coordonnees": [
+                    0.580078125,
+                    0.478515625
+                ],
+                "type": "ending",
+                "orientation": 1.2683638334274292
+            },
+            {
+                "coordonnees": [
+                    0.765625,
+                    0.478515625
+                ],
+                "type": "ending",
+                "orientation": -1.3405543565750122
+            },
+            {
+                "coordonnees": [
+                    0.787109375,
+                    0.48046875
+                ],
+                "type": "ending",
+                "orientation": -1.331366777420044
+            },
+            {
+                "coordonnees": [
+                    0.798828125,
+                    0.482421875
+                ],
+                "type": "ending",
+                "orientation": -1.3360236883163452
+            },
+            {
+                "coordonnees": [
+                    0.52734375,
+                    0.484375
+                ],
+                "type": "ending",
+                "orientation": 1.0141204595565796
+            },
+            {
+                "coordonnees": [
+                    0.814453125,
+                    0.486328125
+                ],
+                "type": "ending",
+                "orientation": -1.3113548755645752
+            },
+            {
+                "coordonnees": [
+                    0.826171875,
+                    0.48828125
+                ],
+                "type": "ending",
+                "orientation": -1.2766748666763306
+            },
+            {
+                "coordonnees": [
+                    0.73828125,
+                    0.4921875
+                ],
+                "type": "ending",
+                "orientation": -1.3573344945907593
+            },
+            {
+                "coordonnees": [
+                    0.75,
+                    0.4921875
+                ],
+                "type": "ending",
+                "orientation": -1.3294610977172852
+            },
+            {
+                "coordonnees": [
+                    0.76953125,
+                    0.494140625
+                ],
+                "type": "ending",
+                "orientation": -1.3213481903076172
+            },
+            {
+                "coordonnees": [
+                    0.4765625,
+                    0.49609375
+                ],
+                "type": "ending",
+                "orientation": 0.7897767424583435
+            },
+            {
+                "coordonnees": [
+                    0.798828125,
+                    0.49609375
+                ],
+                "type": "ending",
+                "orientation": -1.299578309059143
+            },
+            {
+                "coordonnees": [
+                    0.529296875,
+                    0.498046875
+                ],
+                "type": "ending",
+                "orientation": 0.9743166565895081
+            },
+            {
+                "coordonnees": [
+                    0.787109375,
+                    0.498046875
+                ],
+                "type": "ending",
+                "orientation": -1.3037400245666504
+            },
+            {
+                "coordonnees": [
+                    0.810546875,
+                    0.501953125
+                ],
+                "type": "ending",
+                "orientation": -1.292153239250183
+            },
+            {
+                "coordonnees": [
+                    0.515625,
+                    0.505859375
+                ],
+                "type": "ending",
+                "orientation": 0.8802440166473389
+            },
+            {
+                "coordonnees": [
+                    0.833984375,
+                    0.505859375
+                ],
+                "type": "ending",
+                "orientation": -1.222204327583313
+            },
+            {
+                "coordonnees": [
+                    0.373046875,
+                    0.5078125
+                ],
+                "type": "ending",
+                "orientation": 0.4769270718097687
+            },
+            {
+                "coordonnees": [
+                    0.4609375,
+                    0.509765625
+                ],
+                "type": "ending",
+                "orientation": 0.6418114304542542
+            },
+            {
+                "coordonnees": [
+                    0.556640625,
+                    0.509765625
+                ],
+                "type": "ending",
+                "orientation": 1.1444354057312012
+            },
+            {
+                "coordonnees": [
+                    0.544921875,
+                    0.51171875
+                ],
+                "type": "ending",
+                "orientation": 1.05287504196167
+            },
+            {
+                "coordonnees": [
+                    0.58984375,
+                    0.515625
+                ],
+                "type": "ending",
+                "orientation": 1.3935019969940186
+            },
+            {
+                "coordonnees": [
+                    0.5625,
+                    0.521484375
+                ],
+                "type": "ending",
+                "orientation": 1.2348785400390625
+            },
+            {
+                "coordonnees": [
+                    0.76953125,
+                    0.521484375
+                ],
+                "type": "bifurcation",
+                "orientation": -1.2317583560943604
+            },
+            {
+                "coordonnees": [
+                    0.650390625,
+                    0.5234375
+                ],
+                "type": "ending",
+                "orientation": -1.5212880373001099
+            },
+            {
+                "coordonnees": [
+                    0.818359375,
+                    0.5234375
+                ],
+                "type": "ending",
+                "orientation": -1.2082749605178833
+            },
+            {
+                "coordonnees": [
+                    0.55078125,
+                    0.525390625
+                ],
+                "type": "ending",
+                "orientation": 1.145438551902771
+            },
+            {
+                "coordonnees": [
+                    0.67578125,
+                    0.525390625
+                ],
+                "type": "ending",
+                "orientation": -1.4156286716461182
+            },
+            {
+                "coordonnees": [
+                    0.662109375,
+                    0.52734375
+                ],
+                "type": "ending",
+                "orientation": -1.4693000316619873
+            },
+            {
+                "coordonnees": [
+                    0.701171875,
+                    0.52734375
+                ],
+                "type": "ending",
+                "orientation": -1.3773893117904663
+            },
+            {
+                "coordonnees": [
+                    0.689453125,
+                    0.529296875
+                ],
+                "type": "ending",
+                "orientation": -1.3735907077789307
+            },
+            {
+                "coordonnees": [
+                    0.533203125,
+                    0.53515625
+                ],
+                "type": "ending",
+                "orientation": 0.9355905055999756
+            },
+            {
+                "coordonnees": [
+                    0.853515625,
+                    0.53515625
+                ],
+                "type": "ending",
+                "orientation": -1.152856469154358
+            },
+            {
+                "coordonnees": [
+                    0.830078125,
+                    0.5390625
+                ],
+                "type": "ending",
+                "orientation": -1.1390460729599
+            },
+            {
+                "coordonnees": [
+                    0.5234375,
+                    0.54296875
+                ],
+                "type": "ending",
+                "orientation": 0.7698447108268738
+            },
+            {
+                "coordonnees": [
+                    0.61328125,
+                    0.544921875
+                ],
+                "type": "ending",
+                "orientation": 1.3973418474197388
+            },
+            {
+                "coordonnees": [
+                    0.83984375,
+                    0.546875
+                ],
+                "type": "ending",
+                "orientation": -1.1150912046432495
+            },
+            {
+                "coordonnees": [
+                    0.857421875,
+                    0.552734375
+                ],
+                "type": "ending",
+                "orientation": -1.105096697807312
+            },
+            {
+                "coordonnees": [
+                    0.63671875,
+                    0.556640625
+                ],
+                "type": "ending",
+                "orientation": -1.5550199747085571
+            },
+            {
+                "coordonnees": [
+                    0.34375,
+                    0.55859375
+                ],
+                "type": "ending",
+                "orientation": 0.3503127098083496
+            },
+            {
+                "coordonnees": [
+                    0.625,
+                    0.55859375
+                ],
+                "type": "ending",
+                "orientation": 1.453553557395935
+            },
+            {
+                "coordonnees": [
+                    0.814453125,
+                    0.55859375
+                ],
+                "type": "ending",
+                "orientation": -1.0710927248001099
+            },
+            {
+                "coordonnees": [
+                    0.685546875,
+                    0.560546875
+                ],
+                "type": "ending",
+                "orientation": -1.260917067527771
+            },
+            {
+                "coordonnees": [
+                    0.875,
+                    0.560546875
+                ],
+                "type": "ending",
+                "orientation": -1.097387433052063
+            },
+            {
+                "coordonnees": [
+                    0.697265625,
+                    0.564453125
+                ],
+                "type": "ending",
+                "orientation": -1.1824465990066528
+            },
+            {
+                "coordonnees": [
+                    0.837890625,
+                    0.564453125
+                ],
+                "type": "ending",
+                "orientation": -1.0215187072753906
+            },
+            {
+                "coordonnees": [
+                    0.59375,
+                    0.568359375
+                ],
+                "type": "ending",
+                "orientation": 1.1508337259292603
+            },
+            {
+                "coordonnees": [
+                    0.8046875,
+                    0.57421875
+                ],
+                "type": "ending",
+                "orientation": -1.0567337274551392
+            },
+            {
+                "coordonnees": [
+                    0.736328125,
+                    0.576171875
+                ],
+                "type": "ending",
+                "orientation": -1.050966501235962
+            },
+            {
+                "coordonnees": [
+                    0.5703125,
+                    0.580078125
+                ],
+                "type": "ending",
+                "orientation": 0.896211564540863
+            },
+            {
+                "coordonnees": [
+                    0.88671875,
+                    0.58203125
+                ],
+                "type": "ending",
+                "orientation": -1.0476534366607666
+            },
+            {
+                "coordonnees": [
+                    0.82421875,
+                    0.583984375
+                ],
+                "type": "ending",
+                "orientation": -1.0051343441009521
+            },
+            {
+                "coordonnees": [
+                    0.748046875,
+                    0.5859375
+                ],
+                "type": "ending",
+                "orientation": -0.9484445452690125
+            },
+            {
+                "coordonnees": [
+                    0.841796875,
+                    0.58984375
+                ],
+                "type": "ending",
+                "orientation": -1.0058224201202393
+            },
+            {
+                "coordonnees": [
+                    0.5625,
+                    0.591796875
+                ],
+                "type": "bifurcation",
+                "orientation": 0.8901371359825134
+            },
+            {
+                "coordonnees": [
+                    0.6328125,
+                    0.59375
+                ],
+                "type": "ending",
+                "orientation": -1.5010082721710205
+            },
+            {
+                "coordonnees": [
+                    0.654296875,
+                    0.595703125
+                ],
+                "type": "ending",
+                "orientation": -1.3445478677749634
+            },
+            {
+                "coordonnees": [
+                    0.775390625,
+                    0.595703125
+                ],
+                "type": "ending",
+                "orientation": -0.8921107053756714
+            },
+            {
+                "coordonnees": [
+                    0.517578125,
+                    0.599609375
+                ],
+                "type": "ending",
+                "orientation": 0.5368854403495789
+            },
+            {
+                "coordonnees": [
+                    0.859375,
+                    0.599609375
+                ],
+                "type": "ending",
+                "orientation": -1.0142327547073364
+            },
+            {
+                "coordonnees": [
+                    0.7890625,
+                    0.603515625
+                ],
+                "type": "ending",
+                "orientation": -0.913888692855835
+            },
+            {
+                "coordonnees": [
+                    0.75,
+                    0.60546875
+                ],
+                "type": "ending",
+                "orientation": -0.9018598794937134
+            },
+            {
+                "coordonnees": [
+                    0.69921875,
+                    0.607421875
+                ],
+                "type": "ending",
+                "orientation": -1.1118502616882324
+            },
+            {
+                "coordonnees": [
+                    0.798828125,
+                    0.611328125
+                ],
+                "type": "ending",
+                "orientation": -0.8783308863639832
+            },
+            {
+                "coordonnees": [
+                    0.888671875,
+                    0.611328125
+                ],
+                "type": "ending",
+                "orientation": -1.0338385105133057
+            },
+            {
+                "coordonnees": [
+                    0.716796875,
+                    0.61328125
+                ],
+                "type": "ending",
+                "orientation": -0.9937348961830139
+            },
+            {
+                "coordonnees": [
+                    0.576171875,
+                    0.615234375
+                ],
+                "type": "ending",
+                "orientation": 0.9158803224563599
+            },
+            {
+                "coordonnees": [
+                    0.6796875,
+                    0.619140625
+                ],
+                "type": "ending",
+                "orientation": -1.1213618516921997
+            },
+            {
+                "coordonnees": [
+                    0.578125,
+                    0.626953125
+                ],
+                "type": "ending",
+                "orientation": 0.8048611879348755
+            },
+            {
+                "coordonnees": [
+                    0.744140625,
+                    0.630859375
+                ],
+                "type": "ending",
+                "orientation": -0.8817265033721924
+            },
+            {
+                "coordonnees": [
+                    0.376953125,
+                    0.6328125
+                ],
+                "type": "ending",
+                "orientation": 0.2066214233636856
+            },
+            {
+                "coordonnees": [
+                    0.677734375,
+                    0.6328125
+                ],
+                "type": "ending",
+                "orientation": -0.9606225490570068
+            },
+            {
+                "coordonnees": [
+                    0.71484375,
+                    0.6328125
+                ],
+                "type": "ending",
+                "orientation": -0.8923187255859375
+            },
+            {
+                "coordonnees": [
+                    0.59375,
+                    0.63671875
+                ],
+                "type": "ending",
+                "orientation": 0.8943752646446228
+            },
+            {
+                "coordonnees": [
+                    0.650390625,
+                    0.638671875
+                ],
+                "type": "ending",
+                "orientation": -1.1039509773254395
+            },
+            {
+                "coordonnees": [
+                    0.6953125,
+                    0.640625
+                ],
+                "type": "ending",
+                "orientation": -0.9205463528633118
+            },
+            {
+                "coordonnees": [
+                    0.615234375,
+                    0.646484375
+                ],
+                "type": "ending",
+                "orientation": 1.067775011062622
+            },
+            {
+                "coordonnees": [
+                    0.365234375,
+                    0.6484375
+                ],
+                "type": "ending",
+                "orientation": 0.1609838902950287
+            },
+            {
+                "coordonnees": [
+                    0.603515625,
+                    0.6484375
+                ],
+                "type": "ending",
+                "orientation": 1.067775011062622
+            },
+            {
+                "coordonnees": [
+                    0.705078125,
+                    0.6484375
+                ],
+                "type": "ending",
+                "orientation": -0.863384485244751
+            },
+            {
+                "coordonnees": [
+                    0.86328125,
+                    0.654296875
+                ],
+                "type": "ending",
+                "orientation": -0.8438332676887512
+            },
+            {
+                "coordonnees": [
+                    0.8359375,
+                    0.65625
+                ],
+                "type": "ending",
+                "orientation": -0.7196998000144958
+            },
+            {
+                "coordonnees": [
+                    0.623046875,
+                    0.66015625
+                ],
+                "type": "bifurcation",
+                "orientation": -1.3452973365783691
+            },
+            {
+                "coordonnees": [
+                    0.720703125,
+                    0.66015625
+                ],
+                "type": "ending",
+                "orientation": -0.784724771976471
+            },
+            {
+                "coordonnees": [
+                    0.798828125,
+                    0.666015625
+                ],
+                "type": "ending",
+                "orientation": -0.6791237592697144
+            },
+            {
+                "coordonnees": [
+                    0.833984375,
+                    0.671875
+                ],
+                "type": "ending",
+                "orientation": -0.6731751561164856
+            },
+            {
+                "coordonnees": [
+                    0.86328125,
+                    0.673828125
+                ],
+                "type": "ending",
+                "orientation": -0.7624133825302124
+            },
+            {
+                "coordonnees": [
+                    0.474609375,
+                    0.67578125
+                ],
+                "type": "ending",
+                "orientation": -0.06830301880836487
+            },
+            {
+                "coordonnees": [
+                    0.546875,
+                    0.677734375
+                ],
+                "type": "bifurcation",
+                "orientation": -0.03482814505696297
+            },
+            {
+                "coordonnees": [
+                    0.900390625,
+                    0.677734375
+                ],
+                "type": "ending",
+                "orientation": -0.9982665777206421
+            },
+            {
+                "coordonnees": [
+                    0.8125,
+                    0.6796875
+                ],
+                "type": "ending",
+                "orientation": -0.6238927245140076
+            },
+            {
+                "coordonnees": [
+                    0.873046875,
+                    0.685546875
+                ],
+                "type": "ending",
+                "orientation": -0.7191349864006042
+            },
+            {
+                "coordonnees": [
+                    0.556640625,
+                    0.69140625
+                ],
+                "type": "bifurcation",
+                "orientation": -0.07858754694461823
+            },
+            {
+                "coordonnees": [
+                    0.80078125,
+                    0.69140625
+                ],
+                "type": "ending",
+                "orientation": -0.5788928270339966
+            },
+            {
+                "coordonnees": [
+                    0.478515625,
+                    0.693359375
+                ],
+                "type": "ending",
+                "orientation": -0.0972689613699913
+            },
+            {
+                "coordonnees": [
+                    0.78515625,
+                    0.693359375
+                ],
+                "type": "ending",
+                "orientation": -0.5772053003311157
+            },
+            {
+                "coordonnees": [
+                    0.828125,
+                    0.693359375
+                ],
+                "type": "ending",
+                "orientation": -0.5473538041114807
+            },
+            {
+                "coordonnees": [
+                    0.3515625,
+                    0.6953125
+                ],
+                "type": "ending",
+                "orientation": 0.06551377475261688
+            },
+            {
+                "coordonnees": [
+                    0.765625,
+                    0.69921875
+                ],
+                "type": "ending",
+                "orientation": -0.49992063641548157
+            },
+            {
+                "coordonnees": [
+                    0.646484375,
+                    0.701171875
+                ],
+                "type": "ending",
+                "orientation": -0.45470666885375977
+            },
+            {
+                "coordonnees": [
+                    0.861328125,
+                    0.701171875
+                ],
+                "type": "ending",
+                "orientation": -0.6195054650306702
+            },
+            {
+                "coordonnees": [
+                    0.96484375,
+                    0.701171875
+                ],
+                "type": "ending",
+                "orientation": -0.9043199419975281
+            },
+            {
+                "coordonnees": [
+                    0.935546875,
+                    0.703125
+                ],
+                "type": "ending",
+                "orientation": -1.0086618661880493
+            },
+            {
+                "coordonnees": [
+                    0.841796875,
+                    0.7109375
+                ],
+                "type": "ending",
+                "orientation": -0.4788711667060852
+            },
+            {
+                "coordonnees": [
+                    0.775390625,
+                    0.712890625
+                ],
+                "type": "ending",
+                "orientation": -0.4277147352695465
+            },
+            {
+                "coordonnees": [
+                    0.80078125,
+                    0.712890625
+                ],
+                "type": "ending",
+                "orientation": -0.4636344909667969
+            },
+            {
+                "coordonnees": [
+                    0.8203125,
+                    0.71484375
+                ],
+                "type": "ending",
+                "orientation": -0.4605264365673065
+            },
+            {
+                "coordonnees": [
+                    0.91015625,
+                    0.720703125
+                ],
+                "type": "ending",
+                "orientation": -0.79706209897995
+            },
+            {
+                "coordonnees": [
+                    0.80859375,
+                    0.72265625
+                ],
+                "type": "ending",
+                "orientation": -0.5070478916168213
+            },
+            {
+                "coordonnees": [
+                    0.3515625,
+                    0.724609375
+                ],
+                "type": "ending",
+                "orientation": 0.12938104569911957
+            },
+            {
+                "coordonnees": [
+                    0.408203125,
+                    0.724609375
+                ],
+                "type": "ending",
+                "orientation": -0.08315159380435944
+            },
+            {
+                "coordonnees": [
+                    0.78515625,
+                    0.7265625
+                ],
+                "type": "ending",
+                "orientation": -0.5699201822280884
+            },
+            {
+                "coordonnees": [
+                    0.716796875,
+                    0.728515625
+                ],
+                "type": "ending",
+                "orientation": -0.4101487994194031
+            },
+            {
+                "coordonnees": [
+                    0.74609375,
+                    0.732421875
+                ],
+                "type": "ending",
+                "orientation": -0.4457334578037262
+            },
+            {
+                "coordonnees": [
+                    0.888671875,
+                    0.732421875
+                ],
+                "type": "ending",
+                "orientation": -0.6232897043228149
+            },
+            {
+                "coordonnees": [
+                    0.79296875,
+                    0.736328125
+                ],
+                "type": "ending",
+                "orientation": -0.6545407772064209
+            },
+            {
+                "coordonnees": [
+                    0.345703125,
+                    0.73828125
+                ],
+                "type": "ending",
+                "orientation": 0.12954171001911163
+            },
+            {
+                "coordonnees": [
+                    0.86328125,
+                    0.73828125
+                ],
+                "type": "ending",
+                "orientation": -0.5390015244483948
+            },
+            {
+                "coordonnees": [
+                    0.935546875,
+                    0.740234375
+                ],
+                "type": "ending",
+                "orientation": -0.6968356370925903
+            },
+            {
+                "coordonnees": [
+                    0.419921875,
+                    0.74609375
+                ],
+                "type": "ending",
+                "orientation": -0.1529044210910797
+            },
+            {
+                "coordonnees": [
+                    0.6953125,
+                    0.74609375
+                ],
+                "type": "ending",
+                "orientation": -0.202286958694458
+            },
+            {
+                "coordonnees": [
+                    0.841796875,
+                    0.75
+                ],
+                "type": "ending",
+                "orientation": -0.6159586310386658
+            },
+            {
+                "coordonnees": [
+                    0.755859375,
+                    0.755859375
+                ],
+                "type": "ending",
+                "orientation": -0.3444852828979492
+            },
+            {
+                "coordonnees": [
+                    0.671875,
+                    0.763671875
+                ],
+                "type": "ending",
+                "orientation": -0.20303401350975037
+            },
+            {
+                "coordonnees": [
+                    0.810546875,
+                    0.765625
+                ],
+                "type": "ending",
+                "orientation": -0.6544609665870667
+            },
+            {
+                "coordonnees": [
+                    0.916015625,
+                    0.765625
+                ],
+                "type": "ending",
+                "orientation": -0.6092104315757751
+            },
+            {
+                "coordonnees": [
+                    0.736328125,
+                    0.767578125
+                ],
+                "type": "ending",
+                "orientation": -0.23695379495620728
+            },
+            {
+                "coordonnees": [
+                    0.787109375,
+                    0.767578125
+                ],
+                "type": "ending",
+                "orientation": -0.4741917848587036
+            },
+            {
+                "coordonnees": [
+                    0.650390625,
+                    0.76953125
+                ],
+                "type": "ending",
+                "orientation": -0.20735152065753937
+            },
+            {
+                "coordonnees": [
+                    0.599609375,
+                    0.783203125
+                ],
+                "type": "ending",
+                "orientation": -0.15204165875911713
+            },
+            {
+                "coordonnees": [
+                    0.626953125,
+                    0.78515625
+                ],
+                "type": "ending",
+                "orientation": -0.2308540642261505
+            },
+            {
+                "coordonnees": [
+                    0.71484375,
+                    0.78515625
+                ],
+                "type": "ending",
+                "orientation": -0.16720890998840332
+            },
+            {
+                "coordonnees": [
+                    0.908203125,
+                    0.791015625
+                ],
+                "type": "ending",
+                "orientation": -0.5906374454498291
+            },
+            {
+                "coordonnees": [
+                    0.681640625,
+                    0.79296875
+                ],
+                "type": "ending",
+                "orientation": -0.24247024953365326
+            },
+            {
+                "coordonnees": [
+                    0.6640625,
+                    0.80078125
+                ],
+                "type": "ending",
+                "orientation": -0.24039074778556824
+            },
+            {
+                "coordonnees": [
+                    0.474609375,
+                    0.8046875
+                ],
+                "type": "ending",
+                "orientation": -0.13954243063926697
+            },
+            {
+                "coordonnees": [
+                    0.455078125,
+                    0.806640625
+                ],
+                "type": "ending",
+                "orientation": -0.08760615438222885
+            },
+            {
+                "coordonnees": [
+                    0.576171875,
+                    0.806640625
+                ],
+                "type": "ending",
+                "orientation": -0.09921194612979889
+            },
+            {
+                "coordonnees": [
+                    0.642578125,
+                    0.8203125
+                ],
+                "type": "ending",
+                "orientation": -0.2280367910861969
+            },
+            {
+                "coordonnees": [
+                    0.5546875,
+                    0.822265625
+                ],
+                "type": "ending",
+                "orientation": -0.12308721989393234
+            },
+            {
+                "coordonnees": [
+                    0.75390625,
+                    0.822265625
+                ],
+                "type": "ending",
+                "orientation": -0.21697475016117096
+            },
+            {
+                "coordonnees": [
+                    0.498046875,
+                    0.826171875
+                ],
+                "type": "ending",
+                "orientation": -0.06848305463790894
+            },
+            {
+                "coordonnees": [
+                    0.81640625,
+                    0.826171875
+                ],
+                "type": "ending",
+                "orientation": -0.2554057240486145
+            },
+            {
+                "coordonnees": [
+                    0.78515625,
+                    0.830078125
+                ],
+                "type": "ending",
+                "orientation": -0.23710769414901733
+            },
+            {
+                "coordonnees": [
+                    0.755859375,
+                    0.833984375
+                ],
+                "type": "ending",
+                "orientation": -0.22330144047737122
+            },
+            {
+                "coordonnees": [
+                    0.625,
+                    0.837890625
+                ],
+                "type": "ending",
+                "orientation": -0.202992781996727
+            },
+            {
+                "coordonnees": [
+                    0.53125,
+                    0.83984375
+                ],
+                "type": "ending",
+                "orientation": -0.020739713683724403
+            },
+            {
+                "coordonnees": [
+                    0.7890625,
+                    0.841796875
+                ],
+                "type": "bifurcation",
+                "orientation": -0.24600903689861298
+            },
+            {
+                "coordonnees": [
+                    0.8828125,
+                    0.841796875
+                ],
+                "type": "ending",
+                "orientation": -0.3596997559070587
+            },
+            {
+                "coordonnees": [
+                    0.599609375,
+                    0.84765625
+                ],
+                "type": "ending",
+                "orientation": -0.25361958146095276
+            },
+            {
+                "coordonnees": [
+                    0.486328125,
+                    0.849609375
+                ],
+                "type": "ending",
+                "orientation": 0.29562050104141235
+            },
+            {
+                "coordonnees": [
+                    0.65625,
+                    0.8515625
+                ],
+                "type": "ending",
+                "orientation": -0.266294926404953
+            },
+            {
+                "coordonnees": [
+                    0.638671875,
+                    0.853515625
+                ],
+                "type": "ending",
+                "orientation": -0.334825336933136
+            },
+            {
+                "coordonnees": [
+                    0.828125,
+                    0.85546875
+                ],
+                "type": "ending",
+                "orientation": -0.3105164170265198
+            },
+            {
+                "coordonnees": [
+                    0.8515625,
+                    0.857421875
+                ],
+                "type": "ending",
+                "orientation": -0.23786239326000214
+            },
+            {
+                "coordonnees": [
+                    0.615234375,
+                    0.86328125
+                ],
+                "type": "ending",
+                "orientation": -0.3602137863636017
+            },
+            {
+                "coordonnees": [
+                    0.796875,
+                    0.86328125
+                ],
+                "type": "ending",
+                "orientation": -0.2789251208305359
+            },
+            {
+                "coordonnees": [
+                    0.681640625,
+                    0.865234375
+                ],
+                "type": "ending",
+                "orientation": -0.18526358902454376
+            },
+            {
+                "coordonnees": [
+                    0.767578125,
+                    0.865234375
+                ],
+                "type": "ending",
+                "orientation": -0.265279084444046
+            },
+            {
+                "coordonnees": [
+                    0.83203125,
+                    0.869140625
+                ],
+                "type": "ending",
+                "orientation": -0.2690911591053009
+            },
+            {
+                "coordonnees": [
+                    0.6640625,
+                    0.876953125
+                ],
+                "type": "ending",
+                "orientation": -0.18729057908058167
+            },
+            {
+                "coordonnees": [
+                    0.625,
+                    0.87890625
+                ],
+                "type": "ending",
+                "orientation": -0.1963677704334259
+            },
+            {
+                "coordonnees": [
+                    0.7734375,
+                    0.87890625
+                ],
+                "type": "ending",
+                "orientation": -0.2707560956478119
+            },
+            {
+                "coordonnees": [
+                    0.685546875,
+                    0.884765625
+                ],
+                "type": "ending",
+                "orientation": -0.1963442862033844
+            },
+            {
+                "coordonnees": [
+                    0.708984375,
+                    0.884765625
+                ],
+                "type": "ending",
+                "orientation": -0.20743434131145477
+            },
+            {
+                "coordonnees": [
+                    0.666015625,
+                    0.890625
+                ],
+                "type": "ending",
+                "orientation": -0.17233681678771973
+            },
+            {
+                "coordonnees": [
+                    0.751953125,
+                    0.890625
+                ],
+                "type": "ending",
+                "orientation": -0.2650149166584015
+            },
+            {
+                "coordonnees": [
+                    0.783203125,
+                    0.89453125
+                ],
+                "type": "ending",
+                "orientation": -0.3361037075519562
+            }
+        ]
+    },
+    {
+        "nom": "ELise",
+        "minutiae": [
+            {
+                "coordonnees": [
+                    0.58984375,
+                    0.197265625
+                ],
+                "type": "ending",
+                "orientation": 1.3350883722305298
+            },
+            {
+                "coordonnees": [
+                    0.607421875,
+                    0.205078125
+                ],
+                "type": "bifurcation",
+                "orientation": 1.3631618022918701
+            },
+            {
+                "coordonnees": [
+                    0.4140625,
+                    0.2109375
+                ],
+                "type": "ending",
+                "orientation": 1.1228971481323242
+            },
+            {
+                "coordonnees": [
+                    0.5703125,
+                    0.2109375
+                ],
+                "type": "bifurcation",
+                "orientation": 1.3710834980010986
+            },
+            {
+                "coordonnees": [
+                    0.25,
+                    0.212890625
+                ],
+                "type": "ending",
+                "orientation": 0.8426453471183777
+            },
+            {
+                "coordonnees": [
+                    0.126953125,
+                    0.251953125
+                ],
+                "type": "ending",
+                "orientation": 0.6523590683937073
+            },
+            {
+                "coordonnees": [
+                    0.11328125,
+                    0.259765625
+                ],
+                "type": "bifurcation",
+                "orientation": 0.6194185614585876
+            },
+            {
+                "coordonnees": [
+                    0.658203125,
+                    0.259765625
+                ],
+                "type": "bifurcation",
+                "orientation": 1.2352806329727173
+            },
+            {
+                "coordonnees": [
+                    0.59375,
+                    0.279296875
+                ],
+                "type": "bifurcation",
+                "orientation": 1.4516745805740356
+            },
+            {
+                "coordonnees": [
+                    0.177734375,
+                    0.2890625
+                ],
+                "type": "ending",
+                "orientation": 0.6256385445594788
+            },
+            {
+                "coordonnees": [
+                    0.3828125,
+                    0.314453125
+                ],
+                "type": "bifurcation",
+                "orientation": 0.9231250286102295
+            },
+            {
+                "coordonnees": [
+                    0.61328125,
+                    0.330078125
+                ],
+                "type": "ending",
+                "orientation": 1.3781638145446777
+            },
+            {
+                "coordonnees": [
+                    0.1015625,
+                    0.33203125
+                ],
+                "type": "ending",
+                "orientation": 0.42330703139305115
+            },
+            {
+                "coordonnees": [
+                    0.412109375,
+                    0.34765625
+                ],
+                "type": "ending",
+                "orientation": 0.9727147817611694
+            },
+            {
+                "coordonnees": [
+                    0.6953125,
+                    0.349609375
+                ],
+                "type": "bifurcation",
+                "orientation": 1.0485632419586182
+            },
+            {
+                "coordonnees": [
+                    0.80078125,
+                    0.357421875
+                ],
+                "type": "bifurcation",
+                "orientation": 0.41903743147850037
+            },
+            {
+                "coordonnees": [
+                    0.31640625,
+                    0.384765625
+                ],
+                "type": "ending",
+                "orientation": 0.43264147639274597
+            },
+            {
+                "coordonnees": [
+                    0.44921875,
+                    0.42578125
+                ],
+                "type": "bifurcation",
+                "orientation": 0.6762750148773193
+            },
+            {
+                "coordonnees": [
+                    0.802734375,
+                    0.427734375
+                ],
+                "type": "ending",
+                "orientation": 0.4060264527797699
+            },
+            {
+                "coordonnees": [
+                    0.888671875,
+                    0.451171875
+                ],
+                "type": "ending",
+                "orientation": 0.1415017992258072
+            },
+            {
+                "coordonnees": [
+                    0.369140625,
+                    0.455078125
+                ],
+                "type": "ending",
+                "orientation": 0.09234926849603653
+            },
+            {
+                "coordonnees": [
+                    0.177734375,
+                    0.474609375
+                ],
+                "type": "bifurcation",
+                "orientation": 0.15695099532604218
+            },
+            {
+                "coordonnees": [
+                    0.548828125,
+                    0.486328125
+                ],
+                "type": "ending",
+                "orientation": 1.4674739837646484
+            },
+            {
+                "coordonnees": [
+                    0.515625,
+                    0.49609375
+                ],
+                "type": "bifurcation",
+                "orientation": -1.386635422706604
+            },
+            {
+                "coordonnees": [
+                    0.427734375,
+                    0.50390625
+                ],
+                "type": "bifurcation",
+                "orientation": -0.6472954750061035
+            },
+            {
+                "coordonnees": [
+                    0.513671875,
+                    0.52734375
+                ],
+                "type": "bifurcation",
+                "orientation": -1.1925523281097412
+            },
+            {
+                "coordonnees": [
+                    0.634765625,
+                    0.52734375
+                ],
+                "type": "ending",
+                "orientation": 1.3864904642105103
+            },
+            {
+                "coordonnees": [
+                    0.78515625,
+                    0.5390625
+                ],
+                "type": "ending",
+                "orientation": 0.8728501200675964
+            },
+            {
+                "coordonnees": [
+                    0.6171875,
+                    0.54296875
+                ],
+                "type": "bifurcation",
+                "orientation": 1.4784218072891235
+            },
+            {
+                "coordonnees": [
+                    0.693359375,
+                    0.552734375
+                ],
+                "type": "ending",
+                "orientation": 1.3246309757232666
+            },
+            {
+                "coordonnees": [
+                    0.375,
+                    0.58203125
+                ],
+                "type": "ending",
+                "orientation": -0.6413042545318604
+            },
+            {
+                "coordonnees": [
+                    0.65234375,
+                    0.6015625
+                ],
+                "type": "bifurcation",
+                "orientation": 1.3527777194976807
+            },
+            {
+                "coordonnees": [
+                    0.787109375,
+                    0.609375
+                ],
+                "type": "bifurcation",
+                "orientation": 0.9713483452796936
+            },
+            {
+                "coordonnees": [
+                    0.142578125,
+                    0.61328125
+                ],
+                "type": "ending",
+                "orientation": -0.09198210388422012
+            },
+            {
+                "coordonnees": [
+                    0.904296875,
+                    0.62109375
+                ],
+                "type": "ending",
+                "orientation": 0.5037538409233093
+            },
+            {
+                "coordonnees": [
+                    0.341796875,
+                    0.623046875
+                ],
+                "type": "ending",
+                "orientation": -0.5565233826637268
+            },
+            {
+                "coordonnees": [
+                    0.55859375,
+                    0.63671875
+                ],
+                "type": "bifurcation",
+                "orientation": -1.401312232017517
+            },
+            {
+                "coordonnees": [
+                    0.275390625,
+                    0.640625
+                ],
+                "type": "ending",
+                "orientation": -0.31183624267578125
+            },
+            {
+                "coordonnees": [
+                    0.818359375,
+                    0.640625
+                ],
+                "type": "ending",
+                "orientation": 0.8176335096359253
+            },
+            {
+                "coordonnees": [
+                    0.5703125,
+                    0.64453125
+                ],
+                "type": "ending",
+                "orientation": -1.4911439418792725
+            },
+            {
+                "coordonnees": [
+                    0.58203125,
+                    0.646484375
+                ],
+                "type": "ending",
+                "orientation": -1.5110591650009155
+            },
+            {
+                "coordonnees": [
+                    0.59765625,
+                    0.6484375
+                ],
+                "type": "ending",
+                "orientation": -1.5348200798034668
+            },
+            {
+                "coordonnees": [
+                    0.625,
+                    0.650390625
+                ],
+                "type": "ending",
+                "orientation": 1.5574101209640503
+            },
+            {
+                "coordonnees": [
+                    0.80859375,
+                    0.65234375
+                ],
+                "type": "ending",
+                "orientation": 0.8859279751777649
+            },
+            {
+                "coordonnees": [
+                    0.544921875,
+                    0.66015625
+                ],
+                "type": "ending",
+                "orientation": -1.300312876701355
+            },
+            {
+                "coordonnees": [
+                    0.60546875,
+                    0.662109375
+                ],
+                "type": "bifurcation",
+                "orientation": -1.5344454050064087
+            },
+            {
+                "coordonnees": [
+                    0.41015625,
+                    0.69140625
+                ],
+                "type": "bifurcation",
+                "orientation": -0.9013730883598328
+            },
+            {
+                "coordonnees": [
+                    0.35546875,
+                    0.73046875
+                ],
+                "type": "bifurcation",
+                "orientation": -0.6242756247520447
+            },
+            {
+                "coordonnees": [
+                    0.8046875,
+                    0.73046875
+                ],
+                "type": "ending",
+                "orientation": 1.0372740030288696
+            },
+            {
+                "coordonnees": [
+                    0.498046875,
+                    0.7734375
+                ],
+                "type": "ending",
+                "orientation": -1.104507565498352
+            },
+            {
+                "coordonnees": [
+                    0.537109375,
+                    0.80859375
+                ],
+                "type": "ending",
+                "orientation": -1.11769437789917
+            },
+            {
+                "coordonnees": [
+                    0.64453125,
+                    0.8203125
+                ],
+                "type": "ending",
+                "orientation": -1.4924101829528809
+            },
+            {
+                "coordonnees": [
+                    0.791015625,
+                    0.84375
+                ],
+                "type": "ending",
+                "orientation": 1.0249744653701782
+            },
+            {
+                "coordonnees": [
+                    0.58984375,
+                    0.8515625
+                ],
+                "type": "ending",
+                "orientation": -1.0905636548995972
+            },
+            {
+                "coordonnees": [
+                    0.61328125,
+                    0.890625
+                ],
+                "type": "ending",
+                "orientation": -0.9837658405303955
+            },
+            {
+                "coordonnees": [
+                    0.6796875,
+                    0.89453125
+                ],
+                "type": "ending",
+                "orientation": -1.0950924158096313
+            },
+            {
+                "coordonnees": [
+                    0.701171875,
+                    0.8984375
+                ],
+                "type": "ending",
+                "orientation": 1.3685619831085205
+            }
+        ]
+    },
+    {
+        "nom": "ELise",
+        "minutiae": [
+            {
+                "coordonnees": [
+                    0.16796875,
+                    0.005859375
+                ],
+                "type": "ending",
+                "orientation": 0.5326195359230042
+            },
+            {
+                "coordonnees": [
+                    0.208984375,
+                    0.0078125
+                ],
+                "type": "ending",
+                "orientation": 0.5756204128265381
+            },
+            {
+                "coordonnees": [
+                    0.236328125,
+                    0.01171875
+                ],
+                "type": "ending",
+                "orientation": 0.6747493743896484
+            },
+            {
+                "coordonnees": [
+                    0.1953125,
+                    0.017578125
+                ],
+                "type": "ending",
+                "orientation": 0.5593684911727905
+            },
+            {
+                "coordonnees": [
+                    0.2265625,
+                    0.0234375
+                ],
+                "type": "ending",
+                "orientation": 0.6943541169166565
+            },
+            {
+                "coordonnees": [
+                    0.873046875,
+                    0.025390625
+                ],
+                "type": "ending",
+                "orientation": -0.28980907797813416
+            },
+            {
+                "coordonnees": [
+                    0.173828125,
+                    0.033203125
+                ],
+                "type": "ending",
+                "orientation": 0.6322553157806396
+            },
+            {
+                "coordonnees": [
+                    0.193359375,
+                    0.048828125
+                ],
+                "type": "ending",
+                "orientation": 0.7206539511680603
+            },
+            {
+                "coordonnees": [
+                    0.859375,
+                    0.048828125
+                ],
+                "type": "ending",
+                "orientation": -0.31581807136535645
+            },
+            {
+                "coordonnees": [
+                    0.166015625,
+                    0.068359375
+                ],
+                "type": "ending",
+                "orientation": 0.6907378435134888
+            },
+            {
+                "coordonnees": [
+                    0.7890625,
+                    0.080078125
+                ],
+                "type": "ending",
+                "orientation": -0.4749920666217804
+            },
+            {
+                "coordonnees": [
+                    0.10546875,
+                    0.091796875
+                ],
+                "type": "ending",
+                "orientation": 0.36534059047698975
+            },
+            {
+                "coordonnees": [
+                    0.134765625,
+                    0.09765625
+                ],
+                "type": "ending",
+                "orientation": 0.5277979969978333
+            },
+            {
+                "coordonnees": [
+                    0.765625,
+                    0.09765625
+                ],
+                "type": "ending",
+                "orientation": -0.5577844977378845
+            },
+            {
+                "coordonnees": [
+                    0.904296875,
+                    0.1171875
+                ],
+                "type": "ending",
+                "orientation": -0.13470065593719482
+            },
+            {
+                "coordonnees": [
+                    0.109375,
+                    0.119140625
+                ],
+                "type": "ending",
+                "orientation": 0.19454777240753174
+            },
+            {
+                "coordonnees": [
+                    0.150390625,
+                    0.119140625
+                ],
+                "type": "ending",
+                "orientation": 0.45790594816207886
+            },
+            {
+                "coordonnees": [
+                    0.890625,
+                    0.142578125
+                ],
+                "type": "ending",
+                "orientation": -0.28190454840660095
+            },
+            {
+                "coordonnees": [
+                    0.91796875,
+                    0.146484375
+                ],
+                "type": "ending",
+                "orientation": -0.2194872945547104
+            },
+            {
+                "coordonnees": [
+                    0.16015625,
+                    0.1484375
+                ],
+                "type": "ending",
+                "orientation": 0.3807521462440491
+            },
+            {
+                "coordonnees": [
+                    0.81640625,
+                    0.162109375
+                ],
+                "type": "ending",
+                "orientation": -0.2398548275232315
+            },
+            {
+                "coordonnees": [
+                    0.7890625,
+                    0.173828125
+                ],
+                "type": "ending",
+                "orientation": -0.4361962080001831
+            },
+            {
+                "coordonnees": [
+                    0.138671875,
+                    0.17578125
+                ],
+                "type": "ending",
+                "orientation": 0.4517497420310974
+            },
+            {
+                "coordonnees": [
+                    0.751953125,
+                    0.181640625
+                ],
+                "type": "ending",
+                "orientation": -0.20429252088069916
+            },
+            {
+                "coordonnees": [
+                    0.9140625,
+                    0.193359375
+                ],
+                "type": "ending",
+                "orientation": -0.11998876929283142
+            },
+            {
+                "coordonnees": [
+                    0.830078125,
+                    0.1953125
+                ],
+                "type": "ending",
+                "orientation": -0.23432651162147522
+            },
+            {
+                "coordonnees": [
+                    0.970703125,
+                    0.203125
+                ],
+                "type": "ending",
+                "orientation": -0.01571238413453102
+            },
+            {
+                "coordonnees": [
+                    0.865234375,
+                    0.205078125
+                ],
+                "type": "ending",
+                "orientation": -0.13437286019325256
+            },
+            {
+                "coordonnees": [
+                    0.7734375,
+                    0.2109375
+                ],
+                "type": "ending",
+                "orientation": -0.17393936216831207
+            },
+            {
+                "coordonnees": [
+                    0.8046875,
+                    0.2109375
+                ],
+                "type": "ending",
+                "orientation": -0.18087966740131378
+            },
+            {
+                "coordonnees": [
+                    0.89453125,
+                    0.212890625
+                ],
+                "type": "ending",
+                "orientation": -0.09715539962053299
+            },
+            {
+                "coordonnees": [
+                    0.8359375,
+                    0.21875
+                ],
+                "type": "ending",
+                "orientation": -0.1642887145280838
+            },
+            {
+                "coordonnees": [
+                    0.1328125,
+                    0.2265625
+                ],
+                "type": "ending",
+                "orientation": 0.39877983927726746
+            },
+            {
+                "coordonnees": [
+                    0.869140625,
+                    0.228515625
+                ],
+                "type": "ending",
+                "orientation": -0.09796947240829468
+            },
+            {
+                "coordonnees": [
+                    0.11328125,
+                    0.240234375
+                ],
+                "type": "ending",
+                "orientation": 0.3027036488056183
+            },
+            {
+                "coordonnees": [
+                    0.814453125,
+                    0.244140625
+                ],
+                "type": "ending",
+                "orientation": -0.069153793156147
+            },
+            {
+                "coordonnees": [
+                    0.869140625,
+                    0.244140625
+                ],
+                "type": "ending",
+                "orientation": -0.07848945260047913
+            },
+            {
+                "coordonnees": [
+                    0.841796875,
+                    0.248046875
+                ],
+                "type": "ending",
+                "orientation": -0.07508713752031326
+            },
+            {
+                "coordonnees": [
+                    0.9609375,
+                    0.25
+                ],
+                "type": "ending",
+                "orientation": -0.1322154551744461
+            },
+            {
+                "coordonnees": [
+                    0.751953125,
+                    0.251953125
+                ],
+                "type": "ending",
+                "orientation": -0.010803828947246075
+            },
+            {
+                "coordonnees": [
+                    0.103515625,
+                    0.2578125
+                ],
+                "type": "ending",
+                "orientation": 0.35316959023475647
+            },
+            {
+                "coordonnees": [
+                    0.84375,
+                    0.259765625
+                ],
+                "type": "ending",
+                "orientation": -0.05664245784282684
+            },
+            {
+                "coordonnees": [
+                    0.962890625,
+                    0.26171875
+                ],
+                "type": "ending",
+                "orientation": -0.10817916691303253
+            },
+            {
+                "coordonnees": [
+                    0.81640625,
+                    0.267578125
+                ],
+                "type": "ending",
+                "orientation": -0.04389656335115433
+            },
+            {
+                "coordonnees": [
+                    0.896484375,
+                    0.2734375
+                ],
+                "type": "ending",
+                "orientation": -0.025370636954903603
+            },
+            {
+                "coordonnees": [
+                    0.7421875,
+                    0.275390625
+                ],
+                "type": "ending",
+                "orientation": -0.013519706204533577
+            },
+            {
+                "coordonnees": [
+                    0.845703125,
+                    0.283203125
+                ],
+                "type": "ending",
+                "orientation": 0.011736857704818249
+            },
+            {
+                "coordonnees": [
+                    0.873046875,
+                    0.28515625
+                ],
+                "type": "ending",
+                "orientation": -0.022989308461546898
+            },
+            {
+                "coordonnees": [
+                    0.921875,
+                    0.28515625
+                ],
+                "type": "ending",
+                "orientation": -0.0911664366722107
+            },
+            {
+                "coordonnees": [
+                    0.9453125,
+                    0.2890625
+                ],
+                "type": "ending",
+                "orientation": -0.10581853985786438
+            },
+            {
+                "coordonnees": [
+                    0.8984375,
+                    0.294921875
+                ],
+                "type": "ending",
+                "orientation": -0.05257125571370125
+            },
+            {
+                "coordonnees": [
+                    0.923828125,
+                    0.302734375
+                ],
+                "type": "ending",
+                "orientation": -0.05340786278247833
+            },
+            {
+                "coordonnees": [
+                    0.94921875,
+                    0.302734375
+                ],
+                "type": "ending",
+                "orientation": -0.0451640784740448
+            },
+            {
+                "coordonnees": [
+                    0.841796875,
+                    0.3046875
+                ],
+                "type": "ending",
+                "orientation": 0.12502148747444153
+            },
+            {
+                "coordonnees": [
+                    0.873046875,
+                    0.306640625
+                ],
+                "type": "ending",
+                "orientation": 0.028052151203155518
+            },
+            {
+                "coordonnees": [
+                    0.728515625,
+                    0.31640625
+                ],
+                "type": "ending",
+                "orientation": 0.014616569504141808
+            },
+            {
+                "coordonnees": [
+                    0.873046875,
+                    0.318359375
+                ],
+                "type": "ending",
+                "orientation": 0.03948342800140381
+            },
+            {
+                "coordonnees": [
+                    0.92578125,
+                    0.3203125
+                ],
+                "type": "ending",
+                "orientation": -0.04061703383922577
+            },
+            {
+                "coordonnees": [
+                    0.953125,
+                    0.322265625
+                ],
+                "type": "ending",
+                "orientation": -0.025948775932192802
+            },
+            {
+                "coordonnees": [
+                    0.08203125,
+                    0.33203125
+                ],
+                "type": "ending",
+                "orientation": 0.43970564007759094
+            },
+            {
+                "coordonnees": [
+                    0.115234375,
+                    0.333984375
+                ],
+                "type": "ending",
+                "orientation": 0.3995191156864166
+            },
+            {
+                "coordonnees": [
+                    0.853515625,
+                    0.333984375
+                ],
+                "type": "ending",
+                "orientation": 0.1991172879934311
+            },
+            {
+                "coordonnees": [
+                    0.779296875,
+                    0.337890625
+                ],
+                "type": "ending",
+                "orientation": 0.12999297678470612
+            },
+            {
+                "coordonnees": [
+                    0.876953125,
+                    0.337890625
+                ],
+                "type": "ending",
+                "orientation": 0.0727095678448677
+            },
+            {
+                "coordonnees": [
+                    0.95703125,
+                    0.33984375
+                ],
+                "type": "ending",
+                "orientation": -0.07761286944150925
+            },
+            {
+                "coordonnees": [
+                    0.90234375,
+                    0.341796875
+                ],
+                "type": "ending",
+                "orientation": 0.02827247977256775
+            },
+            {
+                "coordonnees": [
+                    0.927734375,
+                    0.34375
+                ],
+                "type": "ending",
+                "orientation": -0.028868094086647034
+            },
+            {
+                "coordonnees": [
+                    0.818359375,
+                    0.345703125
+                ],
+                "type": "ending",
+                "orientation": 0.22698937356472015
+            },
+            {
+                "coordonnees": [
+                    0.931640625,
+                    0.357421875
+                ],
+                "type": "ending",
+                "orientation": -0.056931063532829285
+            },
+            {
+                "coordonnees": [
+                    0.95703125,
+                    0.357421875
+                ],
+                "type": "ending",
+                "orientation": -0.049597255885601044
+            },
+            {
+                "coordonnees": [
+                    0.08984375,
+                    0.361328125
+                ],
+                "type": "ending",
+                "orientation": 0.2985702157020569
+            },
+            {
+                "coordonnees": [
+                    0.84375,
+                    0.365234375
+                ],
+                "type": "ending",
+                "orientation": 0.13906078040599823
+            },
+            {
+                "coordonnees": [
+                    0.931640625,
+                    0.369140625
+                ],
+                "type": "ending",
+                "orientation": -0.05816875025629997
+            },
+            {
+                "coordonnees": [
+                    0.904296875,
+                    0.37109375
+                ],
+                "type": "ending",
+                "orientation": -0.012787926942110062
+            },
+            {
+                "coordonnees": [
+                    0.83984375,
+                    0.376953125
+                ],
+                "type": "ending",
+                "orientation": 0.1285826563835144
+            },
+            {
+                "coordonnees": [
+                    0.79296875,
+                    0.37890625
+                ],
+                "type": "ending",
+                "orientation": 0.19694866240024567
+            },
+            {
+                "coordonnees": [
+                    0.80078125,
+                    0.392578125
+                ],
+                "type": "ending",
+                "orientation": 0.13495415449142456
+            },
+            {
+                "coordonnees": [
+                    0.958984375,
+                    0.392578125
+                ],
+                "type": "ending",
+                "orientation": -0.006150506436824799
+            },
+            {
+                "coordonnees": [
+                    0.888671875,
+                    0.3984375
+                ],
+                "type": "ending",
+                "orientation": 0.036247801035642624
+            },
+            {
+                "coordonnees": [
+                    0.82421875,
+                    0.400390625
+                ],
+                "type": "ending",
+                "orientation": 0.1256796419620514
+            },
+            {
+                "coordonnees": [
+                    0.859375,
+                    0.404296875
+                ],
+                "type": "ending",
+                "orientation": 0.08961185067892075
+            },
+            {
+                "coordonnees": [
+                    0.91015625,
+                    0.404296875
+                ],
+                "type": "ending",
+                "orientation": 0.06913020461797714
+            },
+            {
+                "coordonnees": [
+                    0.771484375,
+                    0.40625
+                ],
+                "type": "ending",
+                "orientation": 0.20958293974399567
+            },
+            {
+                "coordonnees": [
+                    0.93359375,
+                    0.40625
+                ],
+                "type": "ending",
+                "orientation": 0.03434687480330467
+            },
+            {
+                "coordonnees": [
+                    0.8203125,
+                    0.412109375
+                ],
+                "type": "ending",
+                "orientation": 0.1587693989276886
+            },
+            {
+                "coordonnees": [
+                    0.88671875,
+                    0.416015625
+                ],
+                "type": "ending",
+                "orientation": 0.10169333219528198
+            },
+            {
+                "coordonnees": [
+                    0.802734375,
+                    0.421875
+                ],
+                "type": "ending",
+                "orientation": 0.22184371948242188
+            },
+            {
+                "coordonnees": [
+                    0.78515625,
+                    0.427734375
+                ],
+                "type": "ending",
+                "orientation": 0.3172359764575958
+            },
+            {
+                "coordonnees": [
+                    0.830078125,
+                    0.44921875
+                ],
+                "type": "ending",
+                "orientation": 0.14768198132514954
+            },
+            {
+                "coordonnees": [
+                    0.146484375,
+                    0.45703125
+                ],
+                "type": "bifurcation",
+                "orientation": 0.4148545265197754
+            },
+            {
+                "coordonnees": [
+                    0.89453125,
+                    0.46484375
+                ],
+                "type": "ending",
+                "orientation": -0.08575844764709473
+            },
+            {
+                "coordonnees": [
+                    0.80859375,
+                    0.4765625
+                ],
+                "type": "ending",
+                "orientation": 0.03857668489217758
+            },
+            {
+                "coordonnees": [
+                    0.89453125,
+                    0.48046875
+                ],
+                "type": "ending",
+                "orientation": 0.049167700111866
+            },
+            {
+                "coordonnees": [
+                    0.14453125,
+                    0.4921875
+                ],
+                "type": "ending",
+                "orientation": 0.4811839759349823
+            },
+            {
+                "coordonnees": [
+                    0.16015625,
+                    0.52734375
+                ],
+                "type": "ending",
+                "orientation": 0.4232983887195587
+            },
+            {
+                "coordonnees": [
+                    0.8046875,
+                    0.533203125
+                ],
+                "type": "ending",
+                "orientation": 0.12674811482429504
+            },
+            {
+                "coordonnees": [
+                    0.13671875,
+                    0.541015625
+                ],
+                "type": "ending",
+                "orientation": 0.2610042095184326
+            },
+            {
+                "coordonnees": [
+                    0.869140625,
+                    0.541015625
+                ],
+                "type": "ending",
+                "orientation": 0.018680259585380554
+            },
+            {
+                "coordonnees": [
+                    0.810546875,
+                    0.552734375
+                ],
+                "type": "ending",
+                "orientation": 0.07628660649061203
+            },
+            {
+                "coordonnees": [
+                    0.16015625,
+                    0.55859375
+                ],
+                "type": "ending",
+                "orientation": 0.44783344864845276
+            },
+            {
+                "coordonnees": [
+                    0.228515625,
+                    0.55859375
+                ],
+                "type": "ending",
+                "orientation": 0.28104305267333984
+            },
+            {
+                "coordonnees": [
+                    0.201171875,
+                    0.56640625
+                ],
+                "type": "ending",
+                "orientation": 0.34141144156455994
+            },
+            {
+                "coordonnees": [
+                    0.80859375,
+                    0.57421875
+                ],
+                "type": "ending",
+                "orientation": -0.0627472996711731
+            },
+            {
+                "coordonnees": [
+                    0.80078125,
+                    0.583984375
+                ],
+                "type": "ending",
+                "orientation": -0.04871981590986252
+            },
+            {
+                "coordonnees": [
+                    0.7734375,
+                    0.5859375
+                ],
+                "type": "ending",
+                "orientation": 0.13981927931308746
+            },
+            {
+                "coordonnees": [
+                    0.205078125,
+                    0.591796875
+                ],
+                "type": "ending",
+                "orientation": 0.7012830376625061
+            },
+            {
+                "coordonnees": [
+                    0.810546875,
+                    0.638671875
+                ],
+                "type": "ending",
+                "orientation": 0.0011561427963897586
+            },
+            {
+                "coordonnees": [
+                    0.78515625,
+                    0.671875
+                ],
+                "type": "ending",
+                "orientation": -0.24191990494728088
+            },
+            {
+                "coordonnees": [
+                    0.84375,
+                    0.69140625
+                ],
+                "type": "ending",
+                "orientation": 0.12422910332679749
+            },
+            {
+                "coordonnees": [
+                    0.755859375,
+                    0.69921875
+                ],
+                "type": "ending",
+                "orientation": 0.1884884089231491
+            },
+            {
+                "coordonnees": [
+                    0.77734375,
+                    0.69921875
+                ],
+                "type": "ending",
+                "orientation": 0.021003486588597298
+            },
+            {
+                "coordonnees": [
+                    0.763671875,
+                    0.7265625
+                ],
+                "type": "ending",
+                "orientation": 0.5128749012947083
+            },
+            {
+                "coordonnees": [
+                    0.830078125,
+                    0.7265625
+                ],
+                "type": "ending",
+                "orientation": 0.36157211661338806
+            },
+            {
+                "coordonnees": [
+                    0.73828125,
+                    0.732421875
+                ],
+                "type": "ending",
+                "orientation": 0.9519532918930054
+            },
+            {
+                "coordonnees": [
+                    0.7734375,
+                    0.75390625
+                ],
+                "type": "ending",
+                "orientation": 0.28885239362716675
+            },
+            {
+                "coordonnees": [
+                    0.751953125,
+                    0.7578125
+                ],
+                "type": "ending",
+                "orientation": 1.275068759918213
+            },
+            {
+                "coordonnees": [
+                    0.435546875,
+                    0.7734375
+                ],
+                "type": "ending",
+                "orientation": 1.334337830543518
+            },
+            {
+                "coordonnees": [
+                    0.423828125,
+                    0.775390625
+                ],
+                "type": "ending",
+                "orientation": 1.2699768543243408
+            },
+            {
+                "coordonnees": [
+                    0.751953125,
+                    0.783203125
+                ],
+                "type": "ending",
+                "orientation": 1.2676922082901
+            },
+            {
+                "coordonnees": [
+                    0.45703125,
+                    0.791015625
+                ],
+                "type": "ending",
+                "orientation": -1.4962700605392456
+            },
+            {
+                "coordonnees": [
+                    0.408203125,
+                    0.802734375
+                ],
+                "type": "ending",
+                "orientation": -1.3115260601043701
+            },
+            {
+                "coordonnees": [
+                    0.236328125,
+                    0.80859375
+                ],
+                "type": "ending",
+                "orientation": -1.3849340677261353
+            },
+            {
+                "coordonnees": [
+                    0.470703125,
+                    0.810546875
+                ],
+                "type": "ending",
+                "orientation": -1.5389230251312256
+            },
+            {
+                "coordonnees": [
+                    0.431640625,
+                    0.814453125
+                ],
+                "type": "ending",
+                "orientation": -1.4481534957885742
+            },
+            {
+                "coordonnees": [
+                    0.443359375,
+                    0.814453125
+                ],
+                "type": "ending",
+                "orientation": -1.4481534957885742
+            },
+            {
+                "coordonnees": [
+                    0.412109375,
+                    0.830078125
+                ],
+                "type": "ending",
+                "orientation": -1.3861857652664185
+            },
+            {
+                "coordonnees": [
+                    0.466796875,
+                    0.830078125
+                ],
+                "type": "ending",
+                "orientation": -1.492620587348938
+            },
+            {
+                "coordonnees": [
+                    0.443359375,
+                    0.83203125
+                ],
+                "type": "ending",
+                "orientation": -1.5100146532058716
+            },
+            {
+                "coordonnees": [
+                    0.26953125,
+                    0.8359375
+                ],
+                "type": "ending",
+                "orientation": 0.8907884955406189
+            },
+            {
+                "coordonnees": [
+                    0.23828125,
+                    0.837890625
+                ],
+                "type": "ending",
+                "orientation": -0.00036579821608029306
+            },
+            {
+                "coordonnees": [
+                    0.548828125,
+                    0.83984375
+                ],
+                "type": "ending",
+                "orientation": 1.3720355033874512
+            },
+            {
+                "coordonnees": [
+                    0.498046875,
+                    0.853515625
+                ],
+                "type": "ending",
+                "orientation": 1.1640584468841553
+            },
+            {
+                "coordonnees": [
+                    0.513671875,
+                    0.853515625
+                ],
+                "type": "ending",
+                "orientation": 0.9875056743621826
+            },
+            {
+                "coordonnees": [
+                    0.7421875,
+                    0.857421875
+                ],
+                "type": "ending",
+                "orientation": -1.5271811485290527
+            },
+            {
+                "coordonnees": [
+                    0.765625,
+                    0.857421875
+                ],
+                "type": "ending",
+                "orientation": 0.040067095309495926
+            },
+            {
+                "coordonnees": [
+                    0.478515625,
+                    0.861328125
+                ],
+                "type": "ending",
+                "orientation": 1.2976737022399902
+            },
+            {
+                "coordonnees": [
+                    0.654296875,
+                    0.861328125
+                ],
+                "type": "ending",
+                "orientation": 1.0903234481811523
+            },
+            {
+                "coordonnees": [
+                    0.666015625,
+                    0.861328125
+                ],
+                "type": "ending",
+                "orientation": 1.2094508409500122
+            },
+            {
+                "coordonnees": [
+                    0.431640625,
+                    0.86328125
+                ],
+                "type": "ending",
+                "orientation": 1.4574193954467773
+            },
+            {
+                "coordonnees": [
+                    0.458984375,
+                    0.86328125
+                ],
+                "type": "ending",
+                "orientation": 1.454171895980835
+            },
+            {
+                "coordonnees": [
+                    0.390625,
+                    0.865234375
+                ],
+                "type": "ending",
+                "orientation": 1.4684087038040161
+            },
+            {
+                "coordonnees": [
+                    0.365234375,
+                    0.8671875
+                ],
+                "type": "ending",
+                "orientation": 1.4521265029907227
+            },
+            {
+                "coordonnees": [
+                    0.41015625,
+                    0.8671875
+                ],
+                "type": "ending",
+                "orientation": 1.4503109455108643
+            },
+            {
+                "coordonnees": [
+                    0.62890625,
+                    0.8671875
+                ],
+                "type": "ending",
+                "orientation": 0.7878464460372925
+            },
+            {
+                "coordonnees": [
+                    0.34765625,
+                    0.869140625
+                ],
+                "type": "ending",
+                "orientation": -1.5447810888290405
+            },
+            {
+                "coordonnees": [
+                    0.291015625,
+                    0.87109375
+                ],
+                "type": "ending",
+                "orientation": 0.564853847026825
+            },
+            {
+                "coordonnees": [
+                    0.302734375,
+                    0.87109375
+                ],
+                "type": "ending",
+                "orientation": 0.052892398089170456
+            },
+            {
+                "coordonnees": [
+                    0.248046875,
+                    0.873046875
+                ],
+                "type": "ending",
+                "orientation": 0.15583814680576324
+            },
+            {
+                "coordonnees": [
+                    0.236328125,
+                    0.876953125
+                ],
+                "type": "ending",
+                "orientation": 0.08262637257575989
+            },
+            {
+                "coordonnees": [
+                    0.62890625,
+                    0.90234375
+                ],
+                "type": "ending",
+                "orientation": 0.08778490126132965
+            },
+            {
+                "coordonnees": [
+                    0.53125,
+                    0.916015625
+                ],
+                "type": "ending",
+                "orientation": -0.12391945719718933
+            },
+            {
+                "coordonnees": [
+                    0.376953125,
+                    0.947265625
+                ],
+                "type": "ending",
+                "orientation": -0.2704467177391052
+            },
+            {
+                "coordonnees": [
+                    0.318359375,
+                    0.97265625
+                ],
+                "type": "ending",
+                "orientation": -0.39963769912719727
+            },
+            {
+                "coordonnees": [
+                    0.36328125,
+                    0.97265625
+                ],
+                "type": "ending",
+                "orientation": -1.3839530944824219
+            },
+            {
+                "coordonnees": [
+                    0.3515625,
+                    0.974609375
+                ],
+                "type": "ending",
+                "orientation": -1.154311180114746
+            },
+            {
+                "coordonnees": [
+                    0.37890625,
+                    0.974609375
+                ],
+                "type": "bifurcation",
+                "orientation": 1.3881361484527588
+            },
+            {
+                "coordonnees": [
+                    0.275390625,
+                    0.9765625
+                ],
+                "type": "ending",
+                "orientation": -0.04553235322237015
+            },
+            {
+                "coordonnees": [
+                    0.302734375,
+                    0.978515625
+                ],
+                "type": "ending",
+                "orientation": -0.31905946135520935
+            },
+            {
+                "coordonnees": [
+                    0.333984375,
+                    0.986328125
+                ],
+                "type": "ending",
+                "orientation": -1.0792468786239624
+            }
+        ]
+    },
+    {
+        "nom": "ELise",
+        "minutiae": [
+            {
+                "coordonnees": [
+                    0.46484375,
+                    0.0703125
+                ],
+                "type": "bifurcation",
+                "orientation": 1.4566766023635864
+            },
+            {
+                "coordonnees": [
+                    0.294921875,
+                    0.111328125
+                ],
+                "type": "ending",
+                "orientation": 1.1916842460632324
+            },
+            {
+                "coordonnees": [
+                    0.505859375,
+                    0.162109375
+                ],
+                "type": "bifurcation",
+                "orientation": -1.490726113319397
+            },
+            {
+                "coordonnees": [
+                    0.673828125,
+                    0.185546875
+                ],
+                "type": "bifurcation",
+                "orientation": -1.182855486869812
+            },
+            {
+                "coordonnees": [
+                    0.673828125,
+                    0.232421875
+                ],
+                "type": "bifurcation",
+                "orientation": -1.140709400177002
+            },
+            {
+                "coordonnees": [
+                    0.201171875,
+                    0.26953125
+                ],
+                "type": "ending",
+                "orientation": 1.077357530593872
+            },
+            {
+                "coordonnees": [
+                    0.18359375,
+                    0.275390625
+                ],
+                "type": "ending",
+                "orientation": 1.077357530593872
+            },
+            {
+                "coordonnees": [
+                    0.447265625,
+                    0.28515625
+                ],
+                "type": "bifurcation",
+                "orientation": 1.4422630071640015
+            },
+            {
+                "coordonnees": [
+                    0.458984375,
+                    0.302734375
+                ],
+                "type": "bifurcation",
+                "orientation": 1.4364289045333862
+            },
+            {
+                "coordonnees": [
+                    0.91015625,
+                    0.3125
+                ],
+                "type": "ending",
+                "orientation": -0.7661871314048767
+            },
+            {
+                "coordonnees": [
+                    0.455078125,
+                    0.318359375
+                ],
+                "type": "bifurcation",
+                "orientation": 1.409199595451355
+            },
+            {
+                "coordonnees": [
+                    0.736328125,
+                    0.341796875
+                ],
+                "type": "ending",
+                "orientation": -0.9833219647407532
+            },
+            {
+                "coordonnees": [
+                    0.923828125,
+                    0.34765625
+                ],
+                "type": "ending",
+                "orientation": -0.610561192035675
+            },
+            {
+                "coordonnees": [
+                    0.7578125,
+                    0.353515625
+                ],
+                "type": "ending",
+                "orientation": -0.9177104830741882
+            },
+            {
+                "coordonnees": [
+                    0.759765625,
+                    0.365234375
+                ],
+                "type": "bifurcation",
+                "orientation": -0.9177104830741882
+            },
+            {
+                "coordonnees": [
+                    0.888671875,
+                    0.380859375
+                ],
+                "type": "ending",
+                "orientation": -0.7750759124755859
+            },
+            {
+                "coordonnees": [
+                    0.93359375,
+                    0.384765625
+                ],
+                "type": "ending",
+                "orientation": -0.5892457962036133
+            },
+            {
+                "coordonnees": [
+                    0.908203125,
+                    0.39453125
+                ],
+                "type": "ending",
+                "orientation": -0.6676356196403503
+            },
+            {
+                "coordonnees": [
+                    0.87109375,
+                    0.396484375
+                ],
+                "type": "ending",
+                "orientation": -0.7939810156822205
+            },
+            {
+                "coordonnees": [
+                    0.921875,
+                    0.400390625
+                ],
+                "type": "ending",
+                "orientation": -0.6676356196403503
+            },
+            {
+                "coordonnees": [
+                    0.90234375,
+                    0.41796875
+                ],
+                "type": "ending",
+                "orientation": -0.6578789949417114
+            },
+            {
+                "coordonnees": [
+                    0.576171875,
+                    0.44140625
+                ],
+                "type": "ending",
+                "orientation": -1.1923270225524902
+            },
+            {
+                "coordonnees": [
+                    0.701171875,
+                    0.44921875
+                ],
+                "type": "bifurcation",
+                "orientation": -0.8052567839622498
+            },
+            {
+                "coordonnees": [
+                    0.23046875,
+                    0.458984375
+                ],
+                "type": "ending",
+                "orientation": 0.9001338481903076
+            },
+            {
+                "coordonnees": [
+                    0.21875,
+                    0.466796875
+                ],
+                "type": "ending",
+                "orientation": 0.8274867534637451
+            },
+            {
+                "coordonnees": [
+                    0.84375,
+                    0.490234375
+                ],
+                "type": "bifurcation",
+                "orientation": -0.5847727656364441
+            },
+            {
+                "coordonnees": [
+                    0.15625,
+                    0.5078125
+                ],
+                "type": "bifurcation",
+                "orientation": 0.7213629484176636
+            },
+            {
+                "coordonnees": [
+                    0.63671875,
+                    0.521484375
+                ],
+                "type": "bifurcation",
+                "orientation": -0.5763908624649048
+            },
+            {
+                "coordonnees": [
+                    0.794921875,
+                    0.521484375
+                ],
+                "type": "bifurcation",
+                "orientation": -0.5071226358413696
+            },
+            {
+                "coordonnees": [
+                    0.07421875,
+                    0.5234375
+                ],
+                "type": "ending",
+                "orientation": 0.4478588402271271
+            },
+            {
+                "coordonnees": [
+                    0.12109375,
+                    0.525390625
+                ],
+                "type": "ending",
+                "orientation": 0.7054848670959473
+            },
+            {
+                "coordonnees": [
+                    0.1484375,
+                    0.525390625
+                ],
+                "type": "ending",
+                "orientation": 0.6997354626655579
+            },
+            {
+                "coordonnees": [
+                    0.259765625,
+                    0.525390625
+                ],
+                "type": "bifurcation",
+                "orientation": 0.7925503849983215
+            },
+            {
+                "coordonnees": [
+                    0.896484375,
+                    0.52734375
+                ],
+                "type": "ending",
+                "orientation": -0.40830105543136597
+            },
+            {
+                "coordonnees": [
+                    0.783203125,
+                    0.529296875
+                ],
+                "type": "bifurcation",
+                "orientation": -0.5071226358413696
+            },
+            {
+                "coordonnees": [
+                    0.650390625,
+                    0.541015625
+                ],
+                "type": "ending",
+                "orientation": -0.4903258681297302
+            },
+            {
+                "coordonnees": [
+                    0.291015625,
+                    0.544921875
+                ],
+                "type": "bifurcation",
+                "orientation": 0.863920271396637
+            },
+            {
+                "coordonnees": [
+                    0.794921875,
+                    0.544921875
+                ],
+                "type": "ending",
+                "orientation": -0.4816727936267853
+            },
+            {
+                "coordonnees": [
+                    0.072265625,
+                    0.556640625
+                ],
+                "type": "ending",
+                "orientation": 0.43036949634552
+            },
+            {
+                "coordonnees": [
+                    0.814453125,
+                    0.56640625
+                ],
+                "type": "ending",
+                "orientation": -0.528894305229187
+            },
+            {
+                "coordonnees": [
+                    0.705078125,
+                    0.568359375
+                ],
+                "type": "bifurcation",
+                "orientation": -0.4157109558582306
+            },
+            {
+                "coordonnees": [
+                    0.74609375,
+                    0.568359375
+                ],
+                "type": "bifurcation",
+                "orientation": -0.41941508650779724
+            },
+            {
+                "coordonnees": [
+                    0.080078125,
+                    0.578125
+                ],
+                "type": "ending",
+                "orientation": 0.34596574306488037
+            },
+            {
+                "coordonnees": [
+                    0.791015625,
+                    0.595703125
+                ],
+                "type": "bifurcation",
+                "orientation": -0.41268473863601685
+            },
+            {
+                "coordonnees": [
+                    0.0859375,
+                    0.59765625
+                ],
+                "type": "ending",
+                "orientation": 0.47285839915275574
+            },
+            {
+                "coordonnees": [
+                    0.16015625,
+                    0.619140625
+                ],
+                "type": "ending",
+                "orientation": 0.6323224306106567
+            },
+            {
+                "coordonnees": [
+                    0.421875,
+                    0.64453125
+                ],
+                "type": "ending",
+                "orientation": -1.5380380153656006
+            },
+            {
+                "coordonnees": [
+                    0.48828125,
+                    0.64453125
+                ],
+                "type": "bifurcation",
+                "orientation": -0.99027419090271
+            },
+            {
+                "coordonnees": [
+                    0.794921875,
+                    0.64453125
+                ],
+                "type": "ending",
+                "orientation": -0.3326333165168762
+            },
+            {
+                "coordonnees": [
+                    0.634765625,
+                    0.650390625
+                ],
+                "type": "bifurcation",
+                "orientation": -0.27601173520088196
+            },
+            {
+                "coordonnees": [
+                    0.5390625,
+                    0.66015625
+                ],
+                "type": "bifurcation",
+                "orientation": -0.5352146029472351
+            },
+            {
+                "coordonnees": [
+                    0.5,
+                    0.662109375
+                ],
+                "type": "ending",
+                "orientation": -0.7159217596054077
+            },
+            {
+                "coordonnees": [
+                    0.45703125,
+                    0.689453125
+                ],
+                "type": "bifurcation",
+                "orientation": -1.4157757759094238
+            },
+            {
+                "coordonnees": [
+                    0.119140625,
+                    0.69140625
+                ],
+                "type": "ending",
+                "orientation": 0.6025093197822571
+            },
+            {
+                "coordonnees": [
+                    0.49609375,
+                    0.6953125
+                ],
+                "type": "bifurcation",
+                "orientation": -0.4107394516468048
+            },
+            {
+                "coordonnees": [
+                    0.54296875,
+                    0.6953125
+                ],
+                "type": "bifurcation",
+                "orientation": -0.3061205744743347
+            },
+            {
+                "coordonnees": [
+                    0.462890625,
+                    0.716796875
+                ],
+                "type": "bifurcation",
+                "orientation": -0.19472365081310272
+            },
+            {
+                "coordonnees": [
+                    0.51171875,
+                    0.7265625
+                ],
+                "type": "bifurcation",
+                "orientation": -0.015206224285066128
+            },
+            {
+                "coordonnees": [
+                    0.267578125,
+                    0.74609375
+                ],
+                "type": "ending",
+                "orientation": 0.686141848564148
+            },
+            {
+                "coordonnees": [
+                    0.291015625,
+                    0.75
+                ],
+                "type": "ending",
+                "orientation": 0.6791011691093445
+            },
+            {
+                "coordonnees": [
+                    0.515625,
+                    0.75
+                ],
+                "type": "bifurcation",
+                "orientation": 0.010372240096330643
+            },
+            {
+                "coordonnees": [
+                    0.37890625,
+                    0.751953125
+                ],
+                "type": "bifurcation",
+                "orientation": 0.7140873670578003
+            },
+            {
+                "coordonnees": [
+                    0.5,
+                    0.755859375
+                ],
+                "type": "ending",
+                "orientation": 0.010372240096330643
+            },
+            {
+                "coordonnees": [
+                    0.27734375,
+                    0.7578125
+                ],
+                "type": "ending",
+                "orientation": 0.686141848564148
+            },
+            {
+                "coordonnees": [
+                    0.283203125,
+                    0.771484375
+                ],
+                "type": "ending",
+                "orientation": 0.7015628814697266
+            },
+            {
+                "coordonnees": [
+                    0.4296875,
+                    0.77734375
+                ],
+                "type": "ending",
+                "orientation": 0.4745232164859772
+            },
+            {
+                "coordonnees": [
+                    0.2734375,
+                    0.779296875
+                ],
+                "type": "ending",
+                "orientation": 0.7015628814697266
+            },
+            {
+                "coordonnees": [
+                    0.263671875,
+                    0.791015625
+                ],
+                "type": "ending",
+                "orientation": 0.7176945209503174
+            },
+            {
+                "coordonnees": [
+                    0.484375,
+                    0.794921875
+                ],
+                "type": "ending",
+                "orientation": -0.018768223002552986
+            },
+            {
+                "coordonnees": [
+                    0.388671875,
+                    0.798828125
+                ],
+                "type": "bifurcation",
+                "orientation": 0.35890549421310425
+            },
+            {
+                "coordonnees": [
+                    0.341796875,
+                    0.8125
+                ],
+                "type": "bifurcation",
+                "orientation": 0.7646763324737549
+            },
+            {
+                "coordonnees": [
+                    0.396484375,
+                    0.826171875
+                ],
+                "type": "ending",
+                "orientation": -0.0912088081240654
+            },
+            {
+                "coordonnees": [
+                    0.412109375,
+                    0.84375
+                ],
+                "type": "ending",
+                "orientation": -0.6540193557739258
+            },
+            {
+                "coordonnees": [
+                    0.310546875,
+                    0.8515625
+                ],
+                "type": "ending",
+                "orientation": 1.127999186515808
+            },
+            {
+                "coordonnees": [
+                    0.279296875,
+                    0.87109375
+                ],
+                "type": "ending",
+                "orientation": 1.161878228187561
+            },
+            {
+                "coordonnees": [
+                    0.443359375,
+                    0.884765625
+                ],
+                "type": "bifurcation",
+                "orientation": -0.7694535851478577
+            },
+            {
+                "coordonnees": [
+                    0.59375,
+                    0.908203125
+                ],
+                "type": "ending",
+                "orientation": -0.7210602760314941
+            },
+            {
+                "coordonnees": [
+                    0.4765625,
+                    0.947265625
+                ],
+                "type": "ending",
+                "orientation": -0.6348631381988525
+            },
+            {
+                "coordonnees": [
+                    0.435546875,
+                    0.958984375
+                ],
+                "type": "ending",
+                "orientation": -0.7818083763122559
+            },
+            {
+                "coordonnees": [
+                    0.423828125,
+                    0.96484375
+                ],
+                "type": "ending",
+                "orientation": -0.8856104016304016
+            }
+        ]
+    },
+    {
+        "nom": "ELise",
+        "minutiae": [
+            {
+                "coordonnees": [
+                    0.58984375,
+                    0.197265625
+                ],
+                "type": "ending",
+                "orientation": 1.3382622003555298
+            },
+            {
+                "coordonnees": [
+                    0.607421875,
+                    0.205078125
+                ],
+                "type": "bifurcation",
+                "orientation": 1.3553355932235718
+            },
+            {
+                "coordonnees": [
+                    0.4140625,
+                    0.2109375
+                ],
+                "type": "ending",
+                "orientation": 1.1228971481323242
+            },
+            {
+                "coordonnees": [
+                    0.5703125,
+                    0.2109375
+                ],
+                "type": "bifurcation",
+                "orientation": 1.3725231885910034
+            },
+            {
+                "coordonnees": [
+                    0.25,
+                    0.212890625
+                ],
+                "type": "ending",
+                "orientation": 0.8426453471183777
+            },
+            {
+                "coordonnees": [
+                    0.126953125,
+                    0.251953125
+                ],
+                "type": "ending",
+                "orientation": 0.6523590683937073
+            },
+            {
+                "coordonnees": [
+                    0.11328125,
+                    0.259765625
+                ],
+                "type": "bifurcation",
+                "orientation": 0.6194185614585876
+            },
+            {
+                "coordonnees": [
+                    0.658203125,
+                    0.259765625
+                ],
+                "type": "bifurcation",
+                "orientation": 1.2352806329727173
+            },
+            {
+                "coordonnees": [
+                    0.59375,
+                    0.279296875
+                ],
+                "type": "bifurcation",
+                "orientation": 1.4516745805740356
+            },
+            {
+                "coordonnees": [
+                    0.177734375,
+                    0.2890625
+                ],
+                "type": "ending",
+                "orientation": 0.6256385445594788
+            },
+            {
+                "coordonnees": [
+                    0.3828125,
+                    0.314453125
+                ],
+                "type": "bifurcation",
+                "orientation": 0.9231250286102295
+            },
+            {
+                "coordonnees": [
+                    0.61328125,
+                    0.330078125
+                ],
+                "type": "ending",
+                "orientation": 1.3781638145446777
+            },
+            {
+                "coordonnees": [
+                    0.1015625,
+                    0.33203125
+                ],
+                "type": "ending",
+                "orientation": 0.42330703139305115
+            },
+            {
+                "coordonnees": [
+                    0.412109375,
+                    0.34765625
+                ],
+                "type": "ending",
+                "orientation": 0.9727147817611694
+            },
+            {
+                "coordonnees": [
+                    0.6953125,
+                    0.349609375
+                ],
+                "type": "bifurcation",
+                "orientation": 1.0485632419586182
+            },
+            {
+                "coordonnees": [
+                    0.80078125,
+                    0.357421875
+                ],
+                "type": "bifurcation",
+                "orientation": 0.41903743147850037
+            },
+            {
+                "coordonnees": [
+                    0.31640625,
+                    0.384765625
+                ],
+                "type": "ending",
+                "orientation": 0.43264147639274597
+            },
+            {
+                "coordonnees": [
+                    0.44921875,
+                    0.42578125
+                ],
+                "type": "bifurcation",
+                "orientation": 0.6762750148773193
+            },
+            {
+                "coordonnees": [
+                    0.802734375,
+                    0.427734375
+                ],
+                "type": "ending",
+                "orientation": 0.4060264527797699
+            },
+            {
+                "coordonnees": [
+                    0.888671875,
+                    0.451171875
+                ],
+                "type": "ending",
+                "orientation": 0.1415017992258072
+            },
+            {
+                "coordonnees": [
+                    0.369140625,
+                    0.455078125
+                ],
+                "type": "ending",
+                "orientation": 0.09234926849603653
+            },
+            {
+                "coordonnees": [
+                    0.177734375,
+                    0.474609375
+                ],
+                "type": "bifurcation",
+                "orientation": 0.15695099532604218
+            },
+            {
+                "coordonnees": [
+                    0.548828125,
+                    0.486328125
+                ],
+                "type": "ending",
+                "orientation": 1.4674739837646484
+            },
+            {
+                "coordonnees": [
+                    0.515625,
+                    0.49609375
+                ],
+                "type": "bifurcation",
+                "orientation": -1.386635422706604
+            },
+            {
+                "coordonnees": [
+                    0.427734375,
+                    0.50390625
+                ],
+                "type": "bifurcation",
+                "orientation": -0.6472954750061035
+            },
+            {
+                "coordonnees": [
+                    0.513671875,
+                    0.52734375
+                ],
+                "type": "bifurcation",
+                "orientation": -1.1925523281097412
+            },
+            {
+                "coordonnees": [
+                    0.634765625,
+                    0.52734375
+                ],
+                "type": "ending",
+                "orientation": 1.3864904642105103
+            },
+            {
+                "coordonnees": [
+                    0.78515625,
+                    0.5390625
+                ],
+                "type": "ending",
+                "orientation": 0.8728501200675964
+            },
+            {
+                "coordonnees": [
+                    0.6171875,
+                    0.54296875
+                ],
+                "type": "bifurcation",
+                "orientation": 1.4784218072891235
+            },
+            {
+                "coordonnees": [
+                    0.693359375,
+                    0.552734375
+                ],
+                "type": "ending",
+                "orientation": 1.3246309757232666
+            },
+            {
+                "coordonnees": [
+                    0.375,
+                    0.58203125
+                ],
+                "type": "ending",
+                "orientation": -0.6413042545318604
+            },
+            {
+                "coordonnees": [
+                    0.65234375,
+                    0.6015625
+                ],
+                "type": "bifurcation",
+                "orientation": 1.3527777194976807
+            },
+            {
+                "coordonnees": [
+                    0.787109375,
+                    0.609375
+                ],
+                "type": "bifurcation",
+                "orientation": 0.9713483452796936
+            },
+            {
+                "coordonnees": [
+                    0.142578125,
+                    0.61328125
+                ],
+                "type": "ending",
+                "orientation": -0.09198210388422012
+            },
+            {
+                "coordonnees": [
+                    0.904296875,
+                    0.62109375
+                ],
+                "type": "ending",
+                "orientation": 0.5037538409233093
+            },
+            {
+                "coordonnees": [
+                    0.341796875,
+                    0.623046875
+                ],
+                "type": "ending",
+                "orientation": -0.5565233826637268
+            },
+            {
+                "coordonnees": [
+                    0.55859375,
+                    0.63671875
+                ],
+                "type": "bifurcation",
+                "orientation": -1.401312232017517
+            },
+            {
+                "coordonnees": [
+                    0.275390625,
+                    0.640625
+                ],
+                "type": "ending",
+                "orientation": -0.31183624267578125
+            },
+            {
+                "coordonnees": [
+                    0.818359375,
+                    0.640625
+                ],
+                "type": "ending",
+                "orientation": 0.8176335096359253
+            },
+            {
+                "coordonnees": [
+                    0.5703125,
+                    0.64453125
+                ],
+                "type": "ending",
+                "orientation": -1.4911439418792725
+            },
+            {
+                "coordonnees": [
+                    0.58203125,
+                    0.646484375
+                ],
+                "type": "ending",
+                "orientation": -1.5110591650009155
+            },
+            {
+                "coordonnees": [
+                    0.59765625,
+                    0.6484375
+                ],
+                "type": "ending",
+                "orientation": -1.5348200798034668
+            },
+            {
+                "coordonnees": [
+                    0.625,
+                    0.650390625
+                ],
+                "type": "ending",
+                "orientation": 1.5574101209640503
+            },
+            {
+                "coordonnees": [
+                    0.80859375,
+                    0.65234375
+                ],
+                "type": "ending",
+                "orientation": 0.8859279751777649
+            },
+            {
+                "coordonnees": [
+                    0.544921875,
+                    0.66015625
+                ],
+                "type": "ending",
+                "orientation": -1.300312876701355
+            },
+            {
+                "coordonnees": [
+                    0.60546875,
+                    0.662109375
+                ],
+                "type": "bifurcation",
+                "orientation": -1.5344454050064087
+            },
+            {
+                "coordonnees": [
+                    0.41015625,
+                    0.69140625
+                ],
+                "type": "bifurcation",
+                "orientation": -0.9013730883598328
+            },
+            {
+                "coordonnees": [
+                    0.35546875,
+                    0.73046875
+                ],
+                "type": "bifurcation",
+                "orientation": -0.6242756247520447
+            },
+            {
+                "coordonnees": [
+                    0.8046875,
+                    0.73046875
+                ],
+                "type": "ending",
+                "orientation": 1.0372740030288696
+            },
+            {
+                "coordonnees": [
+                    0.498046875,
+                    0.7734375
+                ],
+                "type": "ending",
+                "orientation": -1.104507565498352
+            },
+            {
+                "coordonnees": [
+                    0.537109375,
+                    0.80859375
+                ],
+                "type": "ending",
+                "orientation": -1.11769437789917
+            },
+            {
+                "coordonnees": [
+                    0.64453125,
+                    0.8203125
+                ],
+                "type": "ending",
+                "orientation": -1.4924101829528809
+            },
+            {
+                "coordonnees": [
+                    0.791015625,
+                    0.84375
+                ],
+                "type": "ending",
+                "orientation": 1.0249744653701782
+            },
+            {
+                "coordonnees": [
+                    0.58984375,
+                    0.8515625
+                ],
+                "type": "ending",
+                "orientation": -1.0905636548995972
+            },
+            {
+                "coordonnees": [
+                    0.61328125,
+                    0.890625
+                ],
+                "type": "ending",
+                "orientation": -0.9856364727020264
+            },
+            {
+                "coordonnees": [
+                    0.6796875,
+                    0.89453125
+                ],
+                "type": "ending",
+                "orientation": -1.095292568206787
+            },
+            {
+                "coordonnees": [
+                    0.701171875,
+                    0.8984375
+                ],
+                "type": "ending",
+                "orientation": 1.358212947845459
+            }
+        ]
+    },
+    {
+        "nom": "ELise",
+        "minutiae": [
+            {
+                "coordonnees": [
+                    0.58984375,
+                    0.197265625
+                ],
+                "type": "ending",
+                "orientation": 1.3350883722305298
+            },
+            {
+                "coordonnees": [
+                    0.607421875,
+                    0.205078125
+                ],
+                "type": "bifurcation",
+                "orientation": 1.3631618022918701
+            },
+            {
+                "coordonnees": [
+                    0.4140625,
+                    0.2109375
+                ],
+                "type": "ending",
+                "orientation": 1.1228971481323242
+            },
+            {
+                "coordonnees": [
+                    0.5703125,
+                    0.2109375
+                ],
+                "type": "bifurcation",
+                "orientation": 1.3710834980010986
+            },
+            {
+                "coordonnees": [
+                    0.25,
+                    0.212890625
+                ],
+                "type": "ending",
+                "orientation": 0.8426453471183777
+            },
+            {
+                "coordonnees": [
+                    0.126953125,
+                    0.251953125
+                ],
+                "type": "ending",
+                "orientation": 0.6523590683937073
+            },
+            {
+                "coordonnees": [
+                    0.11328125,
+                    0.259765625
+                ],
+                "type": "bifurcation",
+                "orientation": 0.6194185614585876
+            },
+            {
+                "coordonnees": [
+                    0.658203125,
+                    0.259765625
+                ],
+                "type": "bifurcation",
+                "orientation": 1.2352806329727173
+            },
+            {
+                "coordonnees": [
+                    0.59375,
+                    0.279296875
+                ],
+                "type": "bifurcation",
+                "orientation": 1.4516745805740356
+            },
+            {
+                "coordonnees": [
+                    0.177734375,
+                    0.2890625
+                ],
+                "type": "ending",
+                "orientation": 0.6256385445594788
+            },
+            {
+                "coordonnees": [
+                    0.3828125,
+                    0.314453125
+                ],
+                "type": "bifurcation",
+                "orientation": 0.9231250286102295
+            },
+            {
+                "coordonnees": [
+                    0.61328125,
+                    0.330078125
+                ],
+                "type": "ending",
+                "orientation": 1.3781638145446777
+            },
+            {
+                "coordonnees": [
+                    0.1015625,
+                    0.33203125
+                ],
+                "type": "ending",
+                "orientation": 0.42330703139305115
+            },
+            {
+                "coordonnees": [
+                    0.412109375,
+                    0.34765625
+                ],
+                "type": "ending",
+                "orientation": 0.9727147817611694
+            },
+            {
+                "coordonnees": [
+                    0.6953125,
+                    0.349609375
+                ],
+                "type": "bifurcation",
+                "orientation": 1.0485632419586182
+            },
+            {
+                "coordonnees": [
+                    0.80078125,
+                    0.357421875
+                ],
+                "type": "bifurcation",
+                "orientation": 0.41903743147850037
+            },
+            {
+                "coordonnees": [
+                    0.31640625,
+                    0.384765625
+                ],
+                "type": "ending",
+                "orientation": 0.43264147639274597
+            },
+            {
+                "coordonnees": [
+                    0.44921875,
+                    0.42578125
+                ],
+                "type": "bifurcation",
+                "orientation": 0.6762750148773193
+            },
+            {
+                "coordonnees": [
+                    0.802734375,
+                    0.427734375
+                ],
+                "type": "ending",
+                "orientation": 0.4060264527797699
+            },
+            {
+                "coordonnees": [
+                    0.888671875,
+                    0.451171875
+                ],
+                "type": "ending",
+                "orientation": 0.1415017992258072
+            },
+            {
+                "coordonnees": [
+                    0.369140625,
+                    0.455078125
+                ],
+                "type": "ending",
+                "orientation": 0.09234926849603653
+            },
+            {
+                "coordonnees": [
+                    0.177734375,
+                    0.474609375
+                ],
+                "type": "bifurcation",
+                "orientation": 0.15695099532604218
+            },
+            {
+                "coordonnees": [
+                    0.548828125,
+                    0.486328125
+                ],
+                "type": "ending",
+                "orientation": 1.4674739837646484
+            },
+            {
+                "coordonnees": [
+                    0.515625,
+                    0.49609375
+                ],
+                "type": "bifurcation",
+                "orientation": -1.386635422706604
+            },
+            {
+                "coordonnees": [
+                    0.427734375,
+                    0.50390625
+                ],
+                "type": "bifurcation",
+                "orientation": -0.6472954750061035
+            },
+            {
+                "coordonnees": [
+                    0.513671875,
+                    0.52734375
+                ],
+                "type": "bifurcation",
+                "orientation": -1.1925523281097412
+            },
+            {
+                "coordonnees": [
+                    0.634765625,
+                    0.52734375
+                ],
+                "type": "ending",
+                "orientation": 1.3864904642105103
+            },
+            {
+                "coordonnees": [
+                    0.78515625,
+                    0.5390625
+                ],
+                "type": "ending",
+                "orientation": 0.8728501200675964
+            },
+            {
+                "coordonnees": [
+                    0.6171875,
+                    0.54296875
+                ],
+                "type": "bifurcation",
+                "orientation": 1.4784218072891235
+            },
+            {
+                "coordonnees": [
+                    0.693359375,
+                    0.552734375
+                ],
+                "type": "ending",
+                "orientation": 1.3246309757232666
+            },
+            {
+                "coordonnees": [
+                    0.375,
+                    0.58203125
+                ],
+                "type": "ending",
+                "orientation": -0.6413042545318604
+            },
+            {
+                "coordonnees": [
+                    0.65234375,
+                    0.6015625
+                ],
+                "type": "bifurcation",
+                "orientation": 1.3527777194976807
+            },
+            {
+                "coordonnees": [
+                    0.787109375,
+                    0.609375
+                ],
+                "type": "bifurcation",
+                "orientation": 0.9713483452796936
+            },
+            {
+                "coordonnees": [
+                    0.142578125,
+                    0.61328125
+                ],
+                "type": "ending",
+                "orientation": -0.09198210388422012
+            },
+            {
+                "coordonnees": [
+                    0.904296875,
+                    0.62109375
+                ],
+                "type": "ending",
+                "orientation": 0.5037538409233093
+            },
+            {
+                "coordonnees": [
+                    0.341796875,
+                    0.623046875
+                ],
+                "type": "ending",
+                "orientation": -0.5565233826637268
+            },
+            {
+                "coordonnees": [
+                    0.55859375,
+                    0.63671875
+                ],
+                "type": "bifurcation",
+                "orientation": -1.401312232017517
+            },
+            {
+                "coordonnees": [
+                    0.275390625,
+                    0.640625
+                ],
+                "type": "ending",
+                "orientation": -0.31183624267578125
+            },
+            {
+                "coordonnees": [
+                    0.818359375,
+                    0.640625
+                ],
+                "type": "ending",
+                "orientation": 0.8176335096359253
+            },
+            {
+                "coordonnees": [
+                    0.5703125,
+                    0.64453125
+                ],
+                "type": "ending",
+                "orientation": -1.4911439418792725
+            },
+            {
+                "coordonnees": [
+                    0.58203125,
+                    0.646484375
+                ],
+                "type": "ending",
+                "orientation": -1.5110591650009155
+            },
+            {
+                "coordonnees": [
+                    0.59765625,
+                    0.6484375
+                ],
+                "type": "ending",
+                "orientation": -1.5348200798034668
+            },
+            {
+                "coordonnees": [
+                    0.625,
+                    0.650390625
+                ],
+                "type": "ending",
+                "orientation": 1.5574101209640503
+            },
+            {
+                "coordonnees": [
+                    0.80859375,
+                    0.65234375
+                ],
+                "type": "ending",
+                "orientation": 0.8859279751777649
+            },
+            {
+                "coordonnees": [
+                    0.544921875,
+                    0.66015625
+                ],
+                "type": "ending",
+                "orientation": -1.300312876701355
+            },
+            {
+                "coordonnees": [
+                    0.60546875,
+                    0.662109375
+                ],
+                "type": "bifurcation",
+                "orientation": -1.5344454050064087
+            },
+            {
+                "coordonnees": [
+                    0.41015625,
+                    0.69140625
+                ],
+                "type": "bifurcation",
+                "orientation": -0.9013730883598328
+            },
+            {
+                "coordonnees": [
+                    0.35546875,
+                    0.73046875
+                ],
+                "type": "bifurcation",
+                "orientation": -0.6242756247520447
+            },
+            {
+                "coordonnees": [
+                    0.8046875,
+                    0.73046875
+                ],
+                "type": "ending",
+                "orientation": 1.0372740030288696
+            },
+            {
+                "coordonnees": [
+                    0.498046875,
+                    0.7734375
+                ],
+                "type": "ending",
+                "orientation": -1.104507565498352
+            },
+            {
+                "coordonnees": [
+                    0.537109375,
+                    0.80859375
+                ],
+                "type": "ending",
+                "orientation": -1.11769437789917
+            },
+            {
+                "coordonnees": [
+                    0.64453125,
+                    0.8203125
+                ],
+                "type": "ending",
+                "orientation": -1.4924101829528809
+            },
+            {
+                "coordonnees": [
+                    0.791015625,
+                    0.84375
+                ],
+                "type": "ending",
+                "orientation": 1.0249744653701782
+            },
+            {
+                "coordonnees": [
+                    0.58984375,
+                    0.8515625
+                ],
+                "type": "ending",
+                "orientation": -1.0905636548995972
+            },
+            {
+                "coordonnees": [
+                    0.61328125,
+                    0.890625
+                ],
+                "type": "ending",
+                "orientation": -0.9837658405303955
+            },
+            {
+                "coordonnees": [
+                    0.6796875,
+                    0.89453125
+                ],
+                "type": "ending",
+                "orientation": -1.0950924158096313
+            },
+            {
+                "coordonnees": [
+                    0.701171875,
+                    0.8984375
+                ],
+                "type": "ending",
+                "orientation": 1.3685619831085205
+            }
+        ]
     }
 ]
