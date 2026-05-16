@@ -1,5 +1,5 @@
 import numpy as np
-import json_utils as ju
+import minutiae_detection.json_utils as ju
 
 # Trouver le centre de l'empreinte
 def center(Matrix):

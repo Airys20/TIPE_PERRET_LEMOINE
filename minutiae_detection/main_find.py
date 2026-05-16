@@ -7,7 +7,7 @@ import math
 from pretraitement import pretraitements 
 from find_minutiae2 import find_minuatiae 
 from orientation import main_orientation 
-# methode pour acceder a utile ??
+
 parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.append(parent_dir)
 from json_utils import ajouter_personne
@@ -15,15 +15,16 @@ from json_utils import ajouter_personne
 
 
 #REGLAGES 
-NOM = 'Marcel'
-BASE = "catalogue.json"
-FILENAME='minutiae_detection\input\Marcel_catalogue.png'#lien ou tu mets l img a tester
-#FILENAME='minutiae_detection\input\empreinte_ratee_input.jpeg '#lien ou tu mets l img a tester
-output_filename = 'minutiae_detection/passage_main/' + NOM + '_output_minutiae.jpg' #lien ou tu stocke l'img superposée des minuties
+NOM = '?' #nom de la personne a ajouter dans la base de données
+BASE = "recherche.json"
+#lien img a tester
+FILENAME='minutiae_detection\input\empreinte_overlined_tournee.jpeg'
+#lien stockage des minuties
+output_filename = 'minutiae_detection/passage_main/' + NOM + '_output_minutiae.jpg' 
 
 
 
-#################### SYRIA PAS TOUCHE :) ###############
+#######################################################################################################################
 
 def ajouter_orientation_aux_minuties(minuties, O_bloque, H_orig, W_orig, w_block=16):
     """
@@ -43,7 +44,7 @@ def ajouter_orientation_aux_minuties(minuties, O_bloque, H_orig, W_orig, w_block
         bj = x // w_block
 
        
-        bi = max(0, min(Hb - 1, bi)) #doubkleee chexk
+        bi = max(0, min(Hb - 1, bi)) #doublee check
         bj = max(0, min(Wb - 1, bj))
 
         theta = float(O_bloque[bi, bj])
@@ -72,10 +73,8 @@ tab = ajouter_orientation_aux_minuties(tab, O_bloque, H_orig, W_orig)
 # filtre biffurcation Syria 
 tab_bifurcations = [m for m in tab if m[1] == "bifurcation"]
 
-#ajouter_personne(NOM,tab,BASE)
-ajouter_personne(NOM, tab_bifurcations, BASE)
+ajouter_personne(NOM,tab,BASE)
+#ajouter_personne(NOM, tab_bifurcations, BASE)
 
-#np.set_printoptions(threshold=sys.maxsize)
-#print(O_bloque)
 
 

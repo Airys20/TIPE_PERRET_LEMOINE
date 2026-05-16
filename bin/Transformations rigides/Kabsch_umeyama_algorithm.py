@@ -1,4 +1,4 @@
-import json_utils as ju
+import minutiae_detection.json_utils as ju
 import numpy as np 
 import shutil
 import bin.selection_des_minuties as am
