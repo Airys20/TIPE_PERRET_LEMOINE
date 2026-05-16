@@ -1,8 +1,10 @@
+from xml.etree.ElementPath import find
+
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 import math
-
+from skimage.morphology import skeletonize, thin
 
 def filtrer_minuties_proches_bord(minuties, mask01, marge_px=12,\
                                    img_size=512): 
@@ -82,7 +84,7 @@ def find_minuatiae(filename, output_filename,\
             # [0,0] = orient_faux placeholder
             res.append([[x/512, y/512], typ, [0, 0]])  
         
-
+        print("ATTENTION RES AVANT FILTRAGE:")
         print("endings:", len(minutiae_ending))
         print("bifurcations:", len(minutiae_bifurcation))  
         print("total points:", len(points))
@@ -106,9 +108,10 @@ def find_minuatiae(filename, output_filename,\
 
     #passse en binaire pour traitement
     _, binaire = cv2.threshold(img, 127, 1, cv2.THRESH_BINARY_INV)
-
+    skeleton = skeletonize(binaire).astype(np.uint8)
+    
     # minutiae[[coord], type, [dx, dy]]
-    minutiae= find(binaire, mask01=mask01)
+    minutiae= find(skeleton, mask01=mask01)
 
 
 
@@ -152,9 +155,10 @@ def find_minuatiae(filename, output_filename,\
         return keep
 
     minut = filtrer_minuties_trop_proches(minutiae,\
-                                           min_dist_px=6, img_size=512)
+                                           min_dist_px=15, img_size=512)
     minut = filtrer_minuties_proches_bord(minut, mask01,\
-                                           marge_px=12, img_size=512)
+                                           marge_px=25, img_size=512)
+    print("après filtrage:", len(minut))
     # passe en couleur pour dessin des ronds
     color_image = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)
 

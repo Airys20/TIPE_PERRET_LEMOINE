@@ -18,7 +18,7 @@ from json_utils import ajouter_personne
 NOM = 'ELise' #nom de la personne a ajouter dans la base de données
 BASE = "base.json"
 #lien img a tester
-FILENAME='minutiae_detection\input\empreinte_feutre.jpeg '
+FILENAME='minutiae_detection\input\empreinte_syr_feutre.jpeg '
 #lien stockage des minuties
 output_filename = 'minutiae_detection/passage_main/' + NOM + '_output_minutiae.jpg' 
 
